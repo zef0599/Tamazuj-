@@ -51,25 +51,18 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         let stprybord = UIStoryboard(name: "Main", bundle: nil)
         switch indexPath.row {
         case 0:
-            let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
+            let vc = stprybord.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
             navigationController?.pushViewController(vc, animated: true)
             
-            //            let vc = stprybord.instantiateViewController(withIdentifier: "NavUserprofaile") as! UINavigationController
-        //            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         case 1:
             let vc = stprybord.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
             navigationController?.pushViewController(vc, animated: true)
-            //
-            //            let vc = stprybord.instantiateViewController(withIdentifier: "NavNotifications") as! UINavigationController
-            //            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-        //
         case 2 :
             let vc = stprybord.instantiateViewController(withIdentifier: "ConsultHistoryViewController") as! ConsultHistoryViewController
             vc.navHave = self.navigationController
             self.navigationController!.pushViewController(vc, animated: true)
         case 4:
             let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
-          //  self.navigationController = self.navigationController
             navigationController?.pushViewController(vc, animated: true)
 
             break
