@@ -22,7 +22,6 @@ class UpdatePasswordViewController: UIViewController {
     
 
     @IBAction func back(_ sender: Any) {
-//        self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
