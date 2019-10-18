@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="31S-B1-tXx">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.otf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.otf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Account View Controller-->
+        <scene sceneID="2jQ-3g-Hhs">
+            <objects>
+                <viewController id="31S-B1-tXx" customClass="AccountViewController" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sp0-MU-7nV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome" translatesAutoresizingMaskIntoConstraints="NO" id="MRy-7w-bAH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اختر نوع الحساب " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuJ-Yu-B3J">
+                                <rect key="frame" x="156.5" y="183" width="101" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CAT-cR-Pa5">
+                                <rect key="frame" x="18" y="244.5" width="378" height="98"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beneficiary" translatesAutoresizingMaskIntoConstraints="NO" id="CLE-dv-cOI">
+                                        <rect key="frame" x="292" y="15" width="67" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="x5g-gi-heu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="مستفيد" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8c-AX-n57">
+                                        <rect key="frame" x="23" y="0.0" width="123" height="64"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="34"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.76862745099999996" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="هل تحتاج لمستشار ؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7t-66-0Ta">
+                                        <rect key="frame" x="23" y="54" width="114" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                        <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdT-Db-etq">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="98"/>
+                                        <connections>
+                                            <action selector="user:" destination="31S-B1-tXx" eventType="touchUpInside" id="r9F-og-ZCe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ZdT-Db-etq" firstAttribute="leading" secondItem="CAT-cR-Pa5" secondAttribute="leading" id="Erl-eg-SLG"/>
+                                    <constraint firstItem="CLE-dv-cOI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y8c-AX-n57" secondAttribute="trailing" constant="8" symbolic="YES" id="FF0-o1-tg4"/>
+                                    <constraint firstAttribute="height" constant="98" id="Fum-3p-G0k"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZdT-Db-etq" secondAttribute="bottom" id="H9n-c9-lIt"/>
+                                    <constraint firstItem="CLE-dv-cOI" firstAttribute="top" secondItem="CAT-cR-Pa5" secondAttribute="top" constant="15" id="HWu-ap-w8m"/>
+                                    <constraint firstItem="Y8c-AX-n57" firstAttribute="leading" secondItem="CAT-cR-Pa5" secondAttribute="leading" constant="23" id="N7v-fP-LC5"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZdT-Db-etq" secondAttribute="trailing" id="Rjc-W7-hlr"/>
+                                    <constraint firstAttribute="bottom" secondItem="CLE-dv-cOI" secondAttribute="bottom" constant="15" id="Sbk-k6-n50"/>
+                                    <constraint firstItem="ZdT-Db-etq" firstAttribute="top" secondItem="CAT-cR-Pa5" secondAttribute="top" id="Xfa-aZ-N4l"/>
+                                    <constraint firstItem="v7t-66-0Ta" firstAttribute="top" secondItem="Y8c-AX-n57" secondAttribute="bottom" constant="-10" id="Xhh-cO-yN2"/>
+                                    <constraint firstAttribute="trailing" secondItem="CLE-dv-cOI" secondAttribute="trailing" constant="19" id="otc-yP-dHZ"/>
+                                    <constraint firstItem="Y8c-AX-n57" firstAttribute="top" secondItem="CAT-cR-Pa5" secondAttribute="top" id="vLf-QR-TRQ"/>
+                                    <constraint firstItem="CLE-dv-cOI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v7t-66-0Ta" secondAttribute="trailing" constant="8" symbolic="YES" id="xgD-O3-i5R"/>
+                                    <constraint firstItem="v7t-66-0Ta" firstAttribute="leading" secondItem="Y8c-AX-n57" secondAttribute="leading" id="yy9-SB-pbg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.88235294119999996" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-R8-QKt">
+                                <rect key="frame" x="18" y="357.5" width="378" height="98"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="consultant" translatesAutoresizingMaskIntoConstraints="NO" id="wYD-hq-2Zv">
+                                        <rect key="frame" x="292" y="15" width="67" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="67" id="XHr-RO-eId"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" مستشار" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WK-Pr-Akn">
+                                        <rect key="frame" x="23" y="0.0" width="131" height="64"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="34"/>
+                                        <color key="textColor" red="0.92941176469999998" green="0.3803921569" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="قدّم استشاراتك للمستفيدين" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-72-WMN">
+                                        <rect key="frame" x="23" y="54" width="156.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                        <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8S3-Ir-G8W">
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="98"/>
+                                        <connections>
+                                            <action selector="advisor:" destination="31S-B1-tXx" eventType="touchUpInside" id="KUD-4R-2uB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8S3-Ir-G8W" firstAttribute="top" secondItem="T6F-R8-QKt" secondAttribute="top" id="GBg-bD-ows"/>
+                                    <constraint firstAttribute="bottom" secondItem="wYD-hq-2Zv" secondAttribute="bottom" constant="15" id="JkU-nI-CkK"/>
+                                    <constraint firstItem="9WK-Pr-Akn" firstAttribute="top" secondItem="T6F-R8-QKt" secondAttribute="top" id="Kdh-BP-4XM"/>
+                                    <constraint firstItem="wYD-hq-2Zv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ejm-72-WMN" secondAttribute="trailing" constant="8" symbolic="YES" id="NIk-Ne-pNA"/>
+                                    <constraint firstAttribute="bottom" secondItem="8S3-Ir-G8W" secondAttribute="bottom" id="QeJ-eA-H4A"/>
+                                    <constraint firstItem="ejm-72-WMN" firstAttribute="top" secondItem="9WK-Pr-Akn" secondAttribute="bottom" constant="-10" id="U9k-Rf-nLT"/>
+                                    <constraint firstAttribute="height" constant="98" id="VSo-CQ-au2"/>
+                                    <constraint firstItem="ejm-72-WMN" firstAttribute="leading" secondItem="9WK-Pr-Akn" secondAttribute="leading" id="baQ-CV-Bp9"/>
+                                    <constraint firstItem="wYD-hq-2Zv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9WK-Pr-Akn" secondAttribute="trailing" constant="8" symbolic="YES" id="kLD-Gj-uuD"/>
+                                    <constraint firstItem="wYD-hq-2Zv" firstAttribute="top" secondItem="T6F-R8-QKt" secondAttribute="top" constant="15" id="nO7-cs-H4v"/>
+                                    <constraint firstAttribute="trailing" secondItem="wYD-hq-2Zv" secondAttribute="trailing" constant="19" id="o0F-mI-RTW"/>
+                                    <constraint firstItem="9WK-Pr-Akn" firstAttribute="leading" secondItem="T6F-R8-QKt" secondAttribute="leading" constant="23" id="qn5-Zp-sJ7"/>
+                                    <constraint firstItem="8S3-Ir-G8W" firstAttribute="leading" secondItem="T6F-R8-QKt" secondAttribute="leading" id="t1e-dH-MQg"/>
+                                    <constraint firstAttribute="trailing" secondItem="8S3-Ir-G8W" secondAttribute="trailing" id="xdO-nh-F8a"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.88235294119999996" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="T6F-R8-QKt" firstAttribute="top" secondItem="CAT-cR-Pa5" secondAttribute="bottom" constant="15" id="1ZS-xE-7Lz"/>
+                            <constraint firstItem="OE9-UE-yKm" firstAttribute="trailing" secondItem="T6F-R8-QKt" secondAttribute="trailing" constant="18" id="1sd-PJ-aIo"/>
+                            <constraint firstItem="CAT-cR-Pa5" firstAttribute="leading" secondItem="OE9-UE-yKm" secondAttribute="leading" constant="18" id="4D8-PQ-gzr"/>
+                            <constraint firstAttribute="trailing" secondItem="MRy-7w-bAH" secondAttribute="trailing" id="6mK-Zo-DsX"/>
+                            <constraint firstItem="ZuJ-Yu-B3J" firstAttribute="centerX" secondItem="MRy-7w-bAH" secondAttribute="centerX" id="H0j-OJ-kuf"/>
+                            <constraint firstItem="CAT-cR-Pa5" firstAttribute="top" secondItem="ZuJ-Yu-B3J" secondAttribute="bottom" constant="35" id="Mhh-M2-zNo"/>
+                            <constraint firstItem="T6F-R8-QKt" firstAttribute="leading" secondItem="OE9-UE-yKm" secondAttribute="leading" constant="18" id="RId-iH-t0R"/>
+                            <constraint firstItem="ZuJ-Yu-B3J" firstAttribute="top" secondItem="OE9-UE-yKm" secondAttribute="top" constant="139" id="azD-au-63u"/>
+                            <constraint firstItem="MRy-7w-bAH" firstAttribute="leading" secondItem="Sp0-MU-7nV" secondAttribute="leading" id="gpv-CP-p8a"/>
+                            <constraint firstAttribute="bottom" secondItem="MRy-7w-bAH" secondAttribute="bottom" id="nen-9B-heX"/>
+                            <constraint firstItem="MRy-7w-bAH" firstAttribute="top" secondItem="Sp0-MU-7nV" secondAttribute="top" id="ron-Op-riE"/>
+                            <constraint firstItem="OE9-UE-yKm" firstAttribute="trailing" secondItem="CAT-cR-Pa5" secondAttribute="trailing" constant="18" id="tcx-dD-Xdn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OE9-UE-yKm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kTg-lI-Gcu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iGb-GP-cCa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2070" y="635"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Welcome" width="375" height="812"/>
+        <image name="beneficiary" width="67" height="67"/>
+        <image name="consultant" width="67" height="67"/>
+    </resources>
+</document>

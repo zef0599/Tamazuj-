@@ -1,0 +1,61 @@
+//
+//  FavoriteVC.swift
+//  Tamazuj
+//
+//  Created by yousef Omar on 10/11/19.
+//  Copyright © 2019 Tamazuj. All rights reserved.
+//
+
+import UIKit
+import Kingfisher
+class FavoriteVC: UIViewController {
+    
+    var bestConsultantdata : [BestConsultant] = []
+    @IBOutlet weak var collectionView: UICollectionView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "ConsultationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ConsultationCollectionViewCell")
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.3318987191, green: 0.7690466642, blue: 0.812379837, alpha: 1)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+
+}
+extension FavoriteVC:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return bestConsultantdata.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConsultationCollectionViewCell", for: indexPath) as! ConsultationCollectionViewCell
+        let object = self.bestConsultantdata[indexPath.row]
+        
+        cell.image.kf.setImage(with: URL(string: object.photo!))
+        cell.titel.text = object.name!
+        
+        for i in object.category!{
+            cell.subTitel.text = i.name_ar!
+        }
+        //        cell.subTitel.text = object.phone!
+        cell.subTitel.textColor = #colorLiteral(red: 0.3333333333, green: 0.6392156863, blue: 0.8117647059, alpha: 1)
+
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.bounds.width - 106 )/3
+        return CGSize(width: width, height: 183)
+    }
+    
+}

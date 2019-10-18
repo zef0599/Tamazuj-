@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Bold.otf">
+            <string>Cairo-Bold</string>
+        </array>
+        <array key="Cairo-Regular.otf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdvisorCell" rowHeight="182" id="KGk-i7-Jjw" customClass="AdvisorCell" customModule="Tamazuj" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="478" height="95.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diG-LR-MyA">
+                        <rect key="frame" x="0.0" y="0.0" width="478" height="95.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person1" translatesAutoresizingMaskIntoConstraints="NO" id="5Yi-oG-pdL">
+                                <rect key="frame" x="0.0" y="6" width="31" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Yi-oG-pdL" secondAttribute="height" multiplier="1:1" id="JxR-Us-Olt"/>
+                                    <constraint firstAttribute="height" constant="31" id="NgQ-nf-wqT"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="svV-az-bvD">
+                                <rect key="frame" x="43" y="0.0" width="78.5" height="37"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJW-Am-cup">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="13"/>
+                                        <color key="textColor" red="0.47450980392156861" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عيسى ابراهيم" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH7-t6-N7s">
+                                        <rect key="frame" x="0.0" y="18.5" width="78.5" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
+                                        <color key="textColor" red="0.47450980392156861" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRV-2d-Cf7">
+                                <rect key="frame" x="43" y="47" width="435" height="48.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.</string>
+                                <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                                <color key="textColor" red="0.47450980392156861" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="43i-Ug-0CP">
+                                <rect key="frame" x="147.5" y="16" width="50.5" height="13"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Love-icon" translatesAutoresizingMaskIntoConstraints="NO" id="hjh-hj-fat">
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="13" id="KLo-Nw-zU1"/>
+                                            <constraint firstAttribute="width" secondItem="hjh-hj-fat" secondAttribute="height" multiplier="15:13" id="qyR-hn-VQz"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سعيد" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skz-R6-jHu">
+                                        <rect key="frame" x="23" y="0.0" width="27.5" height="13"/>
+                                        <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                                        <color key="textColor" red="0.47450980392156861" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Yi-oG-pdL" firstAttribute="top" secondItem="diG-LR-MyA" secondAttribute="top" constant="6" id="4Rx-sc-ynu"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lRV-2d-Cf7" secondAttribute="bottom" id="EaY-lO-297"/>
+                            <constraint firstItem="lRV-2d-Cf7" firstAttribute="top" secondItem="svV-az-bvD" secondAttribute="bottom" constant="10" id="TCz-O0-A8X"/>
+                            <constraint firstItem="svV-az-bvD" firstAttribute="leading" secondItem="5Yi-oG-pdL" secondAttribute="trailing" constant="12" id="TNp-d7-cPR"/>
+                            <constraint firstItem="lRV-2d-Cf7" firstAttribute="top" secondItem="5Yi-oG-pdL" secondAttribute="bottom" constant="10" id="WJt-I6-QHO"/>
+                            <constraint firstAttribute="trailing" secondItem="lRV-2d-Cf7" secondAttribute="trailing" id="eFK-Et-kZS"/>
+                            <constraint firstItem="43i-Ug-0CP" firstAttribute="top" secondItem="diG-LR-MyA" secondAttribute="top" constant="16" id="k2T-zS-wnf"/>
+                            <constraint firstItem="5Yi-oG-pdL" firstAttribute="leading" secondItem="diG-LR-MyA" secondAttribute="leading" id="kgq-EF-bWa"/>
+                            <constraint firstItem="43i-Ug-0CP" firstAttribute="leading" secondItem="svV-az-bvD" secondAttribute="trailing" constant="26" id="nZo-zk-s9y"/>
+                            <constraint firstItem="svV-az-bvD" firstAttribute="top" secondItem="diG-LR-MyA" secondAttribute="top" id="sfw-fY-BiV"/>
+                            <constraint firstItem="lRV-2d-Cf7" firstAttribute="leading" secondItem="diG-LR-MyA" secondAttribute="leading" constant="43" id="w79-dg-8ha"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="diG-LR-MyA" secondAttribute="trailing" id="JdK-YA-Asu"/>
+                    <constraint firstItem="diG-LR-MyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="taq-g1-sFm"/>
+                    <constraint firstAttribute="bottom" secondItem="diG-LR-MyA" secondAttribute="bottom" id="xKL-JI-mT2"/>
+                    <constraint firstItem="diG-LR-MyA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xyQ-8C-lir"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="feedback" destination="lRV-2d-Cf7" id="w9D-oI-ogA"/>
+                <outlet property="imageUser" destination="5Yi-oG-pdL" id="A9n-gH-IpU"/>
+                <outlet property="name" destination="zH7-t6-N7s" id="szQ-ka-lKD"/>
+                <outlet property="stacknametime" destination="svV-az-bvD" id="3ir-eb-2kV"/>
+                <outlet property="stackreat" destination="43i-Ug-0CP" id="pke-rh-aXe"/>
+                <outlet property="time" destination="aJW-Am-cup" id="15x-X3-nhq"/>
+            </connections>
+            <point key="canvasLocation" x="-97.101449275362327" y="105.80357142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Love-icon" width="15" height="13"/>
+        <image name="person1" width="89" height="89"/>
+    </resources>
+</document>

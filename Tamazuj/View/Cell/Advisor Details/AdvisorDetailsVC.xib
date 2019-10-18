@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cairo-Regular.otf">
+            <string>Cairo-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvisorDetailsVC" customModule="Tamazuj" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="95V-2Q-0PH" id="c0o-CO-gfn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="AdvisorDetails" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxo-qO-ljw">
+                    <rect key="frame" x="16" y="107.5" width="382" height="510"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOy-MA-3Be">
+                            <rect key="frame" x="26" y="16" width="183" height="24"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نسبة رضى المستفيدين" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKH-OD-l9h">
+                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="84%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hob-7n-E6J">
+                                    <rect key="frame" x="118.5" y="0.0" width="25.5" height="24"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="M5g-aQ-Io0">
+                                    <rect key="frame" x="159" y="0.0" width="24" height="24"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="hob-7n-E6J" secondAttribute="bottom" id="1i6-6m-DWx"/>
+                                <constraint firstAttribute="trailing" secondItem="M5g-aQ-Io0" secondAttribute="trailing" id="1pA-xH-LPu"/>
+                                <constraint firstItem="M5g-aQ-Io0" firstAttribute="top" secondItem="GOy-MA-3Be" secondAttribute="top" id="2ta-QE-yIV"/>
+                                <constraint firstAttribute="bottom" secondItem="M5g-aQ-Io0" secondAttribute="bottom" id="DAB-y4-me6"/>
+                                <constraint firstAttribute="width" constant="183" id="E6F-VF-pKs"/>
+                                <constraint firstItem="sKH-OD-l9h" firstAttribute="top" secondItem="GOy-MA-3Be" secondAttribute="top" id="cec-N9-2He"/>
+                                <constraint firstAttribute="height" constant="24" id="mKW-ni-rOA"/>
+                                <constraint firstItem="hob-7n-E6J" firstAttribute="leading" secondItem="sKH-OD-l9h" secondAttribute="trailing" constant="10" id="qew-BF-Ynm"/>
+                                <constraint firstItem="sKH-OD-l9h" firstAttribute="leading" secondItem="GOy-MA-3Be" secondAttribute="leading" id="sZu-z9-qee"/>
+                                <constraint firstAttribute="bottom" secondItem="sKH-OD-l9h" secondAttribute="bottom" id="tDS-7V-IiS"/>
+                                <constraint firstItem="hob-7n-E6J" firstAttribute="top" secondItem="GOy-MA-3Be" secondAttribute="top" id="uB7-SG-awq"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wao-lO-qpT">
+                            <rect key="frame" x="351" y="16" width="14" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="iYM-4g-JHa"/>
+                            </constraints>
+                            <state key="normal" image="exiteBW"/>
+                            <connections>
+                                <action selector="exite:" destination="-1" eventType="touchUpInside" id="TMU-sk-65W"/>
+                            </connections>
+                        </button>
+                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="person2" translatesAutoresizingMaskIntoConstraints="NO" id="8a4-fs-eKl">
+                            <rect key="frame" x="26" y="51" width="99.5" height="106"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="99.5" id="cry-uj-4nu"/>
+                                <constraint firstAttribute="height" constant="106" id="l7R-jb-oU5"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المستشار التربوي الحاصل على الشهادة الدولية في التربية " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70B-b9-UfM">
+                            <rect key="frame" x="135.5" y="98.5" width="200.5" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عبد الله محمد عمر" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi8-by-YsP">
+                            <rect key="frame" x="135.5" y="67" width="142" height="21.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="95V-2Q-0PH">
+                            <rect key="frame" x="0.0" y="217" width="382" height="293"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="510" id="1aN-fQ-4y0"/>
+                        <constraint firstItem="GOy-MA-3Be" firstAttribute="leading" secondItem="yxo-qO-ljw" secondAttribute="leading" constant="26" id="1b4-Lc-sD6"/>
+                        <constraint firstItem="GOy-MA-3Be" firstAttribute="top" secondItem="yxo-qO-ljw" secondAttribute="top" constant="16" id="GAl-Fh-BxY"/>
+                        <constraint firstItem="8a4-fs-eKl" firstAttribute="top" secondItem="GOy-MA-3Be" secondAttribute="bottom" constant="11" id="LMQ-Gb-we7"/>
+                        <constraint firstAttribute="trailing" secondItem="wao-lO-qpT" secondAttribute="trailing" constant="17" id="Ncc-8z-7fy"/>
+                        <constraint firstAttribute="trailing" secondItem="70B-b9-UfM" secondAttribute="trailing" constant="46" id="O7f-eG-9Ww"/>
+                        <constraint firstItem="Vi8-by-YsP" firstAttribute="leading" secondItem="70B-b9-UfM" secondAttribute="leading" id="THe-iR-AOr"/>
+                        <constraint firstItem="8a4-fs-eKl" firstAttribute="leading" secondItem="yxo-qO-ljw" secondAttribute="leading" constant="26" id="W2D-fn-Z1L"/>
+                        <constraint firstAttribute="trailing" secondItem="95V-2Q-0PH" secondAttribute="trailing" id="WLE-Ml-xJH"/>
+                        <constraint firstItem="70B-b9-UfM" firstAttribute="leading" secondItem="8a4-fs-eKl" secondAttribute="trailing" constant="10" id="b0e-tr-Tj4"/>
+                        <constraint firstItem="70B-b9-UfM" firstAttribute="centerY" secondItem="8a4-fs-eKl" secondAttribute="centerY" constant="15" id="cXL-9t-iUY"/>
+                        <constraint firstItem="70B-b9-UfM" firstAttribute="top" secondItem="Vi8-by-YsP" secondAttribute="bottom" constant="10" id="k7C-zo-hJu"/>
+                        <constraint firstAttribute="bottom" secondItem="95V-2Q-0PH" secondAttribute="bottom" id="rbu-GH-nMy"/>
+                        <constraint firstItem="wao-lO-qpT" firstAttribute="top" secondItem="yxo-qO-ljw" secondAttribute="top" constant="16" id="sdE-M8-n9U"/>
+                        <constraint firstItem="95V-2Q-0PH" firstAttribute="leading" secondItem="yxo-qO-ljw" secondAttribute="leading" id="web-C3-BYU"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.88235294117647056" green="0.90980392156862744" blue="0.92156862745098034" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="9"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reU-LK-FEL">
+                    <rect key="frame" x="32" y="280.5" width="310" height="28"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   استشارات أسرية     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyf-9J-JJN">
+                            <rect key="frame" x="0.0" y="0.0" width="98" height="28"/>
+                            <color key="backgroundColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                            <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="14"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50w-fW-GCZ">
+                            <rect key="frame" x="98" y="0.0" width="8" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="8" id="4ds-Nx-GER"/>
+                                <constraint firstAttribute="height" constant="28" id="kjc-zj-RaK"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   استشارات أسرية     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgq-vF-k5O">
+                            <rect key="frame" x="106" y="0.0" width="98" height="28"/>
+                            <color key="backgroundColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                            <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="14"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myn-AU-utY">
+                            <rect key="frame" x="204" y="0.0" width="8" height="28"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="8" id="ha5-ya-cDk"/>
+                                <constraint firstAttribute="height" constant="28" id="kE8-Ze-tfT"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   استشارات أسرية     " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grm-ui-1tv">
+                            <rect key="frame" x="212" y="0.0" width="98" height="28"/>
+                            <color key="backgroundColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="0.040000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="12"/>
+                            <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="14"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98039215686274506" alpha="0.82999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yxo-qO-ljw" secondAttribute="trailing" constant="16" id="3cD-xB-vNW"/>
+                <constraint firstItem="yxo-qO-ljw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ImO-xC-hQa"/>
+                <constraint firstItem="yxo-qO-ljw" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.8" id="SEy-pq-BoN"/>
+                <constraint firstItem="reU-LK-FEL" firstAttribute="leading" secondItem="yxo-qO-ljw" secondAttribute="leading" constant="16" id="eLF-79-gXe"/>
+                <constraint firstItem="reU-LK-FEL" firstAttribute="top" secondItem="8a4-fs-eKl" secondAttribute="bottom" constant="16" id="iJH-Za-y2r"/>
+                <constraint firstItem="95V-2Q-0PH" firstAttribute="top" secondItem="reU-LK-FEL" secondAttribute="bottom" constant="16" id="wJa-GG-fhm"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="exiteBW" width="14" height="18"/>
+        <image name="favorite" width="24" height="24"/>
+        <image name="person2" width="89" height="106"/>
+    </resources>
+</document>
