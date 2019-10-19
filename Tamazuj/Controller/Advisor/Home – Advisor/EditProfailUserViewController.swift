@@ -186,8 +186,6 @@ class EditProfailUserViewController: UIViewController {
                 
             }
         }
-//        dismiss(animated: true) {
-//        }
         
     }
 }

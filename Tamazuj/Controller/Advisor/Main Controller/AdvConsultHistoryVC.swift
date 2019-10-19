@@ -11,10 +11,10 @@ import UIKit
 class AdvConsultHistoryVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    let cellNameIden = "ConsultHistoryCell"
+    let cellNameIden = "AdvConsHistoryCell"
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(UINib(nibName: cellNameIden, bundle: nil), forCellReuseIdentifier: cellNameIden)
+        tableView.register(UINib(nibName: cellNameIden, bundle: nil), forCellReuseIdentifier: cellNameIden)
         navTransparent()
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,9 +47,9 @@ extension AdvConsultHistoryVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: cellNameIden, for: indexPath) as! ConsultHistoryCell
-//        cellShadow(cell: cell)
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellNameIden, for: indexPath) as! AdvConsHistoryCell
+        cellShadow(cell: cell)
+        return cell
     }
     
     

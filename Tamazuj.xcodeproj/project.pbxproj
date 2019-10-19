@@ -55,6 +55,8 @@
 		832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */; };
 		832C3730235B55FD00124703 /* AdvEditProfaileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */; };
 		832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */; };
+		832C3737235B5DF800124703 /* AdvConsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3735235B5DF800124703 /* AdvConsHistoryCell.swift */; };
+		832C3738235B5DF800124703 /* AdvConsHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -184,6 +186,8 @@
 		832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvNotificationsVC.swift; sourceTree = "<group>"; };
 		832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvEditProfaileVC.swift; sourceTree = "<group>"; };
 		832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvConsultHistoryVC.swift; sourceTree = "<group>"; };
+		832C3735235B5DF800124703 /* AdvConsHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvConsHistoryCell.swift; sourceTree = "<group>"; };
+		832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvConsHistoryCell.xib; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -419,12 +423,30 @@
 		832C3726235B3A6700124703 /* Main Controller */ = {
 			isa = PBXGroup;
 			children = (
+				832C3733235B5D2300124703 /* Adv Nibs */,
 				832C3727235B3AA400124703 /* advProfileVC.swift */,
 				832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */,
 				832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */,
 				832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */,
 			);
 			path = "Main Controller";
+			sourceTree = "<group>";
+		};
+		832C3733235B5D2300124703 /* Adv Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				832C3734235B5D3D00124703 /* Consaltant History Nib */,
+			);
+			path = "Adv Nibs";
+			sourceTree = "<group>";
+		};
+		832C3734235B5D3D00124703 /* Consaltant History Nib */ = {
+			isa = PBXGroup;
+			children = (
+				832C3735235B5DF800124703 /* AdvConsHistoryCell.swift */,
+				832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */,
+			);
+			path = "Consaltant History Nib";
 			sourceTree = "<group>";
 		};
 		83613098232E4A9B008389DE /* Consultation nib */ = {
@@ -824,6 +846,7 @@
 				B1085733234508AF0008104D /* User.storyboard in Resources */,
 				83F88B48234C9535003C5218 /* SectionTwoTableViewCell.xib in Resources */,
 				83F88B4D234C9535003C5218 /* FirstTableViewCell.xib in Resources */,
+				832C3738235B5DF800124703 /* AdvConsHistoryCell.xib in Resources */,
 				837C8DDE2332115500869CDB /* searchPopup.xib in Resources */,
 				36E35E9423338067003752CB /* AdvisorTableViewCell.xib in Resources */,
 				837C8DF5233240C900869CDB /* searchCell.xib in Resources */,
@@ -903,6 +926,7 @@
 				B1085738234510650008104D /* UserLoginViewController.swift in Sources */,
 				36E35E9023337D9A003752CB /* HomeAdvisorViewController.swift in Sources */,
 				832C3728235B3AA400124703 /* advProfileVC.swift in Sources */,
+				832C3737235B5DF800124703 /* AdvConsHistoryCell.swift in Sources */,
 				83F88B35234C93DB003C5218 /* Consaltant.swift in Sources */,
 				836CDCED2358F3DB00AFF0F0 /* ConsultationVC.swift in Sources */,
 				3645A9382344A9A6007EAF7C /* Category.swift in Sources */,
