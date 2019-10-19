@@ -21,7 +21,9 @@ class activateCodeVC: UIViewController {
         super.viewDidLoad()
         self.phoneTF.text = phoneNumber
         codeActivet.layer.cornerRadius = 15
-        
+        codeActivet.setGradientBackground(colorOne: #colorLiteral(red: 0.3333333333, green: 0.768627451, blue: 0.8117647059, alpha: 1), colorTwo: #colorLiteral(red: 0.3333333333, green: 0.6392156863, blue: 0.8117647059, alpha: 1))
+        codeActivet.layer.cornerRadius = 15
+
         hidnskeybored()
     }
     

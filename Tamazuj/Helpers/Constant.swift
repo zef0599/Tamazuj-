@@ -28,6 +28,10 @@ class URLs {
     static var updateProfile = "http://salahalimohamed.website/tmajog/api/v1/user/updateProfile"
     static var Consaltant = "http://salahalimohamed.website/tmajog/api/v1/consultants"
     
+    //MARK:- advisor links
+    static var advProfile = "http://salahalimohamed.website/tmajog/api/v1/consultant/profile"
+
+    
 }
 
 /*

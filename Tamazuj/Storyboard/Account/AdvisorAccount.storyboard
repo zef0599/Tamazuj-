@@ -540,6 +540,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4t-KU-bui">
                                 <rect key="frame" x="28" y="488" width="358" height="44"/>
+                                <color key="backgroundColor" red="0.33566385510000002" green="0.70885699989999995" blue="0.81390613320000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="UPh-Cg-OQV"/>
                                 </constraints>
@@ -581,6 +582,7 @@
                     <connections>
                         <outlet property="codeText" destination="yfx-E4-xY9" id="vIl-vm-IlE"/>
                         <outlet property="phoneText" destination="gye-Hk-JjA" id="wjh-ww-Yvr"/>
+                        <outlet property="submetButtom" destination="L4t-KU-bui" id="MQH-FY-toF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFb-rS-AHU" userLabel="First Responder" sceneMemberID="firstResponder"/>

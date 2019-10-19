@@ -51,6 +51,7 @@
 		45724776BC98FEAC5CC45748 /* Pods_Tamazuj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B39B0EE63A4AE3A1BB77C1 /* Pods_Tamazuj.framework */; };
 		8321E7E6235066D400A26725 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E7E5235066D400A26725 /* FavoriteVC.swift */; };
 		8321E7E82350A65F00A26725 /* SubCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E7E72350A65F00A26725 /* SubCategoryVC.swift */; };
+		832C3728235B3AA400124703 /* advProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3727235B3AA400124703 /* advProfileVC.swift */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -176,6 +177,7 @@
 		63B698B3144FFFDCF2D050A0 /* Pods-Tamazuj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamazuj.debug.xcconfig"; path = "Target Support Files/Pods-Tamazuj/Pods-Tamazuj.debug.xcconfig"; sourceTree = "<group>"; };
 		8321E7E5235066D400A26725 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		8321E7E72350A65F00A26725 /* SubCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryVC.swift; sourceTree = "<group>"; };
+		832C3727235B3AA400124703 /* advProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advProfileVC.swift; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -406,6 +408,14 @@
 				36E35E9223338066003752CB /* AdvisorTableViewCell.xib */,
 			);
 			path = "Home – Advisor";
+			sourceTree = "<group>";
+		};
+		832C3726235B3A6700124703 /* Main Controller */ = {
+			isa = PBXGroup;
+			children = (
+				832C3727235B3AA400124703 /* advProfileVC.swift */,
+			);
+			path = "Main Controller";
 			sourceTree = "<group>";
 		};
 		83613098232E4A9B008389DE /* Consultation nib */ = {
@@ -718,6 +728,7 @@
 		B15D3B6E235892E9003057FC /* Advisor */ = {
 			isa = PBXGroup;
 			children = (
+				832C3726235B3A6700124703 /* Main Controller */,
 				B15D3B7323589563003057FC /* AdProfileViewController.swift */,
 				36414F312355258600314DFC /* aboutAdvisor */,
 				36E35E8E23337D69003752CB /* Home – Advisor */,
@@ -882,6 +893,7 @@
 			files = (
 				B1085738234510650008104D /* UserLoginViewController.swift in Sources */,
 				36E35E9023337D9A003752CB /* HomeAdvisorViewController.swift in Sources */,
+				832C3728235B3AA400124703 /* advProfileVC.swift in Sources */,
 				83F88B35234C93DB003C5218 /* Consaltant.swift in Sources */,
 				836CDCED2358F3DB00AFF0F0 /* ConsultationVC.swift in Sources */,
 				3645A9382344A9A6007EAF7C /* Category.swift in Sources */,

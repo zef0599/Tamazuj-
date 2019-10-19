@@ -30,14 +30,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fze-nl-Pdn">
-                                <rect key="frame" x="167.5" y="194" width="79.5" height="103.5"/>
+                                <rect key="frame" x="175" y="194" width="64.5" height="48.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVA-mP-Izb">
-                                        <rect key="frame" x="0.0" y="0.0" width="79.5" height="67"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="22"/>
                                         <state key="normal" image="LoginIcon"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل دخول" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hon-Eo-teY">
-                                        <rect key="frame" x="0.0" y="77" width="79.5" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="32" width="64.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="14"/>
                                         <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="57t-IY-ycf">
-                                <rect key="frame" x="24" y="325.5" width="366" height="93"/>
+                                <rect key="frame" x="24" y="270.5" width="366" height="93"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fGS-0g-egd" customClass="DesignableUITextField" customModule="Tamazuj" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
@@ -101,13 +101,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نسيت كلمة المرور" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Puc-5x-NF7">
-                                <rect key="frame" x="157" y="446.5" width="100.5" height="26.5"/>
+                                <rect key="frame" x="166.5" y="391.5" width="81.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTZ-te-9H6">
-                                <rect key="frame" x="28" y="498" width="358" height="44"/>
+                                <rect key="frame" x="28" y="433" width="358" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dbC-DX-m3D"/>
                                 </constraints>
@@ -128,13 +128,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ليس لديك حساب ؟" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbR-xK-Cwf">
-                                <rect key="frame" x="156" y="592" width="102" height="26.5"/>
+                                <rect key="frame" x="162.5" y="527" width="89.5" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Cairo-Regular" family="Cairo" pointSize="14"/>
                                 <color key="textColor" red="0.14117647059999999" green="0.1764705882" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAQ-ef-JxT">
-                                <rect key="frame" x="171" y="625.5" width="72" height="31"/>
+                                <rect key="frame" x="179" y="550.5" width="56" height="24"/>
                                 <fontDescription key="fontDescription" name="Cairo-Bold" family="Cairo" pointSize="10"/>
                                 <state key="normal" title="التسجيل من هنا">
                                     <color key="titleColor" red="0.33333333329999998" green="0.76862745099999996" blue="0.81176470590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -144,7 +144,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwz-mk-0CO">
-                                <rect key="frame" x="340" y="59" width="44" height="44"/>
+                                <rect key="frame" x="368" y="59" width="16" height="22"/>
                                 <state key="normal" image="button-to-left"/>
                                 <connections>
                                     <action selector="back:" destination="gCU-o9-EFn" eventType="touchUpInside" id="SRL-53-pJp"/>
@@ -540,6 +540,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTY-TQ-XWa">
                                 <rect key="frame" x="28" y="488" width="358" height="44"/>
+                                <color key="backgroundColor" red="0.33566385510000002" green="0.70885699989999995" blue="0.81390613320000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0cQ-Z7-UxW"/>
                                 </constraints>

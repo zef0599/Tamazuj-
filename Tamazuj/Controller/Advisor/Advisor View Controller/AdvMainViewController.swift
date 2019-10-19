@@ -7,16 +7,33 @@
 //
 
 import UIKit
-
+import Kingfisher
 class AdvMainViewController: UIViewController {
+    var profileData:Profile?
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var profileEmail: UILabel!
     fileprivate var txtMenu = ["حسابي", "التنبيهات", "سجل استشاراتي", "عن التطبيق", "الاعدادات"]
     fileprivate var imgMenu = ["menu_img_1", "menu_img_2", "menu_img_3", "menu_img_4", "menu_img_5"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        showIndeterminateHUD()
+        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+            if let result = result {
+                self.profileData = result
+                self.tableView.reloadData()
+                self.hideHUD()
+                self.profileImage.kf.setImage(with: URL(string: (result.data?.photo)!))
+                self.profileName.text = result.data?.name
+                self.profileEmail.text = result.data?.email
+            }
+            self.hideHUD(animated: true)
+        }
+
     }
 }
 
@@ -39,12 +56,20 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
         let stprybord = UIStoryboard(name: "Advisor", bundle: nil)
         switch indexPath.row {
         case 0:
-            let vc = stprybord.instantiateViewController(withIdentifier: "navUser1") as! UINavigationController
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+            let vc = stprybord.instantiateViewController(withIdentifier: "advProfileVC") as! advProfileVC
+            navigationController?.pushViewController(vc, animated: true)
+
         case 1:
-            let vc = stprybord.instantiateViewController(withIdentifier: "NavNotfcation") as! UINavigationController
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-        //        present(vc, animated: true, completion: nil)
+            let vc = stprybord.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+            navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = stprybord.instantiateViewController(withIdentifier: "ConsultHistoryViewController") as! ConsultHistoryViewController
+            //    var navHave:UINavigationController?
+            vc.navHave = self.navigationController
+            self.navigationController!.pushViewController(vc, animated: true)
+        case 4:
+            let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
+            navigationController?.pushViewController(vc, animated: true)
 
         default:
             break
@@ -55,3 +80,8 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+/*
+ let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
+ navigationController?.pushViewController(vc, animated: true)
+
+ */

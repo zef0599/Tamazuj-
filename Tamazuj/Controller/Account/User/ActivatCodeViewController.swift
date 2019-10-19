@@ -14,6 +14,7 @@ class ActivatCodeViewController: UIViewController {
     @IBOutlet weak var phoneText: UITextField!
     @IBOutlet weak var codeText: UITextField!
     
+    @IBOutlet weak var submetButtom: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.phoneText.text = phoneNumber
@@ -66,7 +67,7 @@ class ActivatCodeViewController: UIViewController {
                 
                 self.hideHUD()
                 helper.saveApiToken(token: actv.token!) 
-                WindowManger.show(.main, animated: true)
+                WindowManger.show(.Advisor, animated: true)
             }else{
                 self.showHUD(title: "", details: actv.message! + "\n الرجاء ادخال الكود بشكل صحيح ", hideAfter: 3)
             }
