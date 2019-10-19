@@ -54,6 +54,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWW-JG-BHO">
                                         <rect key="frame" x="20" y="86" width="148" height="30"/>
                                         <state key="normal" title="استكمال الملف الشخصي"/>
+                                        <connections>
+                                            <action selector="completeData:" destination="FFb-bU-UdO" eventType="touchUpInside" id="YeS-LN-0Lc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -699,7 +702,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQv-Bm-dIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1343" y="2302"/>
+            <point key="canvasLocation" x="-6293" y="2962"/>
         </scene>
         <!--Adv Edit ProfaileVC-->
         <scene sceneID="Wxh-jT-E2s">

@@ -18,7 +18,12 @@ class HomeAdvisorViewController: UIViewController {
         tabel.register(UINib(nibName: "AdvisorTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvisorTableViewCell")
     }
 
+    @IBAction func completeData(_ sender: Any) {
+        let vc = storyboard!.instantiateViewController(withIdentifier: "advProfileVC") as! advProfileVC
+        navigationController?.pushViewController(vc, animated: true)
 
+    }
+    
 }
 extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,10 +35,4 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate{
         
         return cell
     }
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-////        tableView.layer.
-//        return "طلبات الاستشارة"
-//        
-//    }
- 
 }
