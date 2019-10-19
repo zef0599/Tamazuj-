@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 class AdvMainViewController: UIViewController {
-    var profileData:Profile?
+    var profileData:AdvProfile?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -22,7 +22,23 @@ class AdvMainViewController: UIViewController {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+            if let result = result {
+                self.profileData = result
+                self.tableView.reloadData()
+                self.hideHUD()
+                self.profileImage.kf.setImage(with: URL(string: (result.data?.photo)!))
+                self.profileName.text = result.data?.name
+                self.profileEmail.text = result.data?.email
+            }
+            self.hideHUD(animated: true)
+        }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        showIndeterminateHUD()
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -57,6 +73,7 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let vc = stprybord.instantiateViewController(withIdentifier: "advProfileVC") as! advProfileVC
+//            vc.profileData = self.profileData
             navigationController?.pushViewController(vc, animated: true)
 
         case 1:
@@ -80,8 +97,3 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-/*
- let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
- navigationController?.pushViewController(vc, animated: true)
-
- */

@@ -11,12 +11,12 @@ import Kingfisher
 
 class advProfileVC: UIViewController {
     
-    
+
     var nav :UINavigationController?
     @IBOutlet weak var tableView: UITableView!
 
 
-    var profileData:Profile?
+    var profileData:AdvProfile?
     
     override func viewDidLoad() {
         nav = self.navigationController
@@ -25,18 +25,17 @@ class advProfileVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerCellNib(cellClass: FirstTableViewCell.self)
-        tableView.registerCellNib(cellClass: SecondTableViewCell.self)
-        tableView.registerCellNib(cellClass: thirdTableViewCell.self)
-        tableView.registerCellNib(cellClass: SectionTableViewCell.self)
-        tableView.registerCellNib(cellClass: SectionTwoTableViewCell.self)
+        tableView.registerCellNib(cellClass: AdvFirstTableViewCell.self)
+        tableView.registerCellNib(cellClass: AdvSecondTableCell.self)
+        tableView.registerCellNib(cellClass: AdvthirdTableViewCell.self)
+        tableView.registerCellNib(cellClass: AdvSectionTableViewCell.self)
+        tableView.registerCellNib(cellClass: AdvSectionTwoTableViewCell.self)
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
                 self.hideHUD()
-                
             }
         }
         
@@ -74,28 +73,30 @@ extension advProfileVC:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeue() as FirstTableViewCell
+            let cell = tableView.dequeue() as AdvFirstTableViewCell
+            cell.profileData = self.profileData
             cell.selectionStyle = .none
             cell.nav = self.nav!
             if let obj = profileData?.data {
                 cell.nameLabel.text = obj.name
                 cell.emailLabel.text = obj.email
                 cell.profileImage.kf.setImage(with:URL(string: (obj.photo)!))
+                
             }else{
                 cell.nameLabel.text = "some one"
             }
             return cell
         }else if indexPath.section == 1 {
-            let cell = tableView.dequeue() as SecondTableViewCell
+            let cell = tableView.dequeue() as AdvSecondTableCell
             cell.selectionStyle = .none
             return cell
         }else if indexPath.section == 2 {
-            let cell = tableView.dequeue() as SectionTableViewCell
+            let cell = tableView.dequeue() as AdvSectionTableViewCell
             cell.selectionStyle = .none
             
             return cell
         }else if indexPath.section == 3 {
-            let cell = tableView.dequeue() as SectionTwoTableViewCell
+            let cell = tableView.dequeue() as AdvSectionTwoTableViewCell
             cell.selectionStyle = .none
             
             return cell
@@ -120,9 +121,3 @@ extension advProfileVC:UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
-//MARK- extention to UITableView
-
-// to make it easy to nib
-
-

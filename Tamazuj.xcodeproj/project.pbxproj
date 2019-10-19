@@ -57,6 +57,18 @@
 		832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */; };
 		832C3737235B5DF800124703 /* AdvConsHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3735235B5DF800124703 /* AdvConsHistoryCell.swift */; };
 		832C3738235B5DF800124703 /* AdvConsHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */; };
+		832C373A235B670900124703 /* AdvisorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3739235B670900124703 /* AdvisorAPI.swift */; };
+		832C373E235B8AD000124703 /* AdvFirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C373C235B8AD000124703 /* AdvFirstTableViewCell.swift */; };
+		832C373F235B8AD000124703 /* AdvFirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C373D235B8AD000124703 /* AdvFirstTableViewCell.xib */; };
+		832C3742235B8BCB00124703 /* AdvSecondTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3740235B8BCB00124703 /* AdvSecondTableCell.swift */; };
+		832C3743235B8BCB00124703 /* AdvSecondTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C3741235B8BCB00124703 /* AdvSecondTableCell.xib */; };
+		832C3746235B8CC600124703 /* AdvthirdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3744235B8CC600124703 /* AdvthirdTableViewCell.swift */; };
+		832C3747235B8CC600124703 /* AdvthirdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C3745235B8CC600124703 /* AdvthirdTableViewCell.xib */; };
+		832C374A235B8DD900124703 /* AdvSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3748235B8DD900124703 /* AdvSectionTableViewCell.swift */; };
+		832C374B235B8DD900124703 /* AdvSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C3749235B8DD900124703 /* AdvSectionTableViewCell.xib */; };
+		832C374E235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C374C235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift */; };
+		832C374F235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C374D235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib */; };
+		832C3752235BC37300124703 /* AdvProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3751235BC37300124703 /* AdvProfile.swift */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -188,6 +200,18 @@
 		832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvConsultHistoryVC.swift; sourceTree = "<group>"; };
 		832C3735235B5DF800124703 /* AdvConsHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvConsHistoryCell.swift; sourceTree = "<group>"; };
 		832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvConsHistoryCell.xib; sourceTree = "<group>"; };
+		832C3739235B670900124703 /* AdvisorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorAPI.swift; sourceTree = "<group>"; };
+		832C373C235B8AD000124703 /* AdvFirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvFirstTableViewCell.swift; sourceTree = "<group>"; };
+		832C373D235B8AD000124703 /* AdvFirstTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvFirstTableViewCell.xib; sourceTree = "<group>"; };
+		832C3740235B8BCB00124703 /* AdvSecondTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvSecondTableCell.swift; sourceTree = "<group>"; };
+		832C3741235B8BCB00124703 /* AdvSecondTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvSecondTableCell.xib; sourceTree = "<group>"; };
+		832C3744235B8CC600124703 /* AdvthirdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvthirdTableViewCell.swift; sourceTree = "<group>"; };
+		832C3745235B8CC600124703 /* AdvthirdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvthirdTableViewCell.xib; sourceTree = "<group>"; };
+		832C3748235B8DD900124703 /* AdvSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvSectionTableViewCell.swift; sourceTree = "<group>"; };
+		832C3749235B8DD900124703 /* AdvSectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvSectionTableViewCell.xib; sourceTree = "<group>"; };
+		832C374C235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvSectionTwoTableViewCell.swift; sourceTree = "<group>"; };
+		832C374D235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvSectionTwoTableViewCell.xib; sourceTree = "<group>"; };
+		832C3751235BC37300124703 /* AdvProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvProfile.swift; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -356,7 +380,6 @@
 				B11CBB6D23429A6B005B7420 /* helper.swift */,
 				8392877B2332DE7300BC27E9 /* DKDropMenu.swift */,
 				13FC827E23215F3A00D8C7A8 /* CustomePageControl.swift */,
-				B17909C623424A52006B7E7A /* Constant.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -435,6 +458,7 @@
 		832C3733235B5D2300124703 /* Adv Nibs */ = {
 			isa = PBXGroup;
 			children = (
+				832C373B235B8AA300124703 /* profilePage */,
 				832C3734235B5D3D00124703 /* Consaltant History Nib */,
 			);
 			path = "Adv Nibs";
@@ -447,6 +471,31 @@
 				832C3736235B5DF800124703 /* AdvConsHistoryCell.xib */,
 			);
 			path = "Consaltant History Nib";
+			sourceTree = "<group>";
+		};
+		832C373B235B8AA300124703 /* profilePage */ = {
+			isa = PBXGroup;
+			children = (
+				832C373C235B8AD000124703 /* AdvFirstTableViewCell.swift */,
+				832C373D235B8AD000124703 /* AdvFirstTableViewCell.xib */,
+				832C3740235B8BCB00124703 /* AdvSecondTableCell.swift */,
+				832C3741235B8BCB00124703 /* AdvSecondTableCell.xib */,
+				832C3744235B8CC600124703 /* AdvthirdTableViewCell.swift */,
+				832C3745235B8CC600124703 /* AdvthirdTableViewCell.xib */,
+				832C3748235B8DD900124703 /* AdvSectionTableViewCell.swift */,
+				832C3749235B8DD900124703 /* AdvSectionTableViewCell.xib */,
+				832C374C235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift */,
+				832C374D235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib */,
+			);
+			path = profilePage;
+			sourceTree = "<group>";
+		};
+		832C3750235B975F00124703 /* advisorObject */ = {
+			isa = PBXGroup;
+			children = (
+				832C3751235BC37300124703 /* AdvProfile.swift */,
+			);
+			path = advisorObject;
 			sourceTree = "<group>";
 		};
 		83613098232E4A9B008389DE /* Consultation nib */ = {
@@ -637,6 +686,7 @@
 		B13094742341F64700C50B16 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B17909C623424A52006B7E7A /* Constant.swift */,
 				B15D3B6D23589168003057FC /* API */,
 			);
 			path = Model;
@@ -645,6 +695,7 @@
 		B13094762341F66400C50B16 /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				832C3750235B975F00124703 /* advisorObject */,
 				363729862358D07E00A7D513 /* SingleConsultantS.swift */,
 				83DE5E4C2355E113009F71C0 /* Consultation.swift */,
 				83F88B34234C93DA003C5218 /* Consaltant.swift */,
@@ -752,6 +803,7 @@
 				B11C366B2357AC510013B7FD /* Consultant.swift */,
 				36902E36234498F20090013C /* home.swift */,
 				B17909C4234249A1006B7E7A /* API_Operation.swift */,
+				832C3739235B670900124703 /* AdvisorAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -852,24 +904,29 @@
 				837C8DF5233240C900869CDB /* searchCell.xib in Resources */,
 				13FC827A23213B5C00D8C7A8 /* Cairo-Regular.otf in Resources */,
 				83F88B4C234C9535003C5218 /* SecondTableViewCell.xib in Resources */,
+				832C374F235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib in Resources */,
 				363729912358D53300A7D513 /* dataNillTableViewCell.xib in Resources */,
 				13FC82652321294000D8C7A8 /* Assets.xcassets in Resources */,
 				13FC82632321293F00D8C7A8 /* Main.storyboard in Resources */,
 				83B171332334217E003689A4 /* Advisor.storyboard in Resources */,
 				83F88B4F234C9535003C5218 /* thirdTableViewCell.xib in Resources */,
 				83F88B50234C9535003C5218 /* UserSectionTableViewCell.xib in Resources */,
+				832C374B235B8DD900124703 /* AdvSectionTableViewCell.xib in Resources */,
+				832C3747235B8CC600124703 /* AdvthirdTableViewCell.xib in Resources */,
 				369909C323303805007ADD6F /* adviserfavorsTableViewCell.xib in Resources */,
 				363C812423300AF40051F142 /* SliderCollictionTableViewCell.xib in Resources */,
 				363729962358D75900A7D513 /* AdvisorCell.xib in Resources */,
 				837C8DC32330F5D000869CDB /* CategoriesCollectionViewCell.xib in Resources */,
 				363C812823300C800051F142 /* sliderCollectionViewCell.xib in Resources */,
 				83F88B4A234C9535003C5218 /* SectionTableViewCell.xib in Resources */,
+				832C373F235B8AD000124703 /* AdvFirstTableViewCell.xib in Resources */,
 				837C8DF9233252F300869CDB /* paymenCollectionCell.xib in Resources */,
 				837C8DC02330F2F000869CDB /* Account.storyboard in Resources */,
 				B10857352345096C0008104D /* AdvisorAccount.storyboard in Resources */,
 				837C8DEB2332323900869CDB /* filterVC.xib in Resources */,
 				837C8E0223328C0D00869CDB /* AdvisorTableCell.xib in Resources */,
 				837C8DE42332224400869CDB /* PaymentPopupVC.xib in Resources */,
+				832C3743235B8BCB00124703 /* AdvSecondTableCell.xib in Resources */,
 				83613097232E4A91008389DE /* ConsultationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -939,6 +996,7 @@
 				837C8DF4233240C900869CDB /* searchCell.swift in Sources */,
 				B15D3B63235858D6003057FC /* ActivatCodeViewController.swift in Sources */,
 				83F88B33234C934D003C5218 /* Profile.swift in Sources */,
+				832C373E235B8AD000124703 /* AdvFirstTableViewCell.swift in Sources */,
 				83F88B4E234C9535003C5218 /* SecondTableViewCell.swift in Sources */,
 				83F88B51234C9535003C5218 /* UserSectionTableViewCell.swift in Sources */,
 				837C8DD923318B2300869CDB /* AdvisorSelectionVC.swift in Sources */,
@@ -952,6 +1010,7 @@
 				837C8DF8233252F300869CDB /* paymenCollectionCell.swift in Sources */,
 				83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */,
 				83DE5E552355EEC3009F71C0 /* ConsultHistoryViewController.swift in Sources */,
+				832C3742235B8BCB00124703 /* AdvSecondTableCell.swift in Sources */,
 				83F88B31234C8EF5003C5218 /* UpdatePasswordViewController.swift in Sources */,
 				83F88B52234C9535003C5218 /* UserProfilVC.swift in Sources */,
 				832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */,
@@ -968,6 +1027,7 @@
 				3637298A2358D38900A7D513 /* abuteConsltentViewController.swift in Sources */,
 				837C8DA62330E33400869CDB /* ConsultHistoryVC.swift in Sources */,
 				8321E7E6235066D400A26725 /* FavoriteVC.swift in Sources */,
+				832C3746235B8CC600124703 /* AdvthirdTableViewCell.swift in Sources */,
 				B108573E234510BA0008104D /* AdvisorSginUpViewController.swift in Sources */,
 				836130A0232E945E008389DE /* cateTableViewCell.swift in Sources */,
 				8361309A232E5890008389DE /* MenuViewController.swift in Sources */,
@@ -981,12 +1041,14 @@
 				832C3730235B55FD00124703 /* AdvEditProfaileVC.swift in Sources */,
 				83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */,
 				B15D3B6B235890C9003057FC /* ConsultHistoryCell.swift in Sources */,
+				832C373A235B670900124703 /* AdvisorAPI.swift in Sources */,
 				832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */,
 				363729902358D53300A7D513 /* abutelableTableViewCell.swift in Sources */,
 				8392877C2332DE7400BC27E9 /* DKDropMenu.swift in Sources */,
 				837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */,
 				3637298F2358D53300A7D513 /* dataNillTableViewCell.swift in Sources */,
 				8321E7E82350A65F00A26725 /* SubCategoryVC.swift in Sources */,
+				832C374E235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift in Sources */,
 				837C8DEA2332323900869CDB /* filterVC.swift in Sources */,
 				83F88B53234C9535003C5218 /* SectionTableViewCell.swift in Sources */,
 				B17909CB234268C3006B7E7A /* Register.swift in Sources */,
@@ -998,6 +1060,7 @@
 				837C8DD723317EE100869CDB /* CategoriesDetailsVC.swift in Sources */,
 				B17909C5234249A1006B7E7A /* API_Operation.swift in Sources */,
 				36414F33235525DD00314DFC /* aboutAdvisorViewC.swift in Sources */,
+				832C374A235B8DD900124703 /* AdvSectionTableViewCell.swift in Sources */,
 				83F88B4B234C9535003C5218 /* FirstTableViewCell.swift in Sources */,
 				363729952358D75900A7D513 /* AdvisorCell.swift in Sources */,
 				B108573A2345107F0008104D /* UserSginUpViewController.swift in Sources */,
@@ -1006,6 +1069,7 @@
 				837C8E0123328C0D00869CDB /* AdvisorTableCell.swift in Sources */,
 				837C8DF123323D0B00869CDB /* WindowManger.swift in Sources */,
 				B15D3B7423589563003057FC /* AdProfileViewController.swift in Sources */,
+				832C3752235BC37300124703 /* AdvProfile.swift in Sources */,
 				B11CBB6F23429A6B005B7420 /* helper.swift in Sources */,
 				837C8DDD2332115500869CDB /* searchPopup.swift in Sources */,
 				363729842358D04200A7D513 /* singleconsultants.swift in Sources */,

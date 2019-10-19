@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="192" id="KGk-i7-Jjw" customClass="AdvFirstTableViewCell" customModule="Tamazuj" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="149"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="415" height="148.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HRU-yS-b9e">
+                        <rect key="frame" x="0.0" y="0.0" width="415" height="148.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIe-AY-3se">
+                                <rect key="frame" x="16" y="44.5" width="383" height="96"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark" translatesAutoresizingMaskIntoConstraints="NO" id="wfd-s6-aBr">
+                                        <rect key="frame" x="162.5" y="-29" width="58" height="58"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="58" id="b0L-i7-M7y"/>
+                                            <constraint firstAttribute="height" constant="58" id="i7G-Ip-gBc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="29"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ERf-HS-4Ff">
+                                        <rect key="frame" x="16" y="32" width="351" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="عيسى ابراهيم" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKB-8y-7Bf">
+                                                <rect key="frame" x="0.0" y="0.0" width="351" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="isabaro@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvT-rE-Cl7">
+                                                <rect key="frame" x="0.0" y="20.5" width="351" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.47450980390000003" green="0.51764705879999995" blue="0.53725490200000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ERf-HS-4Ff" secondAttribute="trailing" constant="16" id="6xr-gO-9uk"/>
+                                    <constraint firstItem="ERf-HS-4Ff" firstAttribute="leading" secondItem="iIe-AY-3se" secondAttribute="leading" constant="16" id="DvN-Gx-fSt"/>
+                                    <constraint firstAttribute="height" constant="96" id="LcX-oE-qPu"/>
+                                    <constraint firstItem="wfd-s6-aBr" firstAttribute="centerY" secondItem="iIe-AY-3se" secondAttribute="top" id="Tqm-zc-qg2"/>
+                                    <constraint firstItem="ERf-HS-4Ff" firstAttribute="centerX" secondItem="iIe-AY-3se" secondAttribute="centerX" id="gcC-7u-jDy"/>
+                                    <constraint firstItem="ERf-HS-4Ff" firstAttribute="top" secondItem="wfd-s6-aBr" secondAttribute="bottom" constant="3" id="vF3-aM-VuL"/>
+                                    <constraint firstItem="wfd-s6-aBr" firstAttribute="centerX" secondItem="iIe-AY-3se" secondAttribute="centerX" id="wDO-wU-oPT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" red="0.88235294119999996" green="0.90980392160000001" blue="0.92156862750000001" alpha="0.53000000000000003" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxW-6r-Dpp">
+                                <rect key="frame" x="16" y="41" width="28" height="28"/>
+                                <state key="normal" image="back-1"/>
+                                <connections>
+                                    <action selector="back:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kY1-7N-p6O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-AK-vKZ">
+                                <rect key="frame" x="384" y="41" width="15" height="22"/>
+                                <state key="normal" image="icon-editpen"/>
+                                <connections>
+                                    <action selector="editePage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VwX-82-P4S"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZxW-6r-Dpp" firstAttribute="top" secondItem="HRU-yS-b9e" secondAttribute="top" constant="41" id="0h5-8P-Irz"/>
+                            <constraint firstAttribute="bottom" secondItem="iIe-AY-3se" secondAttribute="bottom" constant="8" id="29E-Et-Qzq"/>
+                            <constraint firstAttribute="trailing" secondItem="iIe-AY-3se" secondAttribute="trailing" constant="16" id="Dmz-4Q-efk"/>
+                            <constraint firstAttribute="trailing" secondItem="Ybj-AK-vKZ" secondAttribute="trailing" constant="16" id="bdH-D1-vOK"/>
+                            <constraint firstItem="ZxW-6r-Dpp" firstAttribute="leading" secondItem="HRU-yS-b9e" secondAttribute="leading" constant="16" id="khO-YK-JIZ"/>
+                            <constraint firstItem="Ybj-AK-vKZ" firstAttribute="top" secondItem="HRU-yS-b9e" secondAttribute="top" constant="41" id="lBT-dg-4Wb"/>
+                            <constraint firstItem="iIe-AY-3se" firstAttribute="leading" secondItem="HRU-yS-b9e" secondAttribute="leading" constant="16" id="wff-Pd-gjU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HRU-yS-b9e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KTX-Yy-cVi"/>
+                    <constraint firstAttribute="trailing" secondItem="HRU-yS-b9e" secondAttribute="trailing" id="N7M-Sp-ve4"/>
+                    <constraint firstItem="HRU-yS-b9e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RAB-pQ-LRb"/>
+                    <constraint firstAttribute="bottom" secondItem="HRU-yS-b9e" secondAttribute="bottom" id="lEu-cM-WJv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="emailLabel" destination="nvT-rE-Cl7" id="4xo-cg-lgs"/>
+                <outlet property="nameLabel" destination="XKB-8y-7Bf" id="bwG-YV-zh7"/>
+                <outlet property="profileImage" destination="wfd-s6-aBr" id="GcP-7C-Fgf"/>
+            </connections>
+            <point key="canvasLocation" x="119.56521739130436" y="44.53125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="back-1" width="28" height="28"/>
+        <image name="icon-editpen" width="15" height="14"/>
+        <image name="mark" width="58" height="58"/>
+    </resources>
+</document>

@@ -304,39 +304,6 @@ class Operation {
     }
     
 
-    // MARK: - advisor 
-    // MARK: - Advprofile
-
-    // Authorization,lang
-    
-    class func advgetProfile(Authorization:String, lang:String,completion:@escaping (_ error:Error?,_ result:Profile?)->Void){
-        let header = [
-            "Authorization": Authorization,
-            "lang":"ar"]
-        Alamofire.request(URLs.advProfile, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header)
-            .responseJSON { (response) in
-                switch response.result
-                {
-                case .success(let value):
-                    do{
-                        let data = try JSONDecoder().decode(Profile.self, from: response.data!)
-                        
-                        completion(nil,data)
-                        
-                    }catch{
-                        print(error)
-                        print("that's the error up profile")
-                        completion(error,nil)
-                        
-                    }
-                case .failure(let error):
-                    print(error)
-                    completion(error,nil)
-                }
-        }
-    }
-    
-
 
 }
 

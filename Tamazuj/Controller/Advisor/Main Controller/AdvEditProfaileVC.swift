@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AdvEditProfaileVC: UIViewController {
     
@@ -42,7 +43,7 @@ class AdvEditProfaileVC: UIViewController {
     @IBOutlet weak var educationTextField: UITextField!
     @IBOutlet weak var jobTextField: UITextField!
     @IBOutlet weak var relationTextField: UITextField!
-    var profileData:Profile?
+    var profileData:AdvProfile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +51,14 @@ class AdvEditProfaileVC: UIViewController {
         createGenderPicker()
         createRelationPicker()
         createCountriesPicker()
-        
+//        preAdvProfile()
         for code in NSLocale.isoCountryCodes  {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
             let name = NSLocale(localeIdentifier: "ar_SA").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
             countries.append(name)
         }
-        
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.hideHUD()
@@ -67,20 +67,34 @@ class AdvEditProfaileVC: UIViewController {
                 self.headerName.text = result.data?.name
                 self.emailTextField.text = result.data?.email
                 self.hederEmail.text = result.data?.email
-                self.phoneTextField.text = result.data?.phone
-                self.genderTextField.text = result.data?.gender
-                self.nationalityTextField.text = result.data?.nationality
-                self.birthDateTextField.text = result.data?.date_of_birth
-                self.educationTextField.text = result.data?.educational_status
-                self.jobTextField.text = result.data?.work_status
+                self.phoneTextField.text = self.profileData?.data?.phone
+                self.genderTextField.text = self.profileData?.data?.gender
+                self.nationalityTextField.text = self.profileData?.data?.nationality
+                self.birthDateTextField.text = self.profileData?.data?.date_of_birth
+                self.educationTextField.text = self.profileData?.data?.degree
+                self.jobTextField.text = self.profileData?.data?.current_job
                 self.relationTextField.text = result.data?.social_status
-                
+                print(result)
+                print("Bearer \(helper.getApiToken()!)")
                 
             }
         }
-        
     }
-    
+    func preAdvProfile() {
+        self.profilImage.kf.setImage(with: URL(string: (profileData?.data?.photo)!))
+        self.nameTextfield.text = profileData?.data?.name
+        self.headerName.text = profileData?.data?.name
+        self.emailTextField.text = profileData?.data?.email
+        self.hederEmail.text = profileData?.data?.email
+        self.phoneTextField.text = profileData?.data?.phone
+        self.genderTextField.text = profileData?.data?.gender
+        self.nationalityTextField.text = profileData?.data?.nationality
+        self.birthDateTextField.text = profileData?.data?.date_of_birth
+        self.educationTextField.text = profileData?.data?.degree
+        self.jobTextField.text = profileData?.data?.current_job
+        self.relationTextField.text = profileData?.data?.social_status
+
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -92,7 +106,7 @@ class AdvEditProfaileVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
-    
+    // MARK:- Creat pickers
     func createGenderPicker() {
         
         let genderPicker = UIPickerView()
@@ -102,8 +116,6 @@ class AdvEditProfaileVC: UIViewController {
         //Customizations
         //        genderPicker.backgroundColor = .black
     }
-    
-    
     func createDegreePicker() {
         
         let degreePicker = UIPickerView()
@@ -125,8 +137,6 @@ class AdvEditProfaileVC: UIViewController {
         countriesPicker.tag = 3
         nationalityTextField.inputView = countriesPicker
     }
-    
-    
     func createToolbar() {
         
         let toolBar = UIToolbar()
@@ -147,6 +157,9 @@ class AdvEditProfaileVC: UIViewController {
         nationalityTextField.inputAccessoryView = toolBar
         
     }
+    
+// MARK:-
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -162,11 +175,9 @@ class AdvEditProfaileVC: UIViewController {
     
     @IBAction func submetButton(_ sender: Any) {
         self.showIndeterminateHUD()
-        self.navigationController?.popViewController(animated: true)
-        
         if self.nameTextfield.text != nil{
             
-            Operation.changeProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "T##String", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: 1, work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
+            Operation.AdvEditeProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "ar", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: self.nationalityTextField.text ?? "" , work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
                 if let result = result {
                     self.profileData = result
                     self.hideHUD()
@@ -178,16 +189,18 @@ class AdvEditProfaileVC: UIViewController {
                     self.genderTextField.text = result.data?.gender
                     self.nationalityTextField.text = result.data?.nationality
                     self.birthDateTextField.text = result.data?.date_of_birth
-                    self.educationTextField.text = result.data?.educational_status
-                    self.jobTextField.text = result.data?.work_status
+                    self.educationTextField.text = result.data?.degree
+                    self.jobTextField.text = result.data?.current_job
                     self.relationTextField.text = result.data?.social_status
+                    print("the national:"+(result.data?.nationality)!)
                 }
                 
                 
             }
         }
-        //        dismiss(animated: true) {
-        //        }
+        
+        self.navigationController?.popToRootViewController(animated: true)
+
         
     }
 }

@@ -29,7 +29,9 @@ class URLs {
     static var Consaltant = "http://salahalimohamed.website/tmajog/api/v1/consultants"
     
     //MARK:- advisor links
-    static var advProfile = "http://salahalimohamed.website/tmajog/api/v1/consultant/profile"
+    static var advURL = "http://salahalimohamed.website"
+    static var advProfile = advURL+"/tmajog/api/v1/consultant/profile"
+    static var advUpdateProfile = advURL+"/tmajog/api/v1/consultant/updateProfile"
 
     
 }
