@@ -1,14 +1,14 @@
 //
-//  EditProfailUserViewController.swift
+//  AdvEditProfaileVC.swift
 //  Tamazuj
 //
-//  Created by Mohammed Erbia on 20/09/2019.
+//  Created by yousef Omar on 10/19/19.
 //  Copyright © 2019 Tamazuj. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
-class EditProfailUserViewController: UIViewController {
+
+class AdvEditProfaileVC: UIViewController {
     
     let gender = ["ذكر","انثى"]
     var selectedGender:String?
@@ -92,7 +92,7 @@ class EditProfailUserViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
-
+    
     func createGenderPicker() {
         
         let genderPicker = UIPickerView()
@@ -186,14 +186,12 @@ class EditProfailUserViewController: UIViewController {
                 
             }
         }
-//        dismiss(animated: true) {
-//        }
+        //        dismiss(animated: true) {
+        //        }
         
     }
 }
-
-
-extension EditProfailUserViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension AdvEditProfaileVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -266,5 +264,3 @@ extension EditProfailUserViewController: UIPickerViewDelegate, UIPickerViewDataS
     
     
 }
-
-

@@ -491,7 +491,7 @@
         <!--سجل الاستشارات-->
         <scene sceneID="pM9-ke-aSy">
             <objects>
-                <viewController storyboardIdentifier="ConsultHistoryViewController" id="5q0-UI-Pmd" customClass="ConsultHistoryViewController" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdvConsultHistoryVC" id="5q0-UI-Pmd" customClass="AdvConsultHistoryVC" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="urj-1P-vpK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -512,6 +512,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -530,7 +531,11 @@
                         <viewLayoutGuide key="safeArea" id="Xig-U3-yim"/>
                     </view>
                     <navigationItem key="navigationItem" title="سجل الاستشارات" id="qgd-JJ-Bwg">
-                        <barButtonItem key="leftBarButtonItem" image="back-1" id="RZO-cO-E0z"/>
+                        <barButtonItem key="leftBarButtonItem" image="back-1" id="RZO-cO-E0z">
+                            <connections>
+                                <action selector="back:" destination="5q0-UI-Pmd" id="0iA-7G-YTj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Group 124" id="QuN-lu-lFI"/>
                     </navigationItem>
                     <connections>
@@ -544,7 +549,7 @@
         <!--التنبيهات-->
         <scene sceneID="q4w-pA-J5T">
             <objects>
-                <viewController storyboardIdentifier="NotificationsViewController" id="MWB-e4-S1q" customClass="NotificationsViewController" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdvNotificationsVC" id="MWB-e4-S1q" customClass="AdvNotificationsVC" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1RE-9b-AMu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -651,7 +656,7 @@
                         <barButtonItem key="leftBarButtonItem" image="narrow" id="jWy-ms-frA">
                             <color key="tintColor" red="0.33333333329999998" green="0.76862745099999996" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="back:" destination="MWB-e4-S1q" id="KGL-qv-TgN"/>
+                                <action selector="back:" destination="MWB-e4-S1q" id="oju-gF-BeO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="مسح الكل" id="Tpq-08-UVT">
@@ -659,7 +664,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableview" destination="P3y-zb-EHK" id="k7P-Fh-hdw"/>
+                        <outlet property="tableview" destination="P3y-zb-EHK" id="LYz-Da-6FH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcP-cD-udh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,10 +713,10 @@
             </objects>
             <point key="canvasLocation" x="-1343" y="2302"/>
         </scene>
-        <!--Edit Profail User View Controller-->
+        <!--Adv Edit ProfaileVC-->
         <scene sceneID="Wxh-jT-E2s">
             <objects>
-                <viewController storyboardIdentifier="EditProfailUserViewController" id="QIg-hU-0Wg" customClass="EditProfailUserViewController" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdvEditProfaileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QIg-hU-0Wg" customClass="AdvEditProfaileVC" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LAF-by-iBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -14,6 +14,8 @@ class advProfileVC: UIViewController {
     
     var nav :UINavigationController?
     @IBOutlet weak var tableView: UITableView!
+
+
     var profileData:Profile?
     
     override func viewDidLoad() {

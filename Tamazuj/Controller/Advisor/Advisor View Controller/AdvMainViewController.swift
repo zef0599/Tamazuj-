@@ -60,15 +60,15 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
 
         case 1:
-            let vc = stprybord.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
+            let vc = stprybord.instantiateViewController(withIdentifier: "AdvNotificationsVC") as! AdvNotificationsVC
             navigationController?.pushViewController(vc, animated: true)
         case 2:
-            let vc = stprybord.instantiateViewController(withIdentifier: "ConsultHistoryViewController") as! ConsultHistoryViewController
+            let vc = stprybord.instantiateViewController(withIdentifier: "AdvConsultHistoryVC") as! AdvConsultHistoryVC
             //    var navHave:UINavigationController?
-            vc.navHave = self.navigationController
+//            vc.navHave = self.navigationController
             self.navigationController!.pushViewController(vc, animated: true)
         case 4:
-            let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
+            let vc = stprybord.instantiateViewController(withIdentifier: "AdvEditProfaileVC") as! AdvEditProfaileVC
             navigationController?.pushViewController(vc, animated: true)
 
         default:

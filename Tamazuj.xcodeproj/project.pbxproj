@@ -52,6 +52,9 @@
 		8321E7E6235066D400A26725 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E7E5235066D400A26725 /* FavoriteVC.swift */; };
 		8321E7E82350A65F00A26725 /* SubCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8321E7E72350A65F00A26725 /* SubCategoryVC.swift */; };
 		832C3728235B3AA400124703 /* advProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3727235B3AA400124703 /* advProfileVC.swift */; };
+		832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */; };
+		832C3730235B55FD00124703 /* AdvEditProfaileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */; };
+		832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -178,6 +181,9 @@
 		8321E7E5235066D400A26725 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		8321E7E72350A65F00A26725 /* SubCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryVC.swift; sourceTree = "<group>"; };
 		832C3727235B3AA400124703 /* advProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = advProfileVC.swift; sourceTree = "<group>"; };
+		832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvNotificationsVC.swift; sourceTree = "<group>"; };
+		832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvEditProfaileVC.swift; sourceTree = "<group>"; };
+		832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvConsultHistoryVC.swift; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -414,6 +420,9 @@
 			isa = PBXGroup;
 			children = (
 				832C3727235B3AA400124703 /* advProfileVC.swift */,
+				832C3729235B4FAC00124703 /* AdvNotificationsVC.swift */,
+				832C372F235B55FD00124703 /* AdvEditProfaileVC.swift */,
+				832C3731235B56FF00124703 /* AdvConsultHistoryVC.swift */,
 			);
 			path = "Main Controller";
 			sourceTree = "<group>";
@@ -921,6 +930,7 @@
 				83DE5E552355EEC3009F71C0 /* ConsultHistoryViewController.swift in Sources */,
 				83F88B31234C8EF5003C5218 /* UpdatePasswordViewController.swift in Sources */,
 				83F88B52234C9535003C5218 /* UserProfilVC.swift in Sources */,
+				832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */,
 				83F88B46234C9535003C5218 /* ProfileVC.swift in Sources */,
 				836A4727232FA2AC00BD8ACB /* AboutContainerVC.swift in Sources */,
 				83DE5E4D2355E113009F71C0 /* Consultation.swift in Sources */,
@@ -944,8 +954,10 @@
 				363C812323300AF40051F142 /* SliderCollictionTableViewCell.swift in Sources */,
 				83F88B49234C9535003C5218 /* thirdTableViewCell.swift in Sources */,
 				36414F35235535BF00314DFC /* commentAdvisorVC.swift in Sources */,
+				832C3730235B55FD00124703 /* AdvEditProfaileVC.swift in Sources */,
 				83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */,
 				B15D3B6B235890C9003057FC /* ConsultHistoryCell.swift in Sources */,
+				832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */,
 				363729902358D53300A7D513 /* abutelableTableViewCell.swift in Sources */,
 				8392877C2332DE7400BC27E9 /* DKDropMenu.swift in Sources */,
 				837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */,
