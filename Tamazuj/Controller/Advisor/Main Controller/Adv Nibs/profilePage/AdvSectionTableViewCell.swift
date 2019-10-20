@@ -35,6 +35,8 @@ class AdvSectionTableViewCell: UITableViewCell {
         Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
+                print(result.data?.gender)
+
                 self.tableView.reloadData()
             }
         }
@@ -63,7 +65,7 @@ extension AdvSectionTableViewCell: UITableViewDelegate, UITableViewDataSource{
         if let obj = profileData?.data {
             switch indexPath.row {
             case 0 :
-                cell.titleLabel.text = "\(obj.gender ?? "error gender")"
+                cell.titleLabel.text = "\(obj.gender ?? "male Bob")"
             case 1 :
                 cell.titleLabel.text = "\(String(describing: obj.nationality ?? "error nationality"))"
             case 2 :

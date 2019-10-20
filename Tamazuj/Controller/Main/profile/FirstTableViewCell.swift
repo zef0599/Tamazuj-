@@ -12,7 +12,7 @@ protocol GofromNib {
 }
 class FirstTableViewCell: UITableViewCell {
     var nav:UINavigationController?
-    var profileData:Profile?
+    var profileData:AdvProfile?
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -37,7 +37,7 @@ class FirstTableViewCell: UITableViewCell {
 
         let storyboardd = UIStoryboard(name: "Advisor", bundle: nil)
         let vcc = storyboardd.instantiateViewController(withIdentifier: "AdvEditProfaileVC") as! AdvEditProfaileVC
-//        vcc.profileData = self.profileData
+        vcc.profileData = self.profileData
         self.nav?.pushViewController(vcc, animated: true)
 
     }

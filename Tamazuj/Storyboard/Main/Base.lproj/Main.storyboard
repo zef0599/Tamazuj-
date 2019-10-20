@@ -410,7 +410,6 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_bar_img5" selectedImage="tab_bar_imgS5" id="fQN-u5-bTS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qy9-7K-IMk">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -429,7 +428,6 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_bar_img4" selectedImage="tab_bar_imgS4" id="zkb-xa-Cdv"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RXS-eX-5ZV">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -451,7 +449,6 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L8s-Ve-TAF">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -470,7 +467,6 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_bar_img2" selectedImage="tab_bar_imgS2" id="Wlr-sz-PMA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v1C-0H-Eg3">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -489,7 +485,6 @@
                     <tabBarItem key="tabBarItem" title="" image="tab_bar_img_not_selected5" selectedImage="tab_bar_imgS1" id="fZs-5X-9Lx"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bSP-Ae-WZo">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -804,7 +799,9 @@
                             <rect key="frame" x="187.66666666666666" y="22" width="0.0" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="شعار تمازج" translatesAutoresizingMaskIntoConstraints="NO" id="Jrr-Gg-Ypo"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="شعار تمازج" translatesAutoresizingMaskIntoConstraints="NO" id="Jrr-Gg-Ypo">
+                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -834,7 +831,7 @@
             <objects>
                 <viewController storyboardIdentifier="AboutContainerVC" id="Wit-xU-5iR" customClass="AboutContainerVC" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VTR-ms-WVp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvA-ib-bk6">
@@ -1196,7 +1193,6 @@
                 <navigationController storyboardIdentifier="id" automaticallyAdjustsScrollViewInsets="NO" id="wKM-Xg-fqw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xl1-4g-x9X">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1477,7 +1473,7 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Sw5-S6-LE9">
-                                    <rect key="frame" x="0.0" y="378" width="375" height="500"/>
+                                    <rect key="frame" x="0.0" y="184.66666666666663" width="375" height="500"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.94200438259999997" green="0.33108776810000001" blue="0.3424580693" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
@@ -1533,7 +1529,7 @@
             <objects>
                 <viewController storyboardIdentifier="ReviewsContainer" modalPresentationStyle="overCurrentContext" id="syb-HB-9Be" customClass="ReviewsContainer" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1R5-x8-RfQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="728.66666666666663"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-wr-Mgm">
@@ -1889,7 +1885,7 @@
             <objects>
                 <viewController storyboardIdentifier="billsVC" id="tiZ-Tp-pex" customClass="billsVC" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="swe-mD-AXw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CategoriesBackground" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-yd-Dkd">
@@ -2142,7 +2138,7 @@
             <objects>
                 <viewController id="nci-OP-aDD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="os4-Ls-Q51">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CategoriesBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0kR-yA-AQ0">
@@ -2293,7 +2289,6 @@
                 <navigationController storyboardIdentifier="billNav" automaticallyAdjustsScrollViewInsets="NO" id="m5p-jZ-zEf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="qdN-tA-HgB">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2311,7 +2306,6 @@
                 <navigationController storyboardIdentifier="nav3" automaticallyAdjustsScrollViewInsets="NO" id="Cxm-iS-klE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="khg-Ks-M3T">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2606,7 +2600,7 @@
             <objects>
                 <viewController id="LvK-kj-UCi" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vDU-Pd-kCS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3c-QK-2Tq">
@@ -3562,7 +3556,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QQM-B4-c5Z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KIv-ws-P0I">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3637,7 +3630,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IeZ-dh-k1K" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fzG-wn-fco">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -3697,7 +3689,7 @@
             <objects>
                 <viewController storyboardIdentifier="EditProfailUserViewController" id="SQD-b5-Nhc" customClass="EditProfailUserViewController" customModule="Tamazuj" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JN6-qb-CVY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CategoriesBackground" translatesAutoresizingMaskIntoConstraints="NO" id="693-TM-oyj">
