@@ -89,6 +89,37 @@ extension Operation {
     
 
 
+    // MARK: - Advprofile
+    // Authorization,lang
+    class func changStatus(lineStatus:Int, Authorization:String, lang:String,completion:@escaping (_ error:Error?,_ result:status?)->Void){
+        let header = [
+            "Authorization": Authorization,
+            "lang":"ar"]
+        
+        let parameter : Parameters = ["account_status": 0]
 
+        Alamofire.request(URLs.changeStats, method: .post, parameters: parameter, encoding: URLEncoding.default, headers: header)
+            .responseJSON { (response) in
+                switch response.result
+                {
+                case .success(let value):
+                    do{
+                        let data = try JSONDecoder().decode(status.self, from: response.data!)
+                        print(data.message ?? "err")
+                        print(data.status_account ?? "err status_account")
+                        completion(nil,data)
+                        
+                    }catch{
+                        print(error)
+                        print("that's the error up profile")
+                        completion(error,nil)
+                        
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(error,nil)
+                }
+        }
+    }
     
 }

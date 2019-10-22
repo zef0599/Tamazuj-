@@ -41,18 +41,25 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
 
         self.viewControllers?[2].tabBarItem.image = #imageLiteral(resourceName: "online").withRenderingMode(.alwaysOriginal)
         self.delegate = self
-        
-        
         menuButton.addTarget(self, action: #selector(buttonHandler), for: UIControl.Event.touchUpInside)
+        // get the date for online and offline
     }
     @objc func buttonHandler() {
         if self.number == 1 {
             print("tabed 2 2 2 ")
+            Operation.changStatus(lineStatus: 0, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJhNDZmOGE1ODkxNWY5ZWMxMDU5NTZkMjFlNGY3MTQxMjY2ZWFjZjYyOGJlNDA0NjhlYmEyMDM2MDgyZjkxMzMzMmM1ZjhhNGFiM2YzNGFmIn0.eyJhdWQiOiIxIiwianRpIjoiMmE0NmY4YTU4OTE1ZjllYzEwNTk1NmQyMWU0ZjcxNDEyNjZlYWNmNjI4YmU0MDQ2OGViYTIwMzYwODJmOTEzMzMyYzVmOGE0YWIzZjM0YWYiLCJpYXQiOjE1NzE0ODQ1ODYsIm5iZiI6MTU3MTQ4NDU4NiwiZXhwIjoxNjAzMTA2OTg2LCJzdWIiOiIyOCIsInNjb3BlcyI6W119.DWLQpVz9_9ODb91NotGr1M1ykSAMAS9W-ZpBlWQMclMwuXOm9Zrtw1um9z_TyrLvfrqSV-S_54iwVLHC9IGFoaiQnJg0teRVw35Wh8jAE0DYhcgNpnrWU5m9C9GHCF8BgW0mFgsdJXvf_HegMzJe0ehZDeZ9hITk34Vlbl4QE8yRoXhvZnGPF4pv3t3TAb776SGGrAqZAdgfqDkoEHZqf3Itd-16LG8Qw_Nl-WD6kvnkkewugfUYvg31e8EiC3Jhqca82eqcMPEDVV_i4sjss9okWI8Sg2dV-wsCVt3ie0E2wXi6scl4i5XjPAn0xfOqPrzlngb-0zoHc7kIeGQhxHzSfcbUIuOAcY8XevQhbr3aV_omnjW3bNYewiNW8vuzFc8TbIDdGqWkZK0U0zIFsCxby5m-4-k2GTqxxDb_GPXvdYiFRgCH0u0ZcboVZXmuWNvTTxhT8LlB3UzYJxCgIcwzjM396Wzuaq9_qdlh6AHFMMrXRy8U9jZMcorWZmLcpwUYB272zXnoyNB5eOxCSijj0FLDheh_orz13yRyTcUoXHXXzNsvXKfVkfccxSESGY_kINU6M-2beQZDql0FrRiqTDfqs-CsIbmJV4L6FD3S3vtOTL6Xvd8n4GYaYSo42ukovYPGeAIT4x8gGmcYL7A8xu8eP5JjK73tg2hjjB4", lang: "ar") { (err, result) in
+                print(result?.status_account)
+                
+            }
             self.viewControllers?[2].tabBarItem.image = #imageLiteral(resourceName: "notonline").withRenderingMode(.alwaysOriginal)
             self.number = 0
         }else{
+            Operation.changStatus(lineStatus: 1, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJhNDZmOGE1ODkxNWY5ZWMxMDU5NTZkMjFlNGY3MTQxMjY2ZWFjZjYyOGJlNDA0NjhlYmEyMDM2MDgyZjkxMzMzMmM1ZjhhNGFiM2YzNGFmIn0.eyJhdWQiOiIxIiwianRpIjoiMmE0NmY4YTU4OTE1ZjllYzEwNTk1NmQyMWU0ZjcxNDEyNjZlYWNmNjI4YmU0MDQ2OGViYTIwMzYwODJmOTEzMzMyYzVmOGE0YWIzZjM0YWYiLCJpYXQiOjE1NzE0ODQ1ODYsIm5iZiI6MTU3MTQ4NDU4NiwiZXhwIjoxNjAzMTA2OTg2LCJzdWIiOiIyOCIsInNjb3BlcyI6W119.DWLQpVz9_9ODb91NotGr1M1ykSAMAS9W-ZpBlWQMclMwuXOm9Zrtw1um9z_TyrLvfrqSV-S_54iwVLHC9IGFoaiQnJg0teRVw35Wh8jAE0DYhcgNpnrWU5m9C9GHCF8BgW0mFgsdJXvf_HegMzJe0ehZDeZ9hITk34Vlbl4QE8yRoXhvZnGPF4pv3t3TAb776SGGrAqZAdgfqDkoEHZqf3Itd-16LG8Qw_Nl-WD6kvnkkewugfUYvg31e8EiC3Jhqca82eqcMPEDVV_i4sjss9okWI8Sg2dV-wsCVt3ie0E2wXi6scl4i5XjPAn0xfOqPrzlngb-0zoHc7kIeGQhxHzSfcbUIuOAcY8XevQhbr3aV_omnjW3bNYewiNW8vuzFc8TbIDdGqWkZK0U0zIFsCxby5m-4-k2GTqxxDb_GPXvdYiFRgCH0u0ZcboVZXmuWNvTTxhT8LlB3UzYJxCgIcwzjM396Wzuaq9_qdlh6AHFMMrXRy8U9jZMcorWZmLcpwUYB272zXnoyNB5eOxCSijj0FLDheh_orz13yRyTcUoXHXXzNsvXKfVkfccxSESGY_kINU6M-2beQZDql0FrRiqTDfqs-CsIbmJV4L6FD3S3vtOTL6Xvd8n4GYaYSo42ukovYPGeAIT4x8gGmcYL7A8xu8eP5JjK73tg2hjjB4", lang: "ar") { (err, result) in
+                print(result?.status_account)
+            }
             self.viewControllers?[2].tabBarItem.image = #imageLiteral(resourceName: "connect_icon").withRenderingMode(.alwaysOriginal)
             self.number = 1
+            
         }
     }
 

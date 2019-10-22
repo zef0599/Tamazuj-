@@ -38,7 +38,7 @@ class UpdatePasswordViewController: UIViewController {
                     
             }
             
-            Operation.updatePasswored(lang: "ar", Authorization: "Bearer \(helper.getApiToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
+            Operation.updatePasswored(lang: "ar", Authorization: "Bearer \(helper.getUserToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
                 if suc?.status != "0" {
                     
                     let massage = suc?.message

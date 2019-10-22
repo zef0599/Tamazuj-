@@ -58,7 +58,7 @@ class EditProfailUserViewController: UIViewController {
         }
         
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.hideHUD()
@@ -157,16 +157,29 @@ class EditProfailUserViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+//        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController {
+            Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
+                if let result = result {
+                    self.profileData = result
+                    let storu = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storu.instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+//                    vc.tableView.reloadData()
+                    self.hideHUD()
+                    
+                }
+            }
+
+        }
     }
     
     @IBAction func submetButton(_ sender: Any) {
         self.showIndeterminateHUD()
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
         
         if self.nameTextfield.text != nil{
             
-            Operation.changeProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "T##String", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: 1, work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
+            Operation.changeProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "T##String", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: 1, work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
                 if let result = result {
                     self.profileData = result
                     self.hideHUD()

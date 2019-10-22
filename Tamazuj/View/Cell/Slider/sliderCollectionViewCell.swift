@@ -35,13 +35,14 @@ class sliderCollectionViewCell: UICollectionViewCell {
     
     }
     
+    
 //    @IBAction func go(_ sender: Any) {
 //
 //        let stprybord = UIStoryboard(name: "Main", bundle: nil)
 //        let vc = stprybord.instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! UIViewController
 //        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
 //    }
-    
+//
 }
 //extension UICollectionViewCell {
 //    func showAdvisorDetailsVC() {

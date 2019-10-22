@@ -61,25 +61,6 @@ extension CounselingTableViewCell: UICollectionViewDelegate,UICollectionViewData
     }
     
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // if is supCategory do that(go to CategoriesDetailsVC)
-//    if !categorydata[indexPath.item].sup_category!.isEmpty{
-//        let stprybord = UIStoryboard(name: "Main", bundle: nil)
-//        let object = self.categorydata[indexPath.row]
-//        let vc = stprybord.instantiateViewController(withIdentifier: "CategoriesDetailsVC") as! CategoriesDetailsVC
-//        vc.DataConsultant = object.consultant!
-//        self.nav?.pushViewController(vc, animated: true)
-////        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-//
-//    }else{
-//        let stprybord = UIStoryboard(name: "Main", bundle: nil)
-//        let object = self.categorydata[indexPath.row]
-//        let vc = stprybord.instantiateViewController(withIdentifier: "SubCategoryVC") as! SubCategoryVC
-//        vc.supCategoryData = object.sup_category!
-//        vc.indexpathCategory = indexPath.item
-//        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-//
-//        print("thire is sup category here ")
-//    }
     if categorydata[indexPath.item].sup_category!.isEmpty{
         let object = self.categorydata[indexPath.row]
         let stprybord = UIStoryboard(name: "Main", bundle: nil)

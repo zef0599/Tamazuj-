@@ -93,10 +93,19 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
         cell.reating.text = "\(object.rating ?? 0) %"
         cell.descriptioN.text =  object.biography ?? "لم يقم المستشار باضافة التفاصيل "
         self.collectionView.tag = indexPath.row
-        
+        cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
+
         
         return cell
     }
+    // show the pop in nav by the nib buttom
+    @objc func Askadviceactione (){
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
+        
+        self.nav?.present(vc, animated: true, completion: nil)
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
 //        let o : CGSize = CGSize(width: 0.9, height: 0.9)

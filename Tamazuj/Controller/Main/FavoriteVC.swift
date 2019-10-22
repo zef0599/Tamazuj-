@@ -57,5 +57,14 @@ extension FavoriteVC:UICollectionViewDataSource,UICollectionViewDelegate,UIColle
         let width = (self.view.bounds.width - 106 )/3
         return CGSize(width: width, height: 183)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let stprybord = UIStoryboard(name: "Main", bundle: nil)
+        let vc = stprybord.instantiateViewController(withIdentifier: "abuteConsltentViewController") as! abuteConsltentViewController
+        let object = self.bestConsultantdata[indexPath.row]
+        vc.id = object.id!
+        self.navigationController!.pushViewController(vc, animated: true)
+    }
+    
+
     
 }

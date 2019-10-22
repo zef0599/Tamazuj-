@@ -14,7 +14,7 @@ import Alamofire
 class oprition {
     class func singleconsultants(id : Int,handler : @escaping ( _ error : Error?, _ ruselt : Singleconsultants<Alldata>?)-> Void){
         let headers : HTTPHeaders = [
-            "Authorization": "Bearer \(helper.getApiToken()!)",
+            "Authorization": "Bearer \(helper.getUserToken()!)",
             "lang":"ar"
         ]
         Alamofire.request("http://salahalimohamed.website/tmajog/api/v1/consultants/\(id)", method: .post, parameters: nil, headers: headers)

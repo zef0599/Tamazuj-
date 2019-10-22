@@ -30,7 +30,7 @@ class ConsultHistoryViewController: UIViewController {
         tableView.estimatedRowHeight = 300
         
         
-        Operation.getconsultation(Authorization: "Bearer \(helper.getApiToken()!)", lang: "ar") { (ruselt, error) in
+        Operation.getconsultation(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (ruselt, error) in
             if let ruselt = ruselt{
                 
                 //                print(ruselt)

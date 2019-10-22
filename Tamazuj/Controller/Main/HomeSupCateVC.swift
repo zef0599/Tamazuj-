@@ -11,6 +11,8 @@ import Kingfisher
 class HomeSupCateVC: UIViewController {
     var categorydata : [Category] = []
     var indexpathCategory:Int?
+    var supCategoryData:[sup_category] = []
+    var consaltantData:[data]?
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -42,11 +44,18 @@ extension HomeSupCateVC: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
                 let stprybord = UIStoryboard(name: "Main", bundle: nil)
-                let object = self.categorydata[indexPath.row]
+        let object = self.categorydata[indexpathCategory!].sup_category![indexPath.row]
                 let vc = stprybord.instantiateViewController(withIdentifier: "CategoriesDetailsVC") as! CategoriesDetailsVC
-                vc.DataConsultant = object.consultant!
+        
+//            vc.consaltantData = consData
+//            vc.categorydata = self.categorydata
+//            vc.iCat = self.indexpathCategory ?? 1
+//            vc.iSup = 100
+            vc.DataConsultant = object.consultant!
+
         vc.navTitle = self.categorydata[indexpathCategory!].sup_category![indexPath.row].name_ar
                 self.navigationController?.pushViewController(vc, animated: true)
+        
 
     }
     

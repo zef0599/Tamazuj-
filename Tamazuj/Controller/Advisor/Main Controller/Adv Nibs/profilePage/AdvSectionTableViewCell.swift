@@ -32,7 +32,7 @@ class AdvSectionTableViewCell: UITableViewCell {
         viewForShadow.shadowOffset = CGSize(width: 0, height: 1)
         viewForShadow.shadowOpacity = 9
         viewForShadow.shadowRadius = 16
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 print(result.data?.gender)

@@ -35,7 +35,7 @@ class SectionTableViewCell: UITableViewCell {
         viewForShadow.shadowOffset = CGSize(width: 0, height: 1)
         viewForShadow.shadowOpacity = 9
         viewForShadow.shadowRadius = 16
-        Operation.getProfile (Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile (Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -67,7 +67,11 @@ extension SectionTableViewCell: UITableViewDelegate, UITableViewDataSource{
             case 0 :
                 cell.titleLabel.text = "\(obj.gender ?? "error gender")"
             case 1 :
-                cell.titleLabel.text = "\(String(describing: obj.nationality ?? "error nationality"))"
+                cell.titleLabel.text = obj.nationality
+//                "\(String(describing: obj.nationality ?? "error nationality"))"
+                print(obj.nationality)
+
+                print("sn\n\n\n")
             case 2 :
                 cell.titleLabel.text = "\(obj.date_of_birth ?? "error date_of_birth")"
             case 3 :

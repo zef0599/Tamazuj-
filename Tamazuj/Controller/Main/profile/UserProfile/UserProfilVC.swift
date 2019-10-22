@@ -21,7 +21,7 @@ class UserProfilVC: UIViewController {
         tableView.registerCellNib(cellClass: FirstTableViewCell.self)
         tableView.registerCellNib(cellClass: UserSectionTableViewCell.self)
 
-        Operation.getProfile(Authorization:"Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile(Authorization:"Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()

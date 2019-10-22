@@ -58,7 +58,7 @@ class AdvEditProfaileVC: UIViewController {
             countries.append(name)
         }
         self.showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "ar") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.hideHUD()
@@ -75,7 +75,7 @@ class AdvEditProfaileVC: UIViewController {
                 self.jobTextField.text = self.profileData?.data?.current_job
                 self.relationTextField.text = result.data?.social_status
                 print(result)
-                print("Bearer \(helper.getApiToken()!)")
+             //   print("Bearer \(helper.getAdvisorToken()!)")
                 
             }
         }
@@ -177,7 +177,7 @@ class AdvEditProfaileVC: UIViewController {
         self.showIndeterminateHUD()
         if self.nameTextfield.text != nil{
             
-            Operation.AdvEditeProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "ar", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: self.nationalityTextField.text ?? "" , work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
+            Operation.AdvEditeProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: self.nationalityTextField.text ?? "" , work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
                 if let result = result {
                     self.profileData = result
                     self.hideHUD()

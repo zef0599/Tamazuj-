@@ -79,7 +79,12 @@
 		836130A0232E945E008389DE /* cateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361309F232E945E008389DE /* cateTableViewCell.swift */; };
 		836A4725232F89B400BD8ACB /* AboutAdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A4724232F89B400BD8ACB /* AboutAdvisorVC.swift */; };
 		836A4727232FA2AC00BD8ACB /* AboutContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A4726232FA2AC00BD8ACB /* AboutContainerVC.swift */; };
-		836CDCED2358F3DB00AFF0F0 /* ConsultationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836CDCEC2358F3DA00AFF0F0 /* ConsultationVC.swift */; };
+		837BCB7D235BEB1B006A4488 /* status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCB7C235BEB1B006A4488 /* status.swift */; };
+		837BCBB7235CFB0C006A4488 /* adv_operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBB6235CFB0B006A4488 /* adv_operation.swift */; };
+		837BCBB9235CFE1F006A4488 /* logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBB8235CFE1F006A4488 /* logout.swift */; };
+		837BCBBB235DE642006A4488 /* ConsultationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBBA235DE642006A4488 /* ConsultationVC.swift */; };
+		837BCBBE235DE938006A4488 /* ConsultHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */; };
+		837BCBBF235DE938006A4488 /* ConsultHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */; };
 		837C8DA62330E33400869CDB /* ConsultHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DA52330E33400869CDB /* ConsultHistoryVC.swift */; };
 		837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DA72330E65900869CDB /* ReviewsContainer.swift */; };
 		837C8DB62330EABF00869CDB /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DB42330EABE00869CDB /* NotificationsViewController.swift */; };
@@ -138,7 +143,6 @@
 		B11CBB6E23429A6B005B7420 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CBB6C23429A6A005B7420 /* UIViewController+HUD.swift */; };
 		B11CBB6F23429A6B005B7420 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CBB6D23429A6B005B7420 /* helper.swift */; };
 		B15D3B63235858D6003057FC /* ActivatCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D3B62235858D6003057FC /* ActivatCodeViewController.swift */; };
-		B15D3B6B235890C9003057FC /* ConsultHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D3B6523588F2B003057FC /* ConsultHistoryCell.swift */; };
 		B15D3B7423589563003057FC /* AdProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15D3B7323589563003057FC /* AdProfileViewController.swift */; };
 		B17909C5234249A1006B7E7A /* API_Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909C4234249A1006B7E7A /* API_Operation.swift */; };
 		B17909C723424A52006B7E7A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909C623424A52006B7E7A /* Constant.swift */; };
@@ -222,7 +226,12 @@
 		8361309F232E945E008389DE /* cateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cateTableViewCell.swift; sourceTree = "<group>"; };
 		836A4724232F89B400BD8ACB /* AboutAdvisorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdvisorVC.swift; sourceTree = "<group>"; };
 		836A4726232FA2AC00BD8ACB /* AboutContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContainerVC.swift; sourceTree = "<group>"; };
-		836CDCEC2358F3DA00AFF0F0 /* ConsultationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsultationVC.swift; path = ../../../../ConsultationVC.swift; sourceTree = "<group>"; };
+		837BCB7C235BEB1B006A4488 /* status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = status.swift; sourceTree = "<group>"; };
+		837BCBB6235CFB0B006A4488 /* adv_operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adv_operation.swift; sourceTree = "<group>"; };
+		837BCBB8235CFE1F006A4488 /* logout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logout.swift; sourceTree = "<group>"; };
+		837BCBBA235DE642006A4488 /* ConsultationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultationVC.swift; sourceTree = "<group>"; };
+		837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultHistoryCell.swift; sourceTree = "<group>"; };
+		837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsultHistoryCell.xib; sourceTree = "<group>"; };
 		837C8DA52330E33400869CDB /* ConsultHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultHistoryVC.swift; sourceTree = "<group>"; };
 		837C8DA72330E65900869CDB /* ReviewsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsContainer.swift; sourceTree = "<group>"; };
 		837C8DB42330EABE00869CDB /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -282,8 +291,6 @@
 		B11CBB6C23429A6A005B7420 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		B11CBB6D23429A6B005B7420 /* helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		B15D3B62235858D6003057FC /* ActivatCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivatCodeViewController.swift; path = Tamazuj/Controller/Account/User/ActivatCodeViewController.swift; sourceTree = SOURCE_ROOT; };
-		B15D3B6523588F2B003057FC /* ConsultHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConsultHistoryCell.swift; path = ConsultHistory/ConsultHistoryCell.swift; sourceTree = "<group>"; };
-		B15D3B6623588F2B003057FC /* ConsultHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ConsultHistoryCell.xib; path = ConsultHistory/ConsultHistoryCell.xib; sourceTree = "<group>"; };
 		B15D3B7323589563003057FC /* AdProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdProfileViewController.swift; path = Tamazuj/Controller/Advisor/AdProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		B17909C4234249A1006B7E7A /* API_Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_Operation.swift; sourceTree = "<group>"; };
 		B17909C623424A52006B7E7A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -494,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				832C3751235BC37300124703 /* AdvProfile.swift */,
+				837BCB7C235BEB1B006A4488 /* status.swift */,
 			);
 			path = advisorObject;
 			sourceTree = "<group>";
@@ -505,6 +513,14 @@
 				83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */,
 			);
 			path = "Consultation nib";
+			sourceTree = "<group>";
+		};
+		837BCBB5235CFB0B006A4488 /* Api Advi */ = {
+			isa = PBXGroup;
+			children = (
+				837BCBB6235CFB0B006A4488 /* adv_operation.swift */,
+			);
+			path = "Api Advi";
 			sourceTree = "<group>";
 		};
 		837C8DB32330EAAB00869CDB /* Notefication */ = {
@@ -586,7 +602,7 @@
 				837C8DE523322A8C00869CDB /* billsVC.swift */,
 				8321E7E5235066D400A26725 /* FavoriteVC.swift */,
 				8321E7E72350A65F00A26725 /* SubCategoryVC.swift */,
-				836CDCEC2358F3DA00AFF0F0 /* ConsultationVC.swift */,
+				837BCBBA235DE642006A4488 /* ConsultationVC.swift */,
 				83DE5E6023574379009F71C0 /* HomeSupCateVC.swift */,
 			);
 			path = Main;
@@ -687,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				B17909C623424A52006B7E7A /* Constant.swift */,
+				837BCBB5235CFB0B006A4488 /* Api Advi */,
 				B15D3B6D23589168003057FC /* API */,
 			);
 			path = Model;
@@ -697,6 +714,7 @@
 			children = (
 				832C3750235B975F00124703 /* advisorObject */,
 				363729862358D07E00A7D513 /* SingleConsultantS.swift */,
+				837BCBB8235CFE1F006A4488 /* logout.swift */,
 				83DE5E4C2355E113009F71C0 /* Consultation.swift */,
 				83F88B34234C93DA003C5218 /* Consaltant.swift */,
 				3645A9372344A9A6007EAF7C /* Category.swift */,
@@ -722,12 +740,12 @@
 		B13094792341F6E700C50B16 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B15D3B6523588F2B003057FC /* ConsultHistoryCell.swift */,
-				B15D3B6623588F2B003057FC /* ConsultHistoryCell.xib */,
 				13FB8776232292B800A8CA25 /* Cell */,
 				8361309B232E58FF008389DE /* MenuTableViewCell.swift */,
 				8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */,
 				8361309F232E945E008389DE /* cateTableViewCell.swift */,
+				837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */,
+				837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -918,6 +936,7 @@
 				363729962358D75900A7D513 /* AdvisorCell.xib in Resources */,
 				837C8DC32330F5D000869CDB /* CategoriesCollectionViewCell.xib in Resources */,
 				363C812823300C800051F142 /* sliderCollectionViewCell.xib in Resources */,
+				837BCBBF235DE938006A4488 /* ConsultHistoryCell.xib in Resources */,
 				83F88B4A234C9535003C5218 /* SectionTableViewCell.xib in Resources */,
 				832C373F235B8AD000124703 /* AdvFirstTableViewCell.xib in Resources */,
 				837C8DF9233252F300869CDB /* paymenCollectionCell.xib in Resources */,
@@ -985,17 +1004,19 @@
 				832C3728235B3AA400124703 /* advProfileVC.swift in Sources */,
 				832C3737235B5DF800124703 /* AdvConsHistoryCell.swift in Sources */,
 				83F88B35234C93DB003C5218 /* Consaltant.swift in Sources */,
-				836CDCED2358F3DB00AFF0F0 /* ConsultationVC.swift in Sources */,
 				3645A9382344A9A6007EAF7C /* Category.swift in Sources */,
 				8361309E232E9147008389DE /* categorySelectionVC.swift in Sources */,
 				13FC82602321293F00D8C7A8 /* MainViewController.swift in Sources */,
 				B11C366C2357AC510013B7FD /* Consultant.swift in Sources */,
 				36902E39234499440090013C /* homeModel.swift in Sources */,
+				837BCBB9235CFE1F006A4488 /* logout.swift in Sources */,
+				837BCB7D235BEB1B006A4488 /* status.swift in Sources */,
 				837C8DB62330EABF00869CDB /* NotificationsViewController.swift in Sources */,
 				36316021233444A400115FE1 /* AdvMainViewController.swift in Sources */,
 				837C8DF4233240C900869CDB /* searchCell.swift in Sources */,
 				B15D3B63235858D6003057FC /* ActivatCodeViewController.swift in Sources */,
 				83F88B33234C934D003C5218 /* Profile.swift in Sources */,
+				837BCBB7235CFB0C006A4488 /* adv_operation.swift in Sources */,
 				832C373E235B8AD000124703 /* AdvFirstTableViewCell.swift in Sources */,
 				83F88B4E234C9535003C5218 /* SecondTableViewCell.swift in Sources */,
 				83F88B51234C9535003C5218 /* UserSectionTableViewCell.swift in Sources */,
@@ -1040,7 +1061,6 @@
 				36414F35235535BF00314DFC /* commentAdvisorVC.swift in Sources */,
 				832C3730235B55FD00124703 /* AdvEditProfaileVC.swift in Sources */,
 				83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */,
-				B15D3B6B235890C9003057FC /* ConsultHistoryCell.swift in Sources */,
 				832C373A235B670900124703 /* AdvisorAPI.swift in Sources */,
 				832C3732235B56FF00124703 /* AdvConsultHistoryVC.swift in Sources */,
 				363729902358D53300A7D513 /* abutelableTableViewCell.swift in Sources */,
@@ -1048,6 +1068,7 @@
 				837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */,
 				3637298F2358D53300A7D513 /* dataNillTableViewCell.swift in Sources */,
 				8321E7E82350A65F00A26725 /* SubCategoryVC.swift in Sources */,
+				837BCBBE235DE938006A4488 /* ConsultHistoryCell.swift in Sources */,
 				832C374E235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift in Sources */,
 				837C8DEA2332323900869CDB /* filterVC.swift in Sources */,
 				83F88B53234C9535003C5218 /* SectionTableViewCell.swift in Sources */,
@@ -1067,6 +1088,7 @@
 				837C8DE32332224400869CDB /* PaymentPopupVC.swift in Sources */,
 				13FC825E2321293F00D8C7A8 /* AppDelegate.swift in Sources */,
 				837C8E0123328C0D00869CDB /* AdvisorTableCell.swift in Sources */,
+				837BCBBB235DE642006A4488 /* ConsultationVC.swift in Sources */,
 				837C8DF123323D0B00869CDB /* WindowManger.swift in Sources */,
 				B15D3B7423589563003057FC /* AdProfileViewController.swift in Sources */,
 				832C3752235BC37300124703 /* AdvProfile.swift in Sources */,

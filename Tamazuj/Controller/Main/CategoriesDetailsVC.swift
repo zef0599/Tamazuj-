@@ -11,9 +11,8 @@ import Kingfisher
 
 class CategoriesDetailsVC: UIViewController {
     
-    var DataConsultant : [Category.Consultant] = []
+    var DataConsultant : [Category.Consultant]?
     var navTitle:String?
-    
     
     @IBOutlet var nav: UINavigationItem!
     @IBOutlet weak var navToMyConsaltion: UIBarButtonItem!
@@ -21,12 +20,16 @@ class CategoriesDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nav.title = navTitle
+
         self.navigationItem.title = navTitle
         
         collectionView.register(UINib(nibName: "sliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sliderCollectionViewCell")
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,13 +52,17 @@ class CategoriesDetailsVC: UIViewController {
 
 extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DataConsultant.count
+        if DataConsultant?.count == nil {
+            return 0
+        }else{
+            return DataConsultant!.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
-        let object = DataConsultant[indexPath.row]
-
+        let object = DataConsultant![indexPath.row]
+        cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
         cell.imageView.kf.setImage(with: URL(string: object.photo!))
         cell.titel.text = object.name ?? "name Error"//object.name!
         cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
@@ -63,6 +70,13 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         return cell
         
     }
+    @objc func Askadviceactione (){
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
+        
+        self.navigationController!.present(vc, animated: true, completion: nil)
+        
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
@@ -71,8 +85,10 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
     }
    
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // consaltant page
-    }
-    
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let stprybord = UIStoryboard(name: "Main", bundle: nil)
+            let vc = stprybord.instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
+            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+        }
+
 }

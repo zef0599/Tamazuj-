@@ -67,7 +67,7 @@ class MainViewController: UIViewController {
     func LoadDataHome() {
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.removeFromSuperViewOnHide = true
-        HomeData.home(lang: "ar", Authorization:"Bearer \(helper.getApiToken()!)" ) {[weak self, weak hud] (error, result) in
+        HomeData.home(lang: "ar", Authorization:"Bearer \(helper.getUserToken()!)" ) {[weak self, weak hud] (error, result) in
             
             guard let result = result else {
                 hud?.mode = .text

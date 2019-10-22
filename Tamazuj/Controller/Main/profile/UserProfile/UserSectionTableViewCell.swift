@@ -31,7 +31,7 @@ class UserSectionTableViewCell: UITableViewCell {
         viewForShadow.shadowOffset = CGSize(width: 0, height: 1)
         viewForShadow.shadowOpacity = 9
         viewForShadow.shadowRadius = 16
-        Operation.getProfile (Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile (Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()

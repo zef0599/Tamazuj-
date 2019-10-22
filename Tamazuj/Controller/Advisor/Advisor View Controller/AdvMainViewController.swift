@@ -15,14 +15,14 @@ class AdvMainViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileEmail: UILabel!
-    fileprivate var txtMenu = ["حسابي", "التنبيهات", "سجل استشاراتي", "عن التطبيق", "الاعدادات"]
-    fileprivate var imgMenu = ["menu_img_1", "menu_img_2", "menu_img_3", "menu_img_4", "menu_img_5"]
-    
+    fileprivate var txtMenu = ["حسابي", "التنبيهات", "سجل استشاراتي", "عن التطبيق", "الاعدادات","تسجيل الخروج"]
+    fileprivate var imgMenu = ["menu_img_1", "menu_img_2", "menu_img_3", "menu_img_4", "menu_img_5","logout"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -38,7 +38,7 @@ class AdvMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -77,8 +77,12 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
 
         case 1:
-            let vc = stprybord.instantiateViewController(withIdentifier: "AdvNotificationsVC") as! AdvNotificationsVC
-            navigationController?.pushViewController(vc, animated: true)
+//            let vc = stprybord.instantiateViewController(withIdentifier: "AdvNotificationsVC") as! AdvNotificationsVC
+//            navigationController?.pushViewController(vc, animated: true)
+            let de = UIApplication.shared.delegate as! AppDelegate
+            if let tabBarController = de.window?.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = 1
+            }
         case 2:
             let vc = stprybord.instantiateViewController(withIdentifier: "AdvConsultHistoryVC") as! AdvConsultHistoryVC
             //    var navHave:UINavigationController?
@@ -87,7 +91,22 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
         case 4:
             let vc = stprybord.instantiateViewController(withIdentifier: "AdvEditProfaileVC") as! AdvEditProfaileVC
             navigationController?.pushViewController(vc, animated: true)
-
+        case 5:
+            Operation.logout(Authorization: "Bearer \(helper.getAdvisorToken()!)") { (error, logout) in
+                if let logout = logout {
+                    
+                    let status = logout.status
+                    if status != 0 {
+                        let mass = logout.message
+                        print(mass)
+                        helper.deletApiToken()
+                        WindowManger.show(.account, animated: true)
+                        
+                        
+                    }
+                    
+                }}
+            break
         default:
             break
         }

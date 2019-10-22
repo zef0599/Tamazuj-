@@ -58,7 +58,7 @@ class Operation {
                         print(token)
                         
                         if token != nil {
-                            helper.saveApiToken(token: token!)
+                          helper.saveUserToken(token: token!)
                         }
                         let state = data.status
                         
@@ -244,7 +244,7 @@ class Operation {
                     
     class func getConsaltants(completion:@escaping (_ error:Error?,_ result:Consaltant?)->Void){
         let header = [
-            "Authorization": "Bearer \(helper.getApiToken()!)",
+            "Authorization": "Bearer \(helper.getUserToken()!)",
             "lang":"ar"]
         Alamofire.request(URLs.Consaltant, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
             switch response.result
@@ -273,7 +273,7 @@ class Operation {
     
     class func getconsultation(Authorization:String, lang:String,completion:@escaping ( ConsultationRequset? , _ error:Error?)->Void){
         let header : HTTPHeaders = [
-            "Authorization" : "Bearer \(helper.getApiToken()!)",
+            "Authorization" : "Bearer \(helper.getUserToken()!)",
             //            "lang":"ar",
             //            "Content-Type":"application/x-www-form-urlencoded"
         ]
@@ -302,6 +302,36 @@ class Operation {
                 
         }
     }
+    
+    //MARK: logout
+    
+    class func logout(Authorization:String,completion:@escaping (_ error:Error?,_ result:logOut?)->Void){
+        let header = [
+            "Authorization": Authorization]
+        Alamofire.request(API.logout, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header)
+            .responseJSON { (response) in
+                switch response.result
+                {
+                case .success(let value):
+                    do{
+                        
+                        let data = try JSONDecoder().decode(logOut.self, from: response.data!)
+                        
+                        completion(nil,data)
+                        
+                    }catch{
+                        print(error)
+                        
+                        completion(error,nil)
+                        
+                    }
+                case .failure(let error):
+                    print(error)
+                    completion(error,nil)
+                }
+        }
+    }
+    
     
 
 

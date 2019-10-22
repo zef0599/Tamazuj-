@@ -41,7 +41,7 @@ class ProfileVC: UIViewController {
         tableView.registerCellNib(cellClass: SectionTableViewCell.self)
         tableView.registerCellNib(cellClass: SectionTwoTableViewCell.self)
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -121,7 +121,7 @@ extension ProfileVC:UITableViewDelegate, UITableViewDataSource {
         }else if indexPath.section == 2 {
             return 417
         }else if indexPath.section == 3 {
-            return 215
+            return 0
         }else{
             return 0
         }
@@ -187,3 +187,30 @@ extension UITableViewCell {
         }
     }
 }
+
+
+// copmlition handeler to pop
+extension UINavigationController {
+    
+    func pushViewController(_ viewController: UIViewController, animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        pushViewController(viewController, animated: animated)
+        CATransaction.commit()
+    }
+    
+    func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        popViewController(animated: animated)
+        CATransaction.commit()
+    }
+    
+    func popToRootViewController(animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        popToRootViewController(animated: animated)
+        CATransaction.commit()
+    }
+}
+

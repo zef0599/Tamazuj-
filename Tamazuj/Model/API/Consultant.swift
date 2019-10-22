@@ -34,7 +34,7 @@ class ConsultantAth {
                         print(token)
                         
                         if token != nil {
-                            helper.saveApiToken(token: token!)
+                            helper.saveAdvisoerToken(token: token!)
                         }
                         let state = data.status
                         

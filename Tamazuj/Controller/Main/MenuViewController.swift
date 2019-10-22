@@ -9,14 +9,32 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    
+    var Data:Profile?
+    @IBOutlet weak var uesrEmail: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userImge: UIImageView!
+
     @IBOutlet weak var tableView: UITableView!
-    fileprivate var txtMenu = ["حسابي", "التنبيهات", "سجل استشاراتي", "عن التطبيق", "الاعدادات"]
-    fileprivate var imgMenu = ["menu_img_1", "menu_img_2", "menu_img_3", "menu_img_4", "menu_img_5"]
+    fileprivate var txtMenu = ["حسابي", "التنبيهات", "سجل استشاراتي", "عن التطبيق", "الاعدادات","تسجيل الخروج"]
+    fileprivate var imgMenu = ["menu_img_1", "menu_img_2", "menu_img_3", "menu_img_4", "menu_img_5","logout"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
+            if let result = result {
+                self.Data = result
+                
+                print(self.Data!)
+//                self.uesrEmail.text = "some emaile"
+//                self.uesrEmail.text = self.Data?.data?.email!
+//                print(self.uesrEmail.text!)
+//                self.userName.text = self.Data?.data?.name
+//                let photoURL =  self.Data?.data?.photo
+//                self.userImge.kf.setImage(with:URL(string: (photoURL)!))
+            }
+            
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -66,6 +84,22 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             navigationController?.pushViewController(vc, animated: true)
 
             break
+        case 5:
+            Operation.logout(Authorization: "Bearer \(helper.getUserToken())") { (error, logout) in
+                if let logout = logout {
+                    
+                    let status = logout.status
+                    if status != 0 {
+                        let mass = logout.message
+                        print(mass)
+                        helper.deletApiToken()
+                        WindowManger.show(.account, animated: true)
+                        
+                        
+                    }
+                    
+                }}
+
         default:
             break
         }

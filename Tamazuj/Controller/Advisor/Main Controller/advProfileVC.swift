@@ -31,7 +31,7 @@ class advProfileVC: UIViewController {
         tableView.registerCellNib(cellClass: AdvSectionTableViewCell.self)
         tableView.registerCellNib(cellClass: AdvSectionTwoTableViewCell.self)
         self.showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getApiToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -49,6 +49,15 @@ class advProfileVC: UIViewController {
         super.viewWillDisappear(true)
         // Show the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.showIndeterminateHUD()
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "test2") { (error, result) in
+            if let result = result {
+                self.profileData = result
+                self.tableView.reloadData()
+                self.hideHUD()
+            }
+        }
+
         
     }
     
@@ -112,7 +121,7 @@ extension advProfileVC:UITableViewDelegate, UITableViewDataSource {
         }else if indexPath.section == 2 {
             return 417
         }else if indexPath.section == 3 {
-            return 215
+            return 0
         }else{
             return 0
         }

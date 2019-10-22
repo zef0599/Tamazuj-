@@ -94,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set translucent. (Default value is already true, so this can be removed if desired.)
         UINavigationBar.appearance().isTranslucent = true
 
-//
+
 //                if let APItoken = helper.getApiToken() , APItoken != nil{
 //                    print(APItoken)
 //
@@ -104,7 +104,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //
 //                    WindowManger.show(.account, animated: true)
 //                }
-
+ 
+        let UserToken = helper.getUserToken()
+        let AdvisorToken = helper.getAdvisorToken()
+ //       let Token = [UserToken , AdvisorToken]
+        
+//        switsh Token {
+//
+//            case :
+//
+//        }
+        if UserToken != nil {
+            
+            WindowManger.show(.main, animated: true)
+            
+        }else{
+            
+            WindowManger.show(.userAccount, animated: true)
+            
+        }
+        if  AdvisorToken != nil {
+            
+            WindowManger.show(.Advisor, animated: true)
+        }else{
+            WindowManger.show(.AdvisorAccount, animated: true)
+        }
         
         return true
     }

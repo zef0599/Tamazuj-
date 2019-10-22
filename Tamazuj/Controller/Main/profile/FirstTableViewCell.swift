@@ -12,7 +12,7 @@ protocol GofromNib {
 }
 class FirstTableViewCell: UITableViewCell {
     var nav:UINavigationController?
-    var profileData:AdvProfile?
+    var profileData:Profile?
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -35,8 +35,8 @@ class FirstTableViewCell: UITableViewCell {
 
     @IBAction func editePage(_ sender: Any) {
 
-        let storyboardd = UIStoryboard(name: "Advisor", bundle: nil)
-        let vcc = storyboardd.instantiateViewController(withIdentifier: "AdvEditProfaileVC") as! AdvEditProfaileVC
+        let storyboardd = UIStoryboard(name: "Main", bundle: nil)
+        let vcc = storyboardd.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
         vcc.profileData = self.profileData
         self.nav?.pushViewController(vcc, animated: true)
 

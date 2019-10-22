@@ -14,23 +14,41 @@ import Foundation
 class helper {
     
     
-     static func saveApiToken(token: String) {
+    static func saveUserToken(token: String) {
         
         let def = UserDefaults.standard
         
-    struct Key{
+        struct Key{ fileprivate static let UserToken = "user_token"}
         
-       fileprivate static let apiToken = "user_token"
-        
+        def.setValue(token, forKey: Key.UserToken)
+        def.synchronize()
     }
-    
-        // save api token to UserDefaults
-        def.setValue(token, forKey: Key.apiToken)
+    static func saveAdvisoerToken(token: String) {
+        
+        let def = UserDefaults.standard
+        
+        struct Key{ fileprivate static let AdvisorToken = "Advisor_token"}
+        
+       
+        def.setValue(token, forKey: Key.AdvisorToken)
         def.synchronize()
     }
     
-    static func getApiToken() -> String? {
+    static func getUserToken() -> String? {
         let def = UserDefaults.standard
         return def.object(forKey: "user_token") as? String
     }
+    
+    static func getAdvisorToken() -> String? {
+        let def = UserDefaults.standard
+        
+        return def.object(forKey: "Advisor_token") as? String
+    }
+    static func deletApiToken() -> String? {
+        let def = UserDefaults.standard
+        
+        return def.object(forKey: "user_token") as? String
+        def.removeObject(forKey:"user_token")
+    }
+    
 }

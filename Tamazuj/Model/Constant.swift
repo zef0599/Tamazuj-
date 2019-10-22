@@ -20,6 +20,8 @@ struct API {
     static let AdRegister       = "http://salahalimohamed.website/tmajog/api/v1/consultant/register"
     static let Adlogin          = "http://salahalimohamed.website/tmajog/api/v1/consultant/login"
     static let activetcodeCons  = "http://salahalimohamed.website/tmajog/api/v1/consultant/activateCode"
+    static let logout           = "http://salahalimohamed.website/tmajog/api/v1/user/logout"
+
 }
 
 class URLs {
@@ -32,8 +34,8 @@ class URLs {
     static var advURL = "http://salahalimohamed.website"
     static var advProfile = advURL+"/tmajog/api/v1/consultant/profile"
     static var advUpdateProfile = advURL+"/tmajog/api/v1/consultant/updateProfile"
+    static var changeStats = advURL+"/tmajog/api/v1/consultant/consultation/3/change-status"
 
-    
 }
 
 /*
