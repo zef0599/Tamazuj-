@@ -68,7 +68,9 @@ class AdvisorLoginViewController: UIViewController {
                 
             }else{
                 self.hideHUD()
-                self.showHUD(title: "", details: suc!.message! ?? "يرجى التاكد من البيانات المدخلة " , hideAfter: 3)
+//                self.showHUD(title: "", details: suc!.message  , hideAfter: 3)
+                self.showHUD(title: "", details: suc?.message, hideAfter: 3)
+                print("<#T##items: Any...##Any#>")
             }
             
         }

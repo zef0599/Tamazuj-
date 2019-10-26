@@ -99,7 +99,7 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
                     if status != 0 {
                         let mass = logout.message
                         print(mass)
-                        helper.deletApiToken()
+//                        helper.deletApiToken()
                         WindowManger.show(.account, animated: true)
                         
                         

@@ -18,17 +18,25 @@ class SubCategoryVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backImage = UIImage(named: "back")
+        self.navigationController?.navigationBar.backIndicatorImage = backImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        
+        self.navigationController?.navigationBar.topItem?.title = ""
         tableView.delegate = self
         tableView.dataSource = self
-        self.navigationItem.title = consaltantData![indexpathCategory!].name_ar
+        
         self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.3318987191, green: 0.7690466642, blue: 0.812379837, alpha: 1)
-
-
+        
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = consaltantData![indexpathCategory!].name_ar
     }
-
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let vc = segue.destination as! AdvisorSelectionVC

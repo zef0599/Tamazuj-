@@ -19,22 +19,34 @@ class HomeAdvisorViewController: UIViewController {
     @IBOutlet var ViewWarning: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ViewWarning.isHidden = true
         imageTitel()
         loadData()
-        //        ViewWarning.isHidden = true
         tabel.register(UINib(nibName: "dataNillTableViewCell", bundle: nil), forCellReuseIdentifier: "dataNillTableViewCell")
         tabel.register(UINib(nibName: "AdvisorTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvisorTableViewCell")
         
-        
-        
-        print("my first commet")
+        ViewWorningShow()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        ViewWorningShow()
         
     }
+    fileprivate func ViewWorningShow() {
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
+            if let result = result {
+                if result.meta.status == 1{
+                    if result.data?.status == "الحساب غير مفعل" && result.data?.account_status == "0"{
+                        self.ViewWarning.isHidden = false
+                    }else{
+                        self.ViewWarning.isHidden = true
+                    }
+                }
+            }
+        }
+    }
     @IBAction func completeData(_ sender: Any) {
-        let stprybord = UIStoryboard(name: "Advisor", bundle: nil)
-        let vc = stprybord.instantiateViewController(withIdentifier: "advProfileVC") as! advProfileVC
+        let vc = storyboard!.instantiateViewController(withIdentifier: "advProfileVC") as! advProfileVC
         navigationController?.pushViewController(vc, animated: true)
-
     }
     
     func loadData(){
@@ -50,6 +62,7 @@ class HomeAdvisorViewController: UIViewController {
                     self.tabel.reloadData()
                 }else{
                     for i in result.data!{
+                        
                         self.data.append(i)
                         self.category_id.append(i.category_id!)
                         self.session_time.append(i.session_time!)
@@ -73,9 +86,45 @@ class HomeAdvisorViewController: UIViewController {
         self.navigationItem.titleView = imageView
     }
 }
-extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate{
+extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,AdvisorTableViewCellDelgat{
+    func advisorTableViewCellDelegat(_ Cell: AdvisorTableViewCell) {
+        
+        if let indexPath = tabel.indexPath(for: Cell){
+            let object = data[indexPath.row]
+            advOprition.cancellation(id: object.id!) { (err, result) in
+                if let result = result{
+                    //                    print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
+                    if result.status! == 1{
+                        self.data.remove(at: indexPath.row)
+                        self.tabel.beginUpdates()
+                        self.tabel.deleteRows(at: [indexPath], with: .fade)
+                        self.tabel.endUpdates()
+                        self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
+                    }
+                    
+                }else{
+                    self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
+                }
+            }
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count > 0 ? self.data.count : 1
+        
+        switch tableView == tabel {
+        case self.data.count > 0:
+            return data.count
+        case self.dataisEmpty == true:
+            return 1
+        default:
+            return 0
+        }
+        return self.data.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,22 +145,79 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate{
             cell.selectionStyle = .none
             let objectT = self.session_time[indexPath.row]
             let objectC = self.category_id[indexPath.row]
-            let objectD = self.data[indexPath.row]
+            //            let objectD = self.data[indexPath.row]
+            
             
             
             cell.timeCons.text = objectT.time ?? "error objectT.time"
             cell.imageCons.kf.setImage(with: URL(string: objectC.image!))
-            cell.typeConslt.text = objectC.name_ar! ?? "error objectC.name_ar"
+            cell.typeConslt.text = objectC.name_ar ?? "error objectC.name_ar"
             
+            //            cell.cancellation.tag = indexPath.row
+            cell.delegat = self
+            
+            //            cell.cancellation.addTarget(self, action: #selector(cancellation), for: .touchUpInside)
             return cell
             
         default:
             return UITableViewCell()
         }
-        
     }
+    //    @objc func cancellation (_ sender : UIButton){
+    //
+    ////        print("hhhhhhh", data[sender.tag].id ?? 999)
+    //
+    ////        let indexPath = data[sender.tag]
+    ////
+    ////        self.data.remove(at: indexPath.row)
+    ////        tabel.beginUpdates()
+    ////        tabel.deleteRows(at: [indexPath], with: .automatic)
+    ////        tabel.endUpdates()
+    //        let hitPoint = sender.convert(CGPoint(x: 0, y: 0), to: tabel)
+    //        if let indexPath = tabel.indexPathForRow(at: hitPoint) {
+    //
+    //            self.data.remove(at: indexPath.row)
+    //            tabel.beginUpdates()
+    //            tabel.deleteRows(at: [indexPath], with: .fade)
+    //            tabel.endUpdates()
+    //
+    //
+    //        }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 137
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            if tableView == self.tabel{
+                let object = data[indexPath.row]
+                advOprition.cancellation(id: object.id!) { (err, result) in
+                    if let result = result{
+                        //                    print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
+                        if result.status! == 1{
+                            self.data.remove(at: indexPath.row)
+                            self.tabel.beginUpdates()
+                            self.tabel.deleteRows(at: [indexPath], with: .bottom)
+                            self.tabel.endUpdates()
+                            self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
+                        }
+                        
+                    }else{
+                        self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
+                    }
+                }
+                
+                
+                
+                
+                
+                
+            }
+            
+        }
+        
+    }
+    
     
 }

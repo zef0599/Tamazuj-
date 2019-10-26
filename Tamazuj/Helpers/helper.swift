@@ -44,11 +44,17 @@ class helper {
         
         return def.object(forKey: "Advisor_token") as? String
     }
-    static func deletApiToken() -> String? {
+    static func deletUserToken() -> String? {
         let def = UserDefaults.standard
         
         return def.object(forKey: "user_token") as? String
         def.removeObject(forKey:"user_token")
     }
     
+    static func deletAdvisoerToken() -> String? {
+        let def = UserDefaults.standard
+        
+        return def.object(forKey: "user_token") as? String
+        def.removeObject(forKey:"user_token")
+    }
 }

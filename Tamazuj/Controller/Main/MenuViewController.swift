@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    var Data:Profile?
+    
     @IBOutlet weak var uesrEmail: UILabel!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImge: UIImageView!
@@ -20,19 +20,27 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        userImge.layer.cornerRadius = userImge.b
+        
         tableView.tableFooterView = UIView()
         Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
-                self.Data = result
+//                self.Data = result
                 
-                print(self.Data!)
-//                self.uesrEmail.text = "some emaile"
-//                self.uesrEmail.text = self.Data?.data?.email!
-//                print(self.uesrEmail.text!)
-//                self.userName.text = self.Data?.data?.name
-//                let photoURL =  self.Data?.data?.photo
-//                self.userImge.kf.setImage(with:URL(string: (photoURL)!))
+                print("\(result.data)")
+                
+                
+                self.uesrEmail.text = result.data?.email ?? "error email"
+//                print(self.uesrEmail.text)
+                self.userName.text = result.data?.name ?? "error name"
+//                let photoURL =  result.data?.photo
+                self.userImge.kf.setImage(with:URL(string: (result.data?.photo)!))
+            }else{
+                print("error")
+                self.showHUD(title: "", details: error?.localizedDescription ?? "توجد مشكلة في عرض تفاصيل المستخدم ", hideAfter: 3)
             }
+            
             
         }
     }
@@ -92,7 +100,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
                     if status != 0 {
                         let mass = logout.message
                         print(mass)
-                        helper.deletApiToken()
+//                        helper.deletApiToken()
                         WindowManger.show(.account, animated: true)
                         
                         

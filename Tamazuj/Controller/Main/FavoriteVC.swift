@@ -14,6 +14,12 @@ class FavoriteVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "المستشارون المميزون"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Cairo-Regular", size: 16)!,NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ConsultationCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ConsultationCollectionViewCell")

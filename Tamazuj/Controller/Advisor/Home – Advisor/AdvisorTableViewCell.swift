@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol AdvisorTableViewCellDelgat{
+    func advisorTableViewCellDelegat(_ Cell : AdvisorTableViewCell )
+}
+
+
 class AdvisorTableViewCell: UITableViewCell {
     
+    var delegat : AdvisorTableViewCellDelgat?
     
     @IBOutlet var timeCons: UILabel!
     @IBOutlet var imageCons: UIImageView!
@@ -17,6 +23,10 @@ class AdvisorTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    @IBAction func DeletConsaltent(_ sender: Any) {
+        delegat?.advisorTableViewCellDelegat(self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

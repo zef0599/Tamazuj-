@@ -59,6 +59,7 @@ class Operation {
                         
                         if token != nil {
                           helper.saveUserToken(token: token!)
+                            print(token!)
                         }
                         let state = data.status
                         
@@ -316,7 +317,7 @@ class Operation {
                     do{
                         
                         let data = try JSONDecoder().decode(logOut.self, from: response.data!)
-                        
+                      //  data.status ==
                         completion(nil,data)
                         
                     }catch{

@@ -35,7 +35,7 @@ class CategoriesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.title = "مجالات الاستشارة"
         
         
         navTransparent()
@@ -63,8 +63,11 @@ class CategoriesVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.title = "مجالات الاستشارة"
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
     }
+    
     @IBAction func profileUser(_ sender: Any) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)

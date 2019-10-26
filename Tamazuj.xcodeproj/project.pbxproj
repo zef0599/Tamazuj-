@@ -20,7 +20,7 @@
 		362CFE5E2334E1BF005E4B78 /* AdvHomeAdvisorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE5D2334E1BF005E4B78 /* AdvHomeAdvisorViewController.swift */; };
 		362CFE602334EA3F005E4B78 /* AdvEditPofilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE5F2334EA3F005E4B78 /* AdvEditPofilViewController.swift */; };
 		362CFE622334F2E4005E4B78 /* EditProfailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE612334F2E4005E4B78 /* EditProfailUserViewController.swift */; };
-		362CFE642334F97B005E4B78 /* BarbuttonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE632334F97B005E4B78 /* BarbuttonItem.swift */; };
+		362CFE642334F97B005E4B78 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE632334F97B005E4B78 /* CustomTabBarController.swift */; };
 		36316021233444A400115FE1 /* AdvMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36316020233444A400115FE1 /* AdvMainViewController.swift */; };
 		363729842358D04200A7D513 /* singleconsultants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363729832358D04200A7D513 /* singleconsultants.swift */; };
 		363729882358D07E00A7D513 /* SingleConsultantS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363729862358D07E00A7D513 /* SingleConsultantS.swift */; };
@@ -69,6 +69,8 @@
 		832C374E235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C374C235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift */; };
 		832C374F235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832C374D235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib */; };
 		832C3752235BC37300124703 /* AdvProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832C3751235BC37300124703 /* AdvProfile.swift */; };
+		834DC6802363AEC700EABD09 /* SubCategoryCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834DC67E2363AEC700EABD09 /* SubCategoryCells.swift */; };
+		834DC6812363AEC700EABD09 /* SubCategoryCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 834DC67F2363AEC700EABD09 /* SubCategoryCells.xib */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -148,6 +150,7 @@
 		B17909C723424A52006B7E7A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909C623424A52006B7E7A /* Constant.swift */; };
 		B17909C9234250FE006B7E7A /* logIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909C8234250FE006B7E7A /* logIn.swift */; };
 		B17909CB234268C3006B7E7A /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909CA234268C3006B7E7A /* Register.swift */; };
+		B1CC8F5B235EE19700339387 /* AdUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC8F5A235EE19700339387 /* AdUpdatePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,7 +169,7 @@
 		362CFE5D2334E1BF005E4B78 /* AdvHomeAdvisorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvHomeAdvisorViewController.swift; sourceTree = "<group>"; };
 		362CFE5F2334EA3F005E4B78 /* AdvEditPofilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvEditPofilViewController.swift; sourceTree = "<group>"; };
 		362CFE612334F2E4005E4B78 /* EditProfailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfailUserViewController.swift; sourceTree = "<group>"; };
-		362CFE632334F97B005E4B78 /* BarbuttonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarbuttonItem.swift; sourceTree = "<group>"; };
+		362CFE632334F97B005E4B78 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		36316020233444A400115FE1 /* AdvMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvMainViewController.swift; sourceTree = "<group>"; };
 		363729832358D04200A7D513 /* singleconsultants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleconsultants.swift; sourceTree = "<group>"; };
 		363729862358D07E00A7D513 /* SingleConsultantS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleConsultantS.swift; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 		832C374C235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvSectionTwoTableViewCell.swift; sourceTree = "<group>"; };
 		832C374D235B8F1E00124703 /* AdvSectionTwoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvSectionTwoTableViewCell.xib; sourceTree = "<group>"; };
 		832C3751235BC37300124703 /* AdvProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvProfile.swift; sourceTree = "<group>"; };
+		834DC67E2363AEC700EABD09 /* SubCategoryCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryCells.swift; sourceTree = "<group>"; };
+		834DC67F2363AEC700EABD09 /* SubCategoryCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubCategoryCells.xib; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -296,6 +301,7 @@
 		B17909C623424A52006B7E7A /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B17909C8234250FE006B7E7A /* logIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIn.swift; sourceTree = "<group>"; };
 		B17909CA234268C3006B7E7A /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		B1CC8F5A235EE19700339387 /* AdUpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUpdatePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,7 +400,7 @@
 		3631601F2334444300115FE1 /* Advisor View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				362CFE632334F97B005E4B78 /* BarbuttonItem.swift */,
+				362CFE632334F97B005E4B78 /* CustomTabBarController.swift */,
 				36316020233444A400115FE1 /* AdvMainViewController.swift */,
 				362CFE5D2334E1BF005E4B78 /* AdvHomeAdvisorViewController.swift */,
 				362CFE5F2334EA3F005E4B78 /* AdvEditPofilViewController.swift */,
@@ -506,6 +512,15 @@
 			path = advisorObject;
 			sourceTree = "<group>";
 		};
+		834DC67D2363AE7E00EABD09 /* nibs */ = {
+			isa = PBXGroup;
+			children = (
+				834DC67E2363AEC700EABD09 /* SubCategoryCells.swift */,
+				834DC67F2363AEC700EABD09 /* SubCategoryCells.xib */,
+			);
+			path = nibs;
+			sourceTree = "<group>";
+		};
 		83613098232E4A9B008389DE /* Consultation nib */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +598,7 @@
 		837C8DBD2330ED7000869CDB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				834DC67D2363AE7E00EABD09 /* nibs */,
 				363729922358D75900A7D513 /* adviso Cell  */,
 				3637298B2358D53300A7D513 /* Cell abute */,
 				363729892358D38900A7D513 /* abuteConsltentViewController.swift */,
@@ -784,6 +800,7 @@
 				B15D3B62235858D6003057FC /* ActivatCodeViewController.swift */,
 				B108573B234510A10008104D /* AdvisorLoginViewController.swift */,
 				B108573D234510BA0008104D /* AdvisorSginUpViewController.swift */,
+				B1CC8F5A235EE19700339387 /* AdUpdatePasswordViewController.swift */,
 			);
 			path = Advisor;
 			sourceTree = "<group>";
@@ -912,6 +929,7 @@
 				837C8DFE23325FB800869CDB /* AdvisorDetailsVC.xib in Resources */,
 				363C812E233024AE0051F142 /* CounselingTableViewCell.xib in Resources */,
 				13FC82682321294000D8C7A8 /* LaunchScreen.storyboard in Resources */,
+				834DC6812363AEC700EABD09 /* SubCategoryCells.xib in Resources */,
 				13FC827B23213B5C00D8C7A8 /* Cairo-Bold.otf in Resources */,
 				B1085733234508AF0008104D /* User.storyboard in Resources */,
 				83F88B48234C9535003C5218 /* SectionTwoTableViewCell.xib in Resources */,
@@ -1035,11 +1053,12 @@
 				83F88B31234C8EF5003C5218 /* UpdatePasswordViewController.swift in Sources */,
 				83F88B52234C9535003C5218 /* UserProfilVC.swift in Sources */,
 				832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */,
+				B1CC8F5B235EE19700339387 /* AdUpdatePasswordViewController.swift in Sources */,
 				83F88B46234C9535003C5218 /* ProfileVC.swift in Sources */,
 				836A4727232FA2AC00BD8ACB /* AboutContainerVC.swift in Sources */,
 				83DE5E4D2355E113009F71C0 /* Consultation.swift in Sources */,
 				13FC827F23215F3A00D8C7A8 /* CustomePageControl.swift in Sources */,
-				362CFE642334F97B005E4B78 /* BarbuttonItem.swift in Sources */,
+				362CFE642334F97B005E4B78 /* CustomTabBarController.swift in Sources */,
 				362CFE622334F2E4005E4B78 /* EditProfailUserViewController.swift in Sources */,
 				837C8DC42330F5D000869CDB /* CategoriesCollectionViewCell.swift in Sources */,
 				83F88B55234C95E9003C5218 /* UIView+Extensions.swift in Sources */,
@@ -1082,6 +1101,7 @@
 				B17909C5234249A1006B7E7A /* API_Operation.swift in Sources */,
 				36414F33235525DD00314DFC /* aboutAdvisorViewC.swift in Sources */,
 				832C374A235B8DD900124703 /* AdvSectionTableViewCell.swift in Sources */,
+				834DC6802363AEC700EABD09 /* SubCategoryCells.swift in Sources */,
 				83F88B4B234C9535003C5218 /* FirstTableViewCell.swift in Sources */,
 				363729952358D75900A7D513 /* AdvisorCell.swift in Sources */,
 				B108573A2345107F0008104D /* UserSginUpViewController.swift in Sources */,

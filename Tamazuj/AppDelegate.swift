@@ -114,22 +114,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            case :
 //
 //        }
-        if UserToken != nil {
-            
-            WindowManger.show(.main, animated: true)
-            
-        }else{
-            
-            WindowManger.show(.userAccount, animated: true)
-            
-        }
-        if  AdvisorToken != nil {
-            
-            WindowManger.show(.Advisor, animated: true)
-        }else{
-            WindowManger.show(.AdvisorAccount, animated: true)
-        }
         
+//        26-10
+//        if UserToken != nil {
+//
+//            WindowManger.show(.main, animated: true)
+//
+//        }else{
+//
+//            WindowManger.show(.userAccount, animated: true)
+//
+//        }
+//        if  AdvisorToken != nil {
+//
+//            WindowManger.show(.Advisor, animated: true)
+//        }else{
+//            WindowManger.show(.AdvisorAccount, animated: true)
+//        }
+//
         return true
     }
 

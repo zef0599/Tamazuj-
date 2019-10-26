@@ -164,7 +164,52 @@ class ConsultantAth {
         
         
     }
-
+    class func AdupdatePasswored(lang : String ,Authorization : String,oldPassword:String,newPass:String , ConfPass:String,
+                                 completion:@escaping (_ error:Error?,_ result:UpatePass?)->Void){
+        
+        let headers : HTTPHeaders = [
+            "lang" : lang,
+            "Authorization" : Authorization
+        ]
+        
+        
+        let data = [
+            "old_password"       :oldPassword ,
+            "new_password"       :newPass ,
+            "confirmed_password" : ConfPass
+            
+        ]
+        
+        
+        Alamofire.request(API.UpdatPass, method: .post, parameters: data, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                
+                switch response.result{
+                    
+                case.success( _):
+                    do {
+                        
+                        let decoder = JSONDecoder()
+                        let data = try decoder.decode(UpatePass.self, from: response.data!)
+                        
+                        let masseg = data.message
+                        print(masseg)
+                        
+                    }
+                    catch let jsonError{
+                        print(jsonError)
+                        
+                    }
+                    
+                case .failure(let error):
+                    print("error")
+                    //   completion(nil , error)
+                }
+                
+        }
+        
+        
+    }
     // MARK: - profile
 
     // Authorization,lang
