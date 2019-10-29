@@ -16,7 +16,7 @@ class AdvisorSelectionVC: UIViewController {
     var consaltantData:[data]?
     var indexpathCategory:Int?
     var indexPathSubCat:Int?
-    var DataConsultant : [Category.Consultant] = []
+    var DataConsultant:sup_category?
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var containar: UIView!
@@ -30,7 +30,8 @@ class AdvisorSelectionVC: UIViewController {
         collectionView.register(UINib(nibName: "sliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sliderCollectionViewCell")
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
-        self.navBar.title = "\(consaltantData![indexpathCategory!].sup_category[indexPathSubCat!].name_ar ?? "المستشارين")";
+        
+        self.navBar.title = "\(DataConsultant?.name_ar ?? "تصنيف")";
 
 
     }
@@ -65,12 +66,14 @@ class AdvisorSelectionVC: UIViewController {
 extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if indexPathSubCat == nil{
-            return (consaltantData?[indexpathCategory!].consultant!.count)!
+            return (DataConsultant?.consultant!.count)!
         }else{
-            if (consaltantData?[indexpathCategory!].sup_category[indexPathSubCat!].consultant!.count)! == 0 {
+            if (DataConsultant?.consultant!.count) == 0 {
                 showHUD(title: "عذرا", details: "لا يوجد مستشارين في هذا التصنيف", hideAfter: 1.5)
+            }else{
+                return (DataConsultant?.consultant!.count)!
+
             }
-            return (consaltantData?[indexpathCategory!].sup_category[indexPathSubCat!].consultant!.count)!
             
 
         }
@@ -80,13 +83,13 @@ extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
         if indexPathSubCat == nil{
-            if let obj = consaltantData?[indexpathCategory ?? 0] {
+            if let obj = DataConsultant {
                 cell.titel.text = obj.consultant![indexPath.row].name
                 cell.descriptioN.text = obj.consultant![indexPath.row].biography ?? "no bio"
                 cell.imageView.kf.setImage(with: URL(string: obj.consultant![indexPath.row].photo!))
             }
         }else{
-            if let obj = consaltantData?[indexpathCategory ?? 0].sup_category[indexPathSubCat!].consultant {
+            if let obj = DataConsultant?.consultant {
                 cell.titel.text = obj[indexPath.row].name
                 cell.descriptioN.text = obj[indexPath.row].biography ?? "no bio"
                 cell.imageView.kf.setImage(with: URL(string: obj[indexPath.row].photo!))

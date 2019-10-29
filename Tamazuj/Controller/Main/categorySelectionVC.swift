@@ -81,8 +81,6 @@ class categorySelectionVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
-        //        self.title = "اختر مجال الاستشارة"
-        
         self.navigationItem.title = "اختر مجال الاستشارة"
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -95,22 +93,23 @@ class categorySelectionVC: UIViewController {
 }
 extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return array.count
+        return CategoriesData.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if array[section].opened == true {
-            return array[section].supdata.count+1
+        if CategoriesData[section].opened == true {
+            return CategoriesData[section].sup_category.count+1
         }else{
             return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let  obj = array[indexPath.section]
+        let  obj = CategoriesData[indexPath.section]
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! cateTableViewCell
-            cell.categoryIcon.image = obj.image
-            cell.cateTitleLable.text = obj.title
+            
+            cell.categoryIcon.kf.setImage(with: URL(string: obj.image!))
+            cell.cateTitleLable.text = obj.name_ar
             cell.leading.isHidden = true
             cell.traling.isHidden = true
             cell.top.isHidden = true
@@ -127,12 +126,12 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
         }else{
             let dataIndex = indexPath.row-1
             let cell = tableView.dequeue() as SubCategoryCells
-            cell.titleLabel.text = obj.supdata[dataIndex].supCategoryTitle
+            cell.titleLabel.text = obj.sup_category[dataIndex].name_ar
             cell.leading.isHidden = false
             cell.traling.isHidden = false
             cell.bottom.isHidden = true
 
-            if (indexPath.item == obj.supdata.count){
+            if (indexPath.item == obj.sup_category.count){
                 cell.bottom.isHidden = false
             }
             return cell
@@ -145,15 +144,15 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             
             
-            if array[indexPath.section].opened == true {
+            if CategoriesData[indexPath.section].opened == true {
                 //hide the border
-                self.array[indexPath.section].opened = false
+                self.CategoriesData[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
 
             }else{
                 //show the border
-                self.array[indexPath.section].opened = true
+                self.CategoriesData[indexPath.section].opened = true
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
                 
@@ -165,22 +164,27 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
             }
         }else{
             // go to sup category conaltant selection
-            
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorSelectionVC") as! AdvisorSelectionVC
+            let cons = self.CategoriesData
+            vc.consaltantData = cons
+            vc.indexPathSubCat = indexPath.row
+            vc.indexpathCategory = indexPath.section
+            vc.DataConsultant = self.CategoriesData[indexPath.section].sup_category[indexPath.row-1]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    /**/
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print(indexPath)
+
         if indexPath.row == 0 {
             
-            //            for i in 0...array[indexPath.section].supdata.count {
-            //                tableView.deselectRow(at: IndexPath(item: i, section: indexPath.section), animated: false)
-            //            }
-            
-            if array[indexPath.section].opened == true {
-                self.array[indexPath.section].opened = false
+            if CategoriesData[indexPath.section].opened == true {
+                self.CategoriesData[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
             }else{
-                self.array[indexPath.section].opened = true
+                self.CategoriesData[indexPath.section].opened = true
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
                 

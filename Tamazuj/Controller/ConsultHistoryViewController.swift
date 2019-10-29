@@ -79,7 +79,15 @@ extension ConsultHistoryViewController : UITableViewDelegate,UITableViewDataSour
         return cell
     }
     
-    
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
+            //TODO: Delete the row at indexPath here
+            
+        }
+        
+        
+    }
+
     
     
 }

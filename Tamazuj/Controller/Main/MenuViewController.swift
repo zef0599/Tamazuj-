@@ -87,8 +87,11 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = stprybord.instantiateViewController(withIdentifier: "ConsultHistoryViewController") as! ConsultHistoryViewController
             vc.navHave = self.navigationController
             self.navigationController!.pushViewController(vc, animated: true)
+        case 3 :
+            let vc = stprybord.instantiateViewController(withIdentifier: "aboutAppVC") as! aboutAppVC
+            self.navigationController!.pushViewController(vc, animated: true)
         case 4:
-            let vc = stprybord.instantiateViewController(withIdentifier: "EditProfailUserViewController") as! EditProfailUserViewController
+            let vc = stprybord.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
             navigationController?.pushViewController(vc, animated: true)
 
             break

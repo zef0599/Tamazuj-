@@ -142,7 +142,7 @@ extension CategoriesVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         return CGSize(width:cellWidth , height:cellWidth )
         
     }
-    ////
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         

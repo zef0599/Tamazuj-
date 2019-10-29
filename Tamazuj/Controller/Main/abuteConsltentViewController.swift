@@ -15,6 +15,7 @@ class abuteConsltentViewController: UIViewController {
     
     var data : [Alldata] = []
     var feedback : [dataFedback] = []
+    @IBOutlet weak var stackTop: NSLayoutConstraint!
     @IBOutlet var Coment: UIButton!
     @IBOutlet var advisor: UIButton!
 //    @IBOutlet var abutAdvView: UIView!
@@ -38,8 +39,28 @@ class abuteConsltentViewController: UIViewController {
     @IBOutlet var table2: UITableView!
     
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionContainerView: UIView!
+    @IBOutlet weak var colContainerHight: NSLayoutConstraint!
+    
+    func configure(with arr: [String]) {
+        self.collectionView.reloadData()
+        self.collectionView.layoutIfNeeded()
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        stackTop.constant = image.bounds.height/2
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+//        colContainerHight.constant = height
+//        self.collectionView.layoutIfNeeded()//s
+
+        
         let backImage = UIImage(named: "back")
         self.navigationController?.navigationBar.backIndicatorImage = backImage
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
@@ -66,6 +87,7 @@ class abuteConsltentViewController: UIViewController {
 //        Askadvice.layer.masksToBounds = true
         loadData()
         
+        configure(with: ["1","2"])
 
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -270,5 +292,22 @@ extension abuteConsltentViewController : UITableViewDataSource,UITableViewDelega
         }
     }
    
+    
+}
+
+extension abuteConsltentViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "catCell", for: indexPath)
+        cell.backgroundColor = .red
+        return cell
+        
+    }
+    
+    
     
 }

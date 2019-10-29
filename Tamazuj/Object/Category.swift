@@ -24,6 +24,7 @@ struct data:Codable {
     var name_ar:String?
     var name_en:String?
     var image:String?
+    var opened:Bool? = false
     var consultant : [Category.Consultant]?
     var sup_category: [sup_category]
     

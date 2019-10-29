@@ -43,6 +43,7 @@ class SubCategoryVC: UIViewController {
         let indexPathSubCat = tableView.indexPathForSelectedRow
         let cons = self.consaltantData
         vc.consaltantData = cons
+        vc.DataConsultant = cons![indexpathCategory!].sup_category[(indexPathSubCat?.row)!]
         vc.indexpathCategory = indexpathCategory
         vc.indexPathSubCat = indexPathSubCat?.row
         

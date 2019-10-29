@@ -131,7 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }else{
 //            WindowManger.show(.AdvisorAccount, animated: true)
 //        }
-//
+
         return true
     }
 
