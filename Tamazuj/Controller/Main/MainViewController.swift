@@ -10,6 +10,8 @@ import UIKit
 import MBProgressHUD
 import IQKeyboardManager
 
+
+
 class MainViewController: UIViewController {
     var nav : UINavigationController?
     var bestRatingdata : [BestRating] = []
@@ -19,9 +21,20 @@ class MainViewController: UIViewController {
     @IBOutlet var mainTabel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        addNewUser
+        
+//        FirebaseRealTime.addmasseges(numberConsaltnt: "+9720597776576", numberUser: "0597776576", masseg: "hi mohammed", recipientName: "test Consaltnt", senderName: "mohammed erbia") { (bool) in
+//            if bool{
+//                ////
+//            }
+//        }
+//
+       
+        
         nav = self.navigationController
         
-//        self.navigationController?.isNavigationBarHidden = false
+        //        self.navigationController?.isNavigationBarHidden = false
         LoadDataHome()
         imageTitel()
         
@@ -107,7 +120,7 @@ extension MainViewController : UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SliderCollictionTableViewCell", for: indexPath) as! SliderCollictionTableViewCell
             cell.nav = self.nav!
             cell.bestRatingdata = self.bestRatingdata
-            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            cell.selectionStyle = .none
             cell.collectionView.reloadData()
             cell.backgroundColor = .clear
             cell.storyBoardVC = vc

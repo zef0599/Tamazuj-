@@ -22,6 +22,7 @@ class categorySelectionVC: UIViewController {
     
     var isSelected:Bool = false
     var CategoriesData = [data]()
+    var sectionCellsNumber:[Int]?
     var array:[cellData] = [
         cellData(opened: false, image: #imageLiteral(resourceName: "category_menu_icon4"), title: "استشارات اسريه ", supdata: [
             cellData.supData(supCategoryTitle: "first"),
@@ -73,7 +74,7 @@ class categorySelectionVC: UIViewController {
                 self.showHUD(title: "Error", details: "Some Error", hideAfter: 3)
             }
         }
-        
+        tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -113,6 +114,8 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
             cell.leading.isHidden = true
             cell.traling.isHidden = true
             cell.top.isHidden = true
+            cell.bottom.isHidden = true
+
             if obj.opened == false {
                 cell.up.image = #imageLiteral(resourceName: "up")
                 cell.viewShadow.shadowColor = #colorLiteral(red: 0.8823529412, green: 0.9098039216, blue: 0.9215686275, alpha: 0.53)
@@ -120,7 +123,6 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
             }else{
                 cell.up.image = #imageLiteral(resourceName: "downArrow")
                 cell.viewShadow.shadowColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
             }
             return cell
         }else{
@@ -139,27 +141,53 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             
-            
+
             if CategoriesData[indexPath.section].opened == true {
                 //hide the border
                 self.CategoriesData[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
+                let cell = tableView.cellForRow(at: indexPath) as! cateTableViewCell
+                cell.bottom.isHidden = true
+
 
             }else{
                 //show the border
-                self.CategoriesData[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
-                
-                let cell = tableView.cellForRow(at: indexPath) as! cateTableViewCell
-                cell.leading.isHidden = false
-                cell.traling.isHidden = false
-                cell.top.isHidden = false
+                if CategoriesData[indexPath.section].sup_category.count == 0 {
+                    
+                }else{
+                    self.CategoriesData[indexPath.section].opened = true
+                    let sections = IndexSet.init(integer: indexPath.section)
+                    tableView.reloadSections(sections, with: .none)
+                    
+                    let cell = tableView.cellForRow(at: indexPath) as! cateTableViewCell
+                    cell.leading.isHidden = false
+                    cell.traling.isHidden = false
+                    cell.top.isHidden = false
+                    cell.bottom.isHidden = false
+                    if self.CategoriesData[indexPath.section].sup_category.count > 1 {
+                        cell.bottom.isHidden = true
+                    }
+
+                }
+
+
+            }
+            // go to category consaltant if thire is no sup_Category
+            if CategoriesData[indexPath.section].sup_category.count == 0 {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorSelectionVC") as! AdvisorSelectionVC
+                let cons = self.CategoriesData
+                vc.indexPathSubCat = indexPath.row
+                vc.indexpathCategory = indexPath.section
+                vc.consaltantData = self.CategoriesData
+                vc.consaltantNumSele = indexPath.section
+                self.navigationController?.pushViewController(vc, animated: true)
+
 
             }
         }else{

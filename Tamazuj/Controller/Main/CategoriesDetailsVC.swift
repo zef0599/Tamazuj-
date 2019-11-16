@@ -27,9 +27,11 @@ class CategoriesDetailsVC: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
-        
+        print(DataConsultant as Any)
+        if DataConsultant?.count == 0 {
+            showHUD(title: "عذرا", details: "لا يوجد مستشارين في هذا التصنيف", hideAfter: 1.5)
+        }
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,7 +54,7 @@ class CategoriesDetailsVC: UIViewController {
 
 extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if DataConsultant?.count == nil {
+        if DataConsultant == nil  {
             return 0
         }else{
             return DataConsultant!.count
@@ -63,6 +65,7 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
         let object = DataConsultant![indexPath.row]
         cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
+
         cell.imageView.kf.setImage(with: URL(string: object.photo!))
         cell.titel.text = object.name ?? "name Error"//object.name!
         cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
@@ -71,10 +74,8 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     @objc func Askadviceactione (){
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
-        
-        self.navigationController!.present(vc, animated: true, completion: nil)
-        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        self.navigationController!.pushViewController(vc, animated: true)
     }
 
     
@@ -87,8 +88,8 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
     
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let stprybord = UIStoryboard(name: "Main", bundle: nil)
-            let vc = stprybord.instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-        }
+            let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+            self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }

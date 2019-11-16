@@ -9,57 +9,73 @@
 import UIKit
 import Kingfisher
 
+
+
+
 class abuteConsltentViewController: UIViewController {
+    
+    
+    let source = ["استشارات تعليمي","استشارات تعليمي"]
+    
+    
     var id : Int?
     var dataisEmpty : Bool!
-    
+    var category : [Alldata.category] = []
     var data : [Alldata] = []
     var feedback : [dataFedback] = []
-    @IBOutlet weak var stackTop: NSLayoutConstraint!
     @IBOutlet var Coment: UIButton!
     @IBOutlet var advisor: UIButton!
-//    @IBOutlet var abutAdvView: UIView!
-//    @IBOutlet var commentView: UIView!
     
     @IBOutlet var abutAdvView: UIView!
     @IBOutlet var commentView: UIView!
     @IBOutlet var Askadvice: UIButton!
     
+    @IBOutlet var iconCountry: UIImageView!
+    @IBOutlet var nameLanguage: UILabel!
     /////  category
-    @IBOutlet var Categ1: UILabel!
-    @IBOutlet var Categ2: UILabel!
-    @IBOutlet var Categ3: UILabel!
+    @IBOutlet var collectionConsaltent: UICollectionView!
+    //// constraint collection
+    @IBOutlet var constraintcollection: NSLayoutConstraint!
+    
 //
     @IBOutlet var name: UILabel!
     @IBOutlet var rating: UILabel!
-    @IBOutlet var biography: UILabel!
+    @IBOutlet var biography: UITextView!
     @IBOutlet var image: UIImageView!
     
-    @IBOutlet var table1: UITableView!
+//    @IBOutlet var table1: UITableView!
     @IBOutlet var table2: UITableView!
     
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionContainerView: UIView!
-    @IBOutlet weak var colContainerHight: NSLayoutConstraint!
+    ///// stack language
+    @IBOutlet var stackArabec: UIStackView!
+    @IBOutlet var stackEnglish: UIStackView!
+    @IBOutlet var stackgermany: UIStackView!
+    
+    
     
     func configure(with arr: [String]) {
-        self.collectionView.reloadData()
-        self.collectionView.layoutIfNeeded()
     }
     
-
+//    let layout = CustomFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackTop.constant = image.bounds.height/2
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        self.constraintcollection.constant = 10
+//        if let flowLayout = collectionConsaltent.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//            flowLayout.itemSize = CGs
+//        }
         
-        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
-//        colContainerHight.constant = height
-//        self.collectionView.layoutIfNeeded()//s
-
+        
+//        layout.itemSize = UICollectionViewFlowLayoutAutomaticSize
+//        layout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+        
+        collectionConsaltent.register(UINib(nibName: "abutAdvCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "abutAdvCollectionViewCell")
+        self.stackArabec.isHidden = true
+        self.stackEnglish.isHidden = true
+        self.stackgermany.isHidden = true
+        
         
         let backImage = UIImage(named: "back")
         self.navigationController?.navigationBar.backIndicatorImage = backImage
@@ -108,36 +124,61 @@ class abuteConsltentViewController: UIViewController {
             if let result = result{
                 self.data.append((result.data)!)
                 self.hideHUD()
+                
                 for i in self.data{
                         self.name.text = i.name ?? ""
                         self.rating.text = "\(i.rating!)%"
                         self.biography.text = i.biography ?? "لم يضيف المستشارة تفاصيل خاصة به"
                         self.image.kf.setImage(with: URL(string: i.photo!))
                     
-//                    if i.category!.count == 1{
-//
-////                        self.Categ1.text =
-//                    }
-//                    for i in i.category!{
-//
-//                    }
-                    
+                    for i in i.languages!{
+                      if let nameA = i.name_ar , let nameE = i.name_en{
+                        switch nameE {
+                            
+                        case "Einglish" :
+                            self.stackEnglish.isHidden = false
+                            
+                        case "Arabic":
+                            self.stackArabec.isHidden = false
+                        case "Germany":
+                            self.stackgermany.isHidden = false
+                        default:
+                            if self.stackgermany.isHidden == true{
+                                self.stackgermany.isHidden = false
+                                self.iconCountry.isHidden = true
+                                self.nameLanguage.text = nameA
+                            }
+
+                        }
+                    }
+                    }
+                        for i in i.category!{
+                                self.category.append(i)
+                                self.collectionConsaltent.reloadData()
+                            }
                     }
             }else{
                 self.showHUD(title: "", details: err?.localizedDescription, hideAfter: 3)
             }
         }
+        
+        
+        //MARK:- Feedback
+        
         oprition.feedback(id: self.id!) { (err, result) in
             if result?.meta!.status! == 1 {
+                
                 if let result = result{
                     if result.data?.isEmpty == true {
                         self.dataisEmpty = true
+                    }else{
+                        for i in result.data!{
+                            print("hhhhhh",i)
+                            self.feedback.append(i)
+                            self.table2.reloadData()
+                        }
                     }
-                    for i in result.data!{
-                        
-                      self.feedback.append(i)
-                        self.table2.reloadData()
-                    }
+                    
                 }
             }else{
                 self.showHUD(title: "", details: err?.localizedDescription ?? "", hideAfter: 3)
@@ -147,12 +188,14 @@ class abuteConsltentViewController: UIViewController {
         
     }
     
-
+    // askConaltion
+    @IBAction func askConaltion(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    // aboutAdvisor
     @IBAction func aboutAdvisor(_ sender: Any) {
         
-//        if self.feedback.isEmpty{
-//            self.showHUD(title: "", details: "لم يحصل الاستشاري على تقيم بعد", hideAfter: 3)
-//        }
         commentView.isHidden = false
         abutAdvView.isHidden = true
         
@@ -174,7 +217,7 @@ class abuteConsltentViewController: UIViewController {
     }
     
     
-    
+    // commentButton
     @IBAction func commentButton(_ sender: Any) {
         
         commentView.isHidden = true
@@ -196,39 +239,34 @@ class abuteConsltentViewController: UIViewController {
         self.advisor.titleLabel?.font = UIFont(name: "Cairo-Regular", size: 14)
    
     }
+    
 
 }
 extension abuteConsltentViewController : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == table1{
-            return 4
-        }else if tableView == table2{
+//        if tableView == table1{
+//            return 4
+//        }else
+            if tableView == table2{
             if self.feedback.count > 0 {
                 return self.feedback.count
             }else{
                 return 1
             }
-            
-            ////            return self.feedback.count > 0 ? self.feedback.count : 1
-            //        }
-            //        else{
-            //            return self.feedback.count
-            //        }
-            
         }else{
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == table1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! abutelableTableViewCell
-            //        let objecr = [indexPath.row]
-            //        cell.lable.text = ""
-            cell.selectionStyle = .none
-            
-            return cell
-        }
+//        if tableView == table1{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! abutelableTableViewCell
+//            //        let objecr = [indexPath.row]
+//            //        cell.lable.text = ""
+//            cell.selectionStyle = .none
+//
+//            return cell
+//        }
             switch tableView == table2{
                 
             case self.feedback.count > 0 :
@@ -236,12 +274,35 @@ extension abuteConsltentViewController : UITableViewDataSource,UITableViewDelega
                 
                 cell.selectionStyle = .none
                 
-                //            if self.feedback.count > 0 {
+                
                 let object = self.feedback[indexPath.row]
                 cell.imageUser.kf.setImage(with: URL(string: object.photo!))
                 cell.name.text = object.name!
                 cell.feedback.text = object.feedback!
+                cell.time.text = object.time_rating
                 
+                switch object.ratting {
+                case "0":
+                    cell.icon.image = #imageLiteral(resourceName: "zero")
+                    cell.nameicon.text = "سيئ"
+                case "1":
+                    cell.icon.image = #imageLiteral(resourceName: "zero")
+                    cell.nameicon.text = "سيئ"
+                case "2":
+                    cell.icon.image = #imageLiteral(resourceName: "deslike")
+                    cell.nameicon.text = "عادي"
+                case "3":
+                    cell.icon.image = #imageLiteral(resourceName: "Group 1379")
+                    cell.nameicon.text = "جيد"
+                case "4":
+                    cell.icon.image = #imageLiteral(resourceName: "like")
+                    cell.nameicon.text = "جيد جدا"
+                case "5":
+                    cell.icon.image = #imageLiteral(resourceName: "perfect")
+                    cell.nameicon.text = "ممتاز"
+                default:
+                    break
+                }
                 
                 return cell
                 
@@ -265,49 +326,65 @@ extension abuteConsltentViewController : UITableViewDataSource,UITableViewDelega
             
         
     }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        if tableView == table1{
-            if(indexPath.row % 2 == 0) {
-                cell.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9764705882, blue: 0.9803921569, alpha: 1)
-            }else {
-                cell.backgroundColor = UIColor.white
-            }
-            
-            
-            let verticalPadding: CGFloat = 8
-            
-            let maskLayer = CALayer()
-            maskLayer.cornerRadius = 15
-            maskLayer.backgroundColor = UIColor.black.cgColor
-            maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-            cell.layer.mask = maskLayer
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+//    {
+////        if tableView == table1{
+////            if(indexPath.row % 2 == 0) {
+////                cell.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.9803921569, blue: 0.9843137255, alpha: 1)
+////            }else {
+////                cell.backgroundColor = UIColor.white
+////            }
+////
+////
+////            let verticalPadding: CGFloat = 8
+////
+////            let maskLayer = CALayer()
+////            maskLayer.cornerRadius = 15
+////            maskLayer.backgroundColor = UIColor.black.cgColor
+////            maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+////            cell.layer.mask = maskLayer
+////        }
+//    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == table1{
-            return 44
-        }else{
             return 110
-        }
     }
    
     
 }
 
-extension abuteConsltentViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+extension abuteConsltentViewController:UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.category.count//self.category.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "abutAdvCollectionViewCell", for: indexPath) as! abutAdvCollectionViewCell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "catCell", for: indexPath)
-        cell.backgroundColor = .red
+//        cell.setData(data: source[indexPath.item])
+        cell.titel.text = category[indexPath.row].name_ar
+        
+        
         return cell
-        
+
+    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        switch self.source.count {
+        case 1,2:
+            self.constraintcollection.constant = 40
+        case 3,4:
+            self.constraintcollection.constant = 75
+        case 5,6:
+            self.constraintcollection.constant = 95
+        default:
+            self.constraintcollection.constant = 10
+        }
     }
     
-    
-    
 }
+
+
+
+
+
+

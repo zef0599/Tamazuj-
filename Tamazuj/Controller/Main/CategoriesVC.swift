@@ -81,7 +81,7 @@ class CategoriesVC: UIViewController {
         backItem.title = ""
         
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-        if self.performing! {
+        if self.performing! == true {
             if segue.identifier == "tosup" {
                 let vc = segue.destination as! SubCategoryVC
                 let indexPath = collectionView.indexPathsForSelectedItems?.first
@@ -147,16 +147,21 @@ extension CategoriesVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
         
         
         if CategoriesData[indexPath.item].sup_category.isEmpty{
-
+            self.performing = false
             let stprybord = UIStoryboard(name: "Main", bundle: nil)
             let object = self.CategoriesData[indexPath.row]
-            
             let vc = stprybord.instantiateViewController(withIdentifier: "CategoriesDetailsVC") as! CategoriesDetailsVC
-            
             vc.DataConsultant = object.consultant!
-            //        let m = object.consultant!//object.consultant!
-            UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }else{
+            let stprybord = UIStoryboard(name: "Main", bundle: nil)
+            let vc = stprybord.instantiateViewController(withIdentifier: "SubCategoryVC") as! SubCategoryVC
+            let cons = self.CategoriesData
+            vc.consaltantData = cons
+            vc.indexpathCategory = indexPath.row
+            self.navigationController?.pushViewController(vc, animated: true)
+
+            print("celciked")
             self.performing = true
         }
 

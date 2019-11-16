@@ -16,6 +16,7 @@ class sliderCollectionViewCell: UICollectionViewCell {
     @IBOutlet var descriptioN: UILabel!
     @IBOutlet var viewContent: UIView!
     @IBOutlet var reating: UILabel!
+    var nav:UINavigationController?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -36,12 +37,18 @@ class sliderCollectionViewCell: UICollectionViewCell {
     }
     
     
-//    @IBAction func go(_ sender: Any) {
-//
-//        let stprybord = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = stprybord.instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! UIViewController
-//        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-//    }
+    @IBAction func go(_ sender: Any) {
+
+        let stprybord = UIStoryboard(name: "Main", bundle: nil)
+        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        vc.nav = self.nav
+//        self.nav?.navigationController?.present(vc, animated: true, completion: nil)
+//        pushViewController(vc, animated: true)
+//        UIApplication.shared.keyWindow?.rootViewController?.navigationController?.pushViewController(vc, animated: true)
+//            .present(vc, animated: true, completion: nil)
+        print("we are in the go func ")
+
+    }
 //
 }
 //extension UICollectionViewCell {

@@ -66,8 +66,6 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
         let stprybord = UIStoryboard(name: "Main", bundle: nil)
         let vc = stprybord.instantiateViewController(withIdentifier: "CategoriesDetailsVC") as! CategoriesDetailsVC
         vc.DataConsultant = object.consultant!
-        //        let m = object.consultant!//object.consultant!
-//        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
         self.nav?.pushViewController(vc, animated: true)
     }else{
         let object = self.categorydata[indexPath.row]

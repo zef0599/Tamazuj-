@@ -21,11 +21,13 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8d-8v-d2t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="R8d-8v-d2t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1f2-Em-LQJ"/>
                     <constraint firstAttribute="trailing" secondItem="R8d-8v-d2t" secondAttribute="trailing" id="dKB-Dy-Rbl"/>

@@ -1,22 +1,35 @@
 
 import UIKit
-struct reqData {
+import Kingfisher
+import Firebase
+
+struct contactData {
     var image:UIImage?
     var title:String?
 }
 class RequistConsaltationVC: UIViewController, UITextViewDelegate {
-    var consaltant:Consaltant?
-    var category:category?
-    var time:String?
-    var contact:String?
     
+    
+    
+    
+    var consaltant:ConsaltantData?
+    var category:data?
+    var index:Int?
+    var time:String?
+    var contact:contactData?
+    var nav:UINavigationController?
+    var supName:String?
+    var isSupExist:Bool = false
+    var supId:Int?
+    var timeInt:Int?
+        /*
     var tableData:[reqData] = [
     reqData(image: #imageLiteral(resourceName: "category_menu_icon2.png"),title: "استشارات أسرية \nتصنيف فرعي" ),
     reqData(image: #imageLiteral(resourceName: "person"), title: "عبد الله محمد عمر"),
     reqData(image: nil, title: nil),
     reqData(image: #imageLiteral(resourceName: "video.png"), title: "مكالمة فيديو")
     ]
-    
+    */
     
     @IBOutlet weak var details: UITextView!
     @IBOutlet weak var askConalt: UIButton!
@@ -33,11 +46,21 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
         details.returnKeyType = .done
         details.delegate = self
 
-        askConalt.setGradientBackground(colorOne: #colorLiteral(red: 0.3333333333, green: 0.768627451, blue: 0.8117647059, alpha: 1), colorTwo: #colorLiteral(red: 0.3333333333, green: 0.6392156863, blue: 0.8117647059, alpha: 1))
-        askConalt.layer.cornerRadius = 15
+        
+        let data = ["mohammed":"ali"]
+        Database.database().reference().child("test").setValue(data)
+        
+        
 
     }
-    //MARK:- UITextViewDelegates
+    
+
+    
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        print("qqqqqqqq",consaltant)
+//    }
+        //MARK:- UITextViewDelegates
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == "بعض التفاصيل عن المشكلة" {
@@ -64,46 +87,170 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
 
     
     @IBAction func exite(_ sender: Any){
-        self.dismiss(animated: true, completion: nil)
+        nav?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        
     }
-    @IBAction func askConsalt(_ sender: Any) {
-
+    //MARK:- button askConsalt
+    
+    fileprivate func AddnewUserAndFirstmasseg() {
+        // return the message and the status to the hud
+        
+        
+        //MARK:- add to fierbase user and consaltnt
+        /// get user to send firbase
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", completion: { (error,result) in
+            if let result = result ,result.meta.status == 1{
+                
+                ////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+                ////////////// save tow user
+                guard let email = result.data?.email ,let name = result.data?.name , let number = result.data?.phone , let photo  = result.data?.photo  else{ return}
+                FirebaseRealTime.addNewUser(number: number, name: name, image: photo,email: email ,compltion: { (bool) in
+                    if bool{
+                    }else{
+                        self.showHUD(title: "", details: "some error in add user( askConsalt)", hideAfter: 3)
+                    }
+                })
+                
+                /// get consaltant to send firbase
+                guard let emailC = self.consaltant?.email,let numberC = self.consaltant?.phone ,let nameC = self.consaltant?.name else {return}
+                
+                FirebaseRealTime.addNewUser(number: numberC, name: nameC, image: nil,email: emailC ,compltion: { (bool) in
+                    if bool{
+                    }else{
+                        self.showHUD(title: "", details: "some error in add user( usrConsalt)", hideAfter: 3)
+                    }
+                    
+                    
+                    ///  add usr and consaltnt to masseg and send first masseg  firbase
+                    FirebaseRealTime.addmasseges(numberConsaltnt: numberC, numberUser: number, masseg: "test", recipientName: nameC, senderName: name, compltion: { (bol) in
+                        if bol{
+                            
+                        }else{
+                            self.showHUD(title: "", details: "some error in send data", hideAfter: 3)
+                        }
+                    })
+                    
+                    
+                })
+            }else{
+                self.showHUD(title: "", details: "some error", hideAfter: 3)
+            }
+            
+            
+            
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+        })
     }
     
-
+    @IBAction func askConsalt(_ sender: Any) {
+        
+        
+        guard let communication = contact?.title,
+              let problem = details.text,
+              let time = timeInt,
+              let categoryId = category?.id,
+              let consultantId = consaltant?.id
+            else {return showHUD(title: "عذرا", details: "يرجى تعبئه جميع الحقول", hideAfter: 1)}
+         let subCategoryId = supId
+        showHUD(title: "waiting...")
+        Operation.askConsalt(communication: communication, problem: problem, time: time, categoryId:categoryId , consultantId: consultantId, subCategoryId: subCategoryId, status: nil) { (error, result) in
+            
+            if result?.status == 1{
+//                print("result")
+//                print(result)
+            }
+            if let result = result {
+                self.hideHUD()
+                self.AddnewUserAndFirstmasseg()
+                
+                
+                
+                
+                let alert = UIAlertController(title: "حالة الطلب", message: result.message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "موافق", style: .default, handler: { (action) in
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "chatViewController") as! chatViewController
+                    
+                    self.present(vc, animated: true, completion: {
+//                        vc.
+                    })
+                    
+                    
+//                    self.navigationController?.popViewController(animated: true)
+                }))
+                
+                self.present(alert, animated: true)
+            }
+        }
+//        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func handelerReqCons() {
+        print("handeler \n\n")
+    }
 }
 extension RequistConsaltationVC:UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue() as requistConsTableViewCell
-        let obj = tableData[indexPath.row]
-        if obj.image == nil {
-            cell.iconImage.isHidden = true
-        }else{
-            cell.iconImage.image = obj.image
-        }
         
-        cell.titleLabel.text = obj.title
-        guard  let image = tableData[indexPath.row].image,let title = tableData[indexPath.row].title  else {
-            switch indexPath.row {
-            case 0:
+        switch indexPath.row {
+        case 0:
+            if category == nil {
+                cell.iconImage.isHidden = true
                 cell.titleLabel.text = "اختر مجال الاستشارة"
-            case 1:
-                cell.titleLabel.text = "اختر المستشار"
-            case 2:
-                cell.titleLabel.text = "حدد المدة الزمنية"
-            case 3:
-                cell.titleLabel.text = "اختر طريقة التواصل مع المستشار"
-            default:
-                cell.titleLabel.text = "اختر مجال الاستشارة"
-                
+            }else{
+                cell.iconImage.isHidden = false
+                if isSupExist {
+                    cell.titleLabel.text = "\(category!.name_ar!) \n \(self.supName ?? "no sup")"
+                }else{
+                    cell.titleLabel.text = "\(category!.name_ar!)"
+                }
+                cell.iconImage.kf.setImage(with: URL(string: "\(category!.image!)"))
             }
-            cell.selectionStyle = .none
-            return cell
+        case 1:
+            if consaltant == nil {
+                cell.iconImage.isHidden = true
+                cell.titleLabel.text = "اختر المستشار"
+            }else{
+                cell.iconImage.isHidden = false
+                cell.iconImage.kf.setImage(with: URL(string:consaltant!.photo!))
+                cell.titleLabel.text = consaltant?.name
+            }
+        case 2:
+            if time == nil {
+                cell.iconImage.isHidden = true
+                cell.titleLabel.text = "حدد المدة الزمنية"
+            }else{
+                cell.iconImage.isHidden = true
+                cell.titleLabel.text = time
+            }
+        case 3:
+            if contact == nil {
+                cell.iconImage.isHidden = true
+                cell.titleLabel.text = "اختر طريقة التواصل مع المستشار"
+            }else{
+                cell.iconImage.isHidden = false
+                cell.iconImage.image = contact?.image
+                cell.titleLabel.text = contact?.title
+            }
+        default:
+            if contact == nil {
+                cell.iconImage.isHidden = true
+                cell.titleLabel.text = "اختر طريقة التواصل مع المستشار"
+            }else{
+                cell.iconImage.image = contact?.image
+                cell.titleLabel.text = contact?.title
+            }
+
         }
+
 
         cell.selectionStyle = .none
         return cell
@@ -111,10 +258,76 @@ extension RequistConsaltationVC:UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            if tableData[0].title != nil{
+            if category != nil{
                 return 107
             }
         }
         return 86
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseCategoryVC") as! ChooseCategoryVC
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        case 1:
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseConsaltantVC") as! ChooseConsaltantVC
+            vc.delegate = self
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        case 2:
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectTime") as! SelectTime
+            vc.delegate = self
+            navigationController?.pushViewController(vc, animated: true)
+
+        case 3:
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ComunicationToolsVC") as! ComunicationToolsVC
+            vc.delegate = self
+            navigationController?.pushViewController(vc, animated: true)
+
+        default:
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "categorySelectionVC") as! categorySelectionVC
+            self.navigationController?.pushViewController(vc, animated: true)
+
+            
+        }
+
+    }
+}
+extension RequistConsaltationVC: SelectionDelegate {
+    func selectionReady(category: data, supName: String,supId:Int) {
+        self.isSupExist = true
+        self.category = category
+        self.supName = supName
+        self.supId = supId
+        self.tableView.reloadData()
+        
+    }
+    func selectionReady(category: data) {
+        self.isSupExist = false
+        self.category = category
+        self.supId = nil
+        self.tableView.reloadData()
+        
+    }
+
+    func selectionConsaltntReady(consaltant:ConsaltantData) {
+        self.consaltant = consaltant
+        self.tableView.reloadData()
+    }
+    func selectionTime(time: String,minute:Int) {
+        self.time = time
+        self.timeInt = minute
+        self.tableView.reloadData()
+
+    }
+    func selectionComunicationTool(contact: contactData) {
+        self.contact = contact
+        print(contact)
+        self.tableView.reloadData()
+
+    }
+
 }

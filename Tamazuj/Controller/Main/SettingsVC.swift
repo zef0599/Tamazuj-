@@ -9,11 +9,16 @@
 import UIKit
 
 class SettingsVC: UIViewController {
-
+    var lang = ""
+    @IBOutlet weak var langugeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectLangVC") as! SelectLangVC
+        vc.delegate = self
+        print("lang")
+        print(lang)
+        langugeLabel.text=lang
     }
     
 
@@ -21,21 +26,21 @@ class SettingsVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func toLang(_ sender: Any) {
+        
     }
     
     @IBAction func toConditions(_ sender: Any) {
+        
     }
     
     @IBAction func toPrivice(_ sender: Any) {
+        
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension SettingsVC: StringDelegat {
+    func langugeDelegate(languge: String) {
+        self.lang = languge
+        self.reloadInputViews()
     }
-    */
-
 }

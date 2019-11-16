@@ -11,25 +11,27 @@ import Kingfisher
 
 class SliderCollictionTableViewCell: UITableViewCell {
      var nav : UINavigationController?
-    var bestRatingdata : [BestRating] = []
+     var bestRatingdata : [BestRating] = []
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     fileprivate var timer: Timer?
     var storyBoardVC = UIViewController()
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+//        Initialization code
 //        collectionView.isTracking = false
 //        collectionView.isScrollEnabled = false
-        //self.navigationBar.isTranslucent = true
-        
+//        self.navigationBar.isTranslucent = true
+
         collectionView.dataSource = self
         collectionView.delegate = self
-        
         collectionView.register(UINib(nibName: "sliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sliderCollectionViewCell")
-        
         startTimer()
+        
+        
     }
     
 
@@ -85,6 +87,7 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
         let object = self.bestRatingdata[indexPath.row]
         
@@ -94,15 +97,19 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
         cell.descriptioN.text =  object.biography ?? "لم يقم المستشار باضافة التفاصيل "
         self.collectionView.tag = indexPath.row
         cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
-
+        cell.nav = self.nav
         
         return cell
     }
     // show the pop in nav by the nib buttom
     @objc func Askadviceactione (){
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
-        
-        self.nav?.present(vc, animated: true, completion: nil)
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AdvisorDetailsVC") as! AdvisorDetailsVC
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+
+        self.nav?.pushViewController(vc, animated: true)
+//        present(vc, animated: true, completion: nil)
+        vc.nav = self.nav
+        print("we are in the @objc func Askadviceactione ")
         
     }
     
@@ -138,6 +145,9 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
 //
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let object = self.bestRatingdata[indexPath.row]
+        
+
+        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "abuteConsltentViewController") as! abuteConsltentViewController
         vc.id  = object.id!
 //        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutContainerVC") as! AboutContainerVC

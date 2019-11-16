@@ -36,6 +36,10 @@ class URLs {
     static var advProfile = advURL+"/tmajog/api/v1/consultant/profile"
     static var advUpdateProfile = advURL+"/tmajog/api/v1/consultant/updateProfile"
     static var changeStats = advURL+"/tmajog/api/v1/consultant/status"
+    static var allConsultants = advURL+"/tmajog/api/v1/consultants"
+    static var askConsultation = advURL+"/tmajog/api/v1/user/consultation"
+                                        
+
 
 }
 

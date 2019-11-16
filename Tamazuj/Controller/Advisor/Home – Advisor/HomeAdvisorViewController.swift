@@ -34,6 +34,7 @@ class HomeAdvisorViewController: UIViewController {
     fileprivate func ViewWorningShow() {
         Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
             if let result = result {
+//                print("Bearer \(helper.getAdvisorToken()!)")
                 if result.meta.status == 1{
                     if result.data?.status == "الحساب غير مفعل" && result.data?.account_status == "0"{
                         self.ViewWarning.isHidden = false
@@ -59,17 +60,16 @@ class HomeAdvisorViewController: UIViewController {
                 if (result.data?.isEmpty)!{
                     self.dataisEmpty = true
                     self.nilldata = "لايوجد لديك طلبات استشارة"
-                    self.tabel.reloadData()
                 }else{
                     for i in result.data!{
                         
                         self.data.append(i)
                         self.category_id.append(i.category_id!)
                         self.session_time.append(i.session_time!)
-                        self.tabel.reloadData()
+                        
                     }
                 }
-                
+                self.tabel.reloadData()
                 self.hideHUD()
             }else{
                 self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
@@ -87,6 +87,7 @@ class HomeAdvisorViewController: UIViewController {
     }
 }
 extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,AdvisorTableViewCellDelgat{
+    
     func advisorTableViewCellDelegat(_ Cell: AdvisorTableViewCell) {
         
         if let indexPath = tabel.indexPath(for: Cell){
@@ -100,6 +101,7 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
                         self.tabel.deleteRows(at: [indexPath], with: .fade)
                         self.tabel.endUpdates()
                         self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
+                        
                     }
                     
                 }else{
@@ -112,32 +114,34 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        switch tableView == tabel {
-        case self.data.count > 0:
-            return data.count
-        case self.dataisEmpty == true:
-            return 1
-        default:
-            return 0
-        }
+//        switch tableView == tabel {
+//        case self.data.count > 0:
+//            return data.count
+//        case self.dataisEmpty == true:
+//            return 0
+//        default:
+//            return 0
+//        }
         return self.data.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch tableView == tabel {
             
-        case self.data.isEmpty , self.dataisEmpty == true :
-            let cell = tableView.dequeueReusableCell(withIdentifier: "dataNillTableViewCell", for: indexPath) as! dataNillTableViewCell
-            
-            cell.label.text = nilldata
-            cell.label.font =  UIFont(name: "Cairo-Bold", size: 18)
-            cell.selectionStyle = .none
-            return cell
+//        case self.data.isEmpty , self.dataisEmpty == true :
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "dataNillTableViewCell", for: indexPath) as! dataNillTableViewCell
+//
+//            cell.label.text = nilldata
+//            cell.label.font =  UIFont(name: "Cairo-Bold", size: 18)
+//            cell.selectionStyle = .none
+//            cell.backgroundColor = .clear
+//
+//            return cell
             
         case self.data.count > 0:
             
@@ -163,60 +167,50 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
             return UITableViewCell()
         }
     }
-    //    @objc func cancellation (_ sender : UIButton){
-    //
-    ////        print("hhhhhhh", data[sender.tag].id ?? 999)
-    //
-    ////        let indexPath = data[sender.tag]
-    ////
-    ////        self.data.remove(at: indexPath.row)
-    ////        tabel.beginUpdates()
-    ////        tabel.deleteRows(at: [indexPath], with: .automatic)
-    ////        tabel.endUpdates()
-    //        let hitPoint = sender.convert(CGPoint(x: 0, y: 0), to: tabel)
-    //        if let indexPath = tabel.indexPathForRow(at: hitPoint) {
-    //
-    //            self.data.remove(at: indexPath.row)
-    //            tabel.beginUpdates()
-    //            tabel.deleteRows(at: [indexPath], with: .fade)
-    //            tabel.endUpdates()
-    //
-    //
-    //        }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if dataisEmpty == true , self.data.count == 0 {
+            
+            return "لايوجد لديك طلبات استشارة"
+        }else{
+            return ""
+        }   
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 137
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            
-            if tableView == self.tabel{
-                let object = data[indexPath.row]
-                advOprition.cancellation(id: object.id!) { (err, result) in
-                    if let result = result{
-                        //                    print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
-                        if result.status! == 1{
-                            self.data.remove(at: indexPath.row)
-                            self.tabel.beginUpdates()
-                            self.tabel.deleteRows(at: [indexPath], with: .bottom)
-                            self.tabel.endUpdates()
-                            self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
+       
+
+            if editingStyle == .delete{
+                
+                if tableView == self.tabel{
+                    let object = data[indexPath.row]
+                    advOprition.cancellation(id: object.id!) { (err, result) in
+                        if let result = result{
+                            //                    print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
+                            if result.status! == 1{
+                                self.data.remove(at: indexPath.row)
+                                self.tabel.beginUpdates()
+                                self.tabel.deleteRows(at: [indexPath], with: .bottom)
+                                self.tabel.endUpdates()
+                                
+                                self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
+                            
+                            }
+                            
+                            
+                        }else{
+                            self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
                         }
-                        
-                    }else{
-                        self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
                     }
                 }
                 
-                
-                
-                
-                
-                
             }
-            
-        }
         
+//        }
+//
     }
     
     

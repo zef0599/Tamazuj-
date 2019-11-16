@@ -17,6 +17,7 @@ class cateTableViewCell: UITableViewCell {
     @IBOutlet weak var leading: UIView!
     @IBOutlet weak var traling: UIView!
     @IBOutlet weak var up: UIImageView!
+    @IBOutlet weak var bottom: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
 

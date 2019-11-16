@@ -13,6 +13,10 @@ class AdvisorCell: UITableViewCell {
     @IBOutlet var stacknametime: UIStackView!
     @IBOutlet var stackreat: UIStackView!
     
+    @IBOutlet var icon: UIImageView!
+    @IBOutlet var nameicon: UILabel!
+    
+    
     @IBOutlet var imageUser: UIImageView!
     @IBOutlet var time: UILabel!
     @IBOutlet var name: UILabel!

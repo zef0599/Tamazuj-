@@ -14,6 +14,7 @@ class AdvisorSelectionVC: UIViewController {
 //    @IBOutlet weak var collectionView: UICollectionView!
 
     var consaltantData:[data]?
+    var consaltantNumSele:Int?
     var indexpathCategory:Int?
     var indexPathSubCat:Int?
     var DataConsultant:sup_category?
@@ -30,8 +31,12 @@ class AdvisorSelectionVC: UIViewController {
         collectionView.register(UINib(nibName: "sliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sliderCollectionViewCell")
 //        collectionView.delegate = self
 //        collectionView.dataSource = self
+        if DataConsultant != nil {
+            self.navBar.title = "\(DataConsultant?.name_ar ?? "تصنيف")"
+        }else{
+            self.navBar.title = "\(self.consaltantData![consaltantNumSele!].name_ar ?? "تصنيف")"
+        }
         
-        self.navBar.title = "\(DataConsultant?.name_ar ?? "تصنيف")";
 
 
     }
@@ -65,39 +70,66 @@ class AdvisorSelectionVC: UIViewController {
 
 extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if indexPathSubCat == nil{
-            return (DataConsultant?.consultant!.count)!
+        
+        if DataConsultant != nil {
+            if indexPathSubCat == nil{
+                return (DataConsultant?.consultant!.count)!
+            }else{
+                if (DataConsultant?.consultant!.count) == 0 {
+                    showHUD(title: "عذرا", details: "لا يوجد مستشارين في هذا التصنيف", hideAfter: 1.5)
+                }else{
+                    return (DataConsultant?.consultant!.count)!
+                    
+                }
+            }
         }else{
-            if (DataConsultant?.consultant!.count) == 0 {
+            
+            if (consaltantData![consaltantNumSele!].consultant!.count) == 0 {
                 showHUD(title: "عذرا", details: "لا يوجد مستشارين في هذا التصنيف", hideAfter: 1.5)
             }else{
-                return (DataConsultant?.consultant!.count)!
-
+                return (consaltantData![consaltantNumSele!].consultant!.count)
+                
             }
-            
 
         }
+
         return Int()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
-        if indexPathSubCat == nil{
-            if let obj = DataConsultant {
-                cell.titel.text = obj.consultant![indexPath.row].name
-                cell.descriptioN.text = obj.consultant![indexPath.row].biography ?? "no bio"
-                cell.imageView.kf.setImage(with: URL(string: obj.consultant![indexPath.row].photo!))
+        if DataConsultant != nil {
+            if indexPathSubCat == nil{
+                if let obj = DataConsultant {
+                    cell.titel.text = obj.consultant![indexPath.row].name
+                    cell.descriptioN.text = obj.consultant![indexPath.row].biography ?? "no bio"
+                    cell.imageView.kf.setImage(with: URL(string: obj.consultant![indexPath.row].photo!))
+                }
+            }else{
+                if let obj = DataConsultant?.consultant {
+                    cell.titel.text = obj[indexPath.row].name
+                    cell.descriptioN.text = obj[indexPath.row].biography ?? "no bio"
+                    cell.imageView.kf.setImage(with: URL(string: obj[indexPath.row].photo!))
+                }
             }
+
         }else{
-            if let obj = DataConsultant?.consultant {
-                cell.titel.text = obj[indexPath.row].name
-                cell.descriptioN.text = obj[indexPath.row].biography ?? "no bio"
-                cell.imageView.kf.setImage(with: URL(string: obj[indexPath.row].photo!))
-            }
+            let obj = consaltantData![consaltantNumSele!].consultant![indexPath.row]
+            cell.titel.text = obj.name
+            cell.descriptioN.text = obj.biography ?? "no bio"
+            cell.imageView.kf.setImage(with: URL(string: obj.photo!))
         }
+        cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
         return cell
         
     }
+    @objc func Askadviceactione (){
+        let stprybord = UIStoryboard(name: "Main", bundle: nil)
+        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
     {
@@ -105,15 +137,12 @@ extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: cellWidth, height: 170)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        containar.alpha=1
+        let stprybord = UIStoryboard(name: "Main", bundle: nil)
+        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        self.navigationController?.pushViewController(vc, animated: true)
 
     }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let stprybord = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = stprybord.instantiateViewController(withIdentifier: "AboutAdvisorVC") as! UIViewController
-//        UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: true, completion: nil)
-//    }
-    
+
     
     
     

@@ -7,24 +7,33 @@
 //
 
 import UIKit
-struct comData {
-    var image:UIImage?
-    var title:String?
-}
-class ComunicationToolsVC: UIViewController {
 
+class ComunicationToolsVC: UIViewController {
+    var delegate:SelectionDelegate?
     @IBOutlet weak var tableView: UITableView!
-    var array:[comData] = [
-    comData(image:#imageLiteral(resourceName: "video.png"), title: "مكالمة فيديو"),
-    comData(image:#imageLiteral(resourceName: "calling.png"), title: "مكالمة صوتية"),
-    comData(image:#imageLiteral(resourceName: "chat.png"), title: "محادثة كتابية")
+    var array:[contactData] = [
+    contactData(image:#imageLiteral(resourceName: "video.png"), title: "مكالمة فيديو"),
+    contactData(image:#imageLiteral(resourceName: "calling.png"), title: "مكالمة صوتية"),
+    contactData(image:#imageLiteral(resourceName: "chat.png"), title: "محادثة كتابية")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        self.navigationController?.navigationItem.title = ""
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        //        self.navigationController?.navigationBar.isHidden = false
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        //        self.navigationController?.navigationBar.isHidden = false
+    }
+
 
 
 }
@@ -38,8 +47,13 @@ extension ComunicationToolsVC:UITableViewDelegate, UITableViewDataSource {
         let obj = array[indexPath.row]
         cell.IconImage.image = obj.image
         cell.titleLabel.text = obj.title
+        cell.selectionStyle = .none
         return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.selectionComunicationTool(contact: array[indexPath.row])
+        navigationController?.popViewController(animated: true)
     
+    }
 }

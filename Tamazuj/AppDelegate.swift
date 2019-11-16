@@ -8,6 +8,9 @@
 
 import UIKit
 import IQKeyboardManager
+
+import Firebase
+
 var canShowNoData = true
 
 struct AppFontName {
@@ -82,6 +85,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        
+        FirebaseApp.configure()
         
         IQKeyboardManager.shared().isEnabled = true
         // Override point for customization after application launch.
@@ -108,14 +114,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let UserToken = helper.getUserToken()
         let AdvisorToken = helper.getAdvisorToken()
  //       let Token = [UserToken , AdvisorToken]
-        
 //        switsh Token {
 //
 //            case :
-//
 //        }
         
-//        26-10
+//        //26-10
 //        if UserToken != nil {
 //
 //            WindowManger.show(.main, animated: true)
