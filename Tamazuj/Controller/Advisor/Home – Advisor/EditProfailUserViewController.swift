@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 class EditProfailUserViewController: UIViewController {
     
-    let gender = ["ذكر","انثى"]
+    let gender = ["male","female"]
     var selectedGender:String?
     
     let degree = ["bachelor degree",
