@@ -51,6 +51,25 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
 
     }
     
+    
+    // add to fix nav bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Hide the Navigation Bar
+        //        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Show the Navigation Bar
+        //        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+
+
+    
 
     
     
