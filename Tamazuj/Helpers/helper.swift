@@ -13,7 +13,17 @@ import Foundation
 
 class helper {
     
+    static var userTyape:String = ""
     
+    static func saveUserType(user: String) {
+        
+        let def = UserDefaults.standard
+        
+        struct Key{ fileprivate static let userType = "user"}
+        
+        def.setValue(user, forKey: Key.userType)
+        def.synchronize()
+    }
     static func saveUserToken(token: String) {
         
         let def = UserDefaults.standard
@@ -23,38 +33,28 @@ class helper {
         def.setValue(token, forKey: Key.UserToken)
         def.synchronize()
     }
-    static func saveAdvisoerToken(token: String) {
-        
-        let def = UserDefaults.standard
-        
-        struct Key{ fileprivate static let AdvisorToken = "Advisor_token"}
-        
-       
-        def.setValue(token, forKey: Key.AdvisorToken)
-        def.synchronize()
-    }
-    
+
     static func getUserToken() -> String? {
         let def = UserDefaults.standard
         return def.object(forKey: "user_token") as? String
     }
     
-    static func getAdvisorToken() -> String? {
-        let def = UserDefaults.standard
-        
-        return def.object(forKey: "Advisor_token") as? String
+    static func deletUserToken(){
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+            
+        }
     }
-    static func deletUserToken() -> String? {
+    static func getUserType() -> String? {
         let def = UserDefaults.standard
-        
-        return def.object(forKey: "user_token") as? String
-        def.removeObject(forKey:"user_token")
+        return def.object(forKey: "user") as? String
     }
-    
-    static func deletAdvisoerToken() -> String? {
-        let def = UserDefaults.standard
+    static func logout(){
+        helper.deletUserToken()
+        WindowManger.show(.account, animated: true)
         
-        return def.object(forKey: "user_token") as? String
-        def.removeObject(forKey:"user_token")
     }
 }
+

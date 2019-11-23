@@ -10,7 +10,7 @@
 import UIKit
 import Kingfisher
 protocol SelectionDelegate {
-    func selectionReady(category: data, supName: String,supId:Int)
+    func selectionReady(category: data, supName: String,supId:String)
     func selectionReady(category:data)
     func selectionConsaltntReady(consaltant:ConsaltantData)
     func selectionTime(time:String,minute:Int)

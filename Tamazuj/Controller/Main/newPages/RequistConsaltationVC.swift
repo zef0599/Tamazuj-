@@ -8,10 +8,7 @@ struct contactData {
     var title:String?
 }
 class RequistConsaltationVC: UIViewController, UITextViewDelegate {
-    
-    
-    
-    
+
     var consaltant:ConsaltantData?
     var category:data?
     var index:Int?
@@ -20,7 +17,7 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
     var nav:UINavigationController?
     var supName:String?
     var isSupExist:Bool = false
-    var supId:Int?
+    var supId:String?
     var timeInt:Int?
         /*
     var tableData:[reqData] = [
@@ -93,99 +90,95 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
     }
     //MARK:- button askConsalt
     
-    fileprivate func AddnewUserAndFirstmasseg() {
-        // return the message and the status to the hud
-        
-        
-        //MARK:- add to fierbase user and consaltnt
-        /// get user to send firbase
-        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", completion: { (error,result) in
-            if let result = result ,result.meta.status == 1{
-                
-                ////////////////////////////////////////////////////////////////////////////////////////////////////
-                
-                ////////////// save tow user
-                guard let email = result.data?.email ,let name = result.data?.name , let number = result.data?.phone , let photo  = result.data?.photo  else{ return}
-                FirebaseRealTime.addNewUser(number: number, name: name, image: photo,email: email ,compltion: { (bool) in
-                    if bool{
-                    }else{
-                        self.showHUD(title: "", details: "some error in add user( askConsalt)", hideAfter: 3)
-                    }
-                })
-                
-                /// get consaltant to send firbase
-                guard let emailC = self.consaltant?.email,let numberC = self.consaltant?.phone ,let nameC = self.consaltant?.name else {return}
-                
-                FirebaseRealTime.addNewUser(number: numberC, name: nameC, image: nil,email: emailC ,compltion: { (bool) in
-                    if bool{
-                    }else{
-                        self.showHUD(title: "", details: "some error in add user( usrConsalt)", hideAfter: 3)
-                    }
-                    
-                    
-                    ///  add usr and consaltnt to masseg and send first masseg  firbase
-                    FirebaseRealTime.addmasseges(numberConsaltnt: numberC, numberUser: number, masseg: "test", recipientName: nameC, senderName: name, compltion: { (bol) in
-                        if bol{
-                            
-                        }else{
-                            self.showHUD(title: "", details: "some error in send data", hideAfter: 3)
-                        }
-                    })
-                    
-                    
-                })
-            }else{
-                self.showHUD(title: "", details: "some error", hideAfter: 3)
-            }
-            
-            
-            
-            ////////////////////////////////////////////////////////////////////////////////////////////////////
-            
-        })
-    }
+//    fileprivate func AddnewUserAndFirstmasseg() {
+//        // return the message and the status to the hud
+//
+//
+//        //MARK:- add to fierbase user and consaltnt
+//        /// get user to send firbase
+//        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", completion: { (error,result) in
+//            if let result = result ,result.meta.status == 1{
+//
+//                ////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//                ////////////// save user
+//                guard let email = result.data?.email ,let name = result.data?.name , let number = result.data?.phone , let photo  = result.data?.photo  else{ return}
+//                FirebaseRealTime.addNewUser(number: number, name: name, image: photo,email: email ,compltion: { (bool) in
+//                    if bool{
+//                    }else{
+//                        self.showHUD(title: "", details: "some error in add user( askConsalt)", hideAfter: 3)
+//                    }
+//                })
+//
+//                /// get consaltant to send firbase
+//                guard let emailC = self.consaltant?.email,let numberC = self.consaltant?.phone ,let nameC = self.consaltant?.name else {return}
+//
+//                FirebaseRealTime.addNewUser(number: numberC, name: nameC, image: nil,email: emailC ,compltion: { (bool) in
+//                    if bool{
+//                    }else{
+//                        self.showHUD(title: "", details: "some error in add user( usrConsalt)", hideAfter: 3)
+//                    }
+//
+//
+//                    ///  add usr and consaltnt to masseg and send first masseg  firbase
+//                    FirebaseRealTime.addmasseges(numberConsaltnt: numberC, numberUser: number, masseg: "test", recipientName: nameC, senderName: name, compltion: { (bol) in
+//                        if bol{
+//
+//                        }else{
+//                            self.showHUD(title: "", details: "some error in send data", hideAfter: 3)
+//                        }
+//                    })
+//
+//
+//                })
+//            }else{
+//                self.showHUD(title: "", details: "some error", hideAfter: 3)
+//            }
+//
+//
+//
+//            ////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//        })
+//    }
     
     @IBAction func askConsalt(_ sender: Any) {
         
         
         guard let communication = contact?.title,
-              let problem = details.text,
-              let time = timeInt,
-              let categoryId = category?.id,
-              let consultantId = consaltant?.id
+            let problem = details.text,
+            let time = timeInt,
+            let categoryId = category?.id,
+            let consultantId = consaltant?.id
             else {return showHUD(title: "عذرا", details: "يرجى تعبئه جميع الحقول", hideAfter: 1)}
-         let subCategoryId = supId
+        
+        var subCategoryId = supId
+        
         showHUD(title: "waiting...")
         Operation.askConsalt(communication: communication, problem: problem, time: time, categoryId:categoryId , consultantId: consultantId, subCategoryId: subCategoryId, status: nil) { (error, result) in
-            
-            if result?.status == 1{
-//                print("result")
-//                print(result)
-            }
             if let result = result {
                 self.hideHUD()
-                self.AddnewUserAndFirstmasseg()
                 
                 
-                
-                
+//                self.AddnewUserAndFirstmasseg()
+                // return the message and the status to the hud
+                print("result")
+                print(result)
                 let alert = UIAlertController(title: "حالة الطلب", message: result.message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "موافق", style: .default, handler: { (action) in
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "chatViewController") as! chatViewController
-                    
-                    self.present(vc, animated: true, completion: {
-//                        vc.
-                    })
-                    
-                    
 //                    self.navigationController?.popViewController(animated: true)
+                    
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "chatViewController") as! chatViewController
+                    // as test
+                    vc.id = 3
+                    
+                    self.present(vc, animated: true, completion: nil)
                 }))
                 
                 self.present(alert, animated: true)
             }
         }
-//        self.navigationController?.popViewController(animated: true)
+        //        self.navigationController?.popViewController(animated: true)
     }
     
     func handelerReqCons() {
@@ -297,7 +290,7 @@ extension RequistConsaltationVC:UITableViewDelegate, UITableViewDataSource {
     }
 }
 extension RequistConsaltationVC: SelectionDelegate {
-    func selectionReady(category: data, supName: String,supId:Int) {
+    func selectionReady(category: data, supName: String,supId:String) {
         self.isSupExist = true
         self.category = category
         self.supName = supName

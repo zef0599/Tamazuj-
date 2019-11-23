@@ -22,8 +22,11 @@ class ChooseConsaltantVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nav.title = navTitle
+        showIndeterminateHUD() //here
+
         Operation.getAllConsaltants { (error, result) in
             if let result = result {
+                self.hideHUD() //here
                 self.allConsaltant = result
                 self.collectionView.reloadData()
             }
@@ -95,8 +98,8 @@ extension ChooseConsaltantVC: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//  go back to the selection bage and do the change
-        delegate?.selectionConsaltntReady(consaltant:(allConsaltant?.ConsaltantData![indexPath.section])!)
+        //  go back to the selection bage and do the change
+        delegate?.selectionConsaltntReady(consaltant:(allConsaltant?.ConsaltantData![indexPath.item])!)
         self.navigationController?.popViewController(animated: true)
     }
 }

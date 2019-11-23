@@ -127,7 +127,7 @@ class abuteConsltentViewController: UIViewController {
                 
                 for i in self.data{
                         self.name.text = i.name ?? ""
-                        self.rating.text = "\(i.rating!)%"
+                    self.rating.text = "\(i.rating ?? 0)%"
                         self.biography.text = i.biography ?? "لم يضيف المستشارة تفاصيل خاصة به"
                         self.image.kf.setImage(with: URL(string: i.photo!))
                     

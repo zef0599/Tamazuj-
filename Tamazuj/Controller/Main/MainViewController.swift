@@ -9,7 +9,7 @@
 import UIKit
 import MBProgressHUD
 import IQKeyboardManager
-
+import Firebase
 
 
 class MainViewController: UIViewController {
@@ -21,16 +21,19 @@ class MainViewController: UIViewController {
     @IBOutlet var mainTabel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ////e_dhUuMAKl0:APA91bGT1MpPTm00C2Wd3CwjU1ESFGE7WH2uNmq9VnctiBCQ0TotfJHCZeXk1XFPoYOX8gIIZXLuklEdhWxztF165SwiDkO4ktioFDRGOSL2aqk-bGQkB2p7Y937AipFSReoVc6E6e9z
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+            
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+//                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+            }
+        }
         
-//        addNewUser
+//        NotificationCenter.default.addObserver(self, selector: #selector(testobserv), name: NSNotification.Name("backgrund"), object: nil)
         
-//        FirebaseRealTime.addmasseges(numberConsaltnt: "+9720597776576", numberUser: "0597776576", masseg: "hi mohammed", recipientName: "test Consaltnt", senderName: "mohammed erbia") { (bool) in
-//            if bool{
-//                ////
-//            }
-//        }
-//
-       
         
         nav = self.navigationController
         
@@ -44,6 +47,22 @@ class MainViewController: UIViewController {
         mainTabel.register(UINib(nibName: "adviserfavorsTableViewCell", bundle: nil), forCellReuseIdentifier: "adviserfavorsTableViewCell")
     
     }
+    @objc func testobserv(sender : NSNotification){
+        let userInfo = sender.userInfo
+        let aps = userInfo!["aps"] as! [String:Any]
+        let alert = aps["alert"] as! [String:Any]
+        let titles =  alert["title"] as? String
+
+        
+        guard let title = titles else {return}
+
+        let alerts = UIAlertController(title: "test", message: "\(title)", preferredStyle: .alert)
+        alerts.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alerts, animated: true, completion: nil)
+    }
+    
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
@@ -57,6 +76,14 @@ class MainViewController: UIViewController {
     }
     
     
+    @IBAction func serch(_ sender: Any) {
+        
+        let vc = storyboard!.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        navigationController?.pushViewController(vc, animated: true)
+        
+        
+        
+    }
     fileprivate func imageTitel() {
         let imageView = UIImageView(frame: (CGRect(x: 0, y: 0, width: 35, height:
             35)))

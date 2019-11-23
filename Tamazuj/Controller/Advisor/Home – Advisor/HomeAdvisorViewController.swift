@@ -19,20 +19,37 @@ class HomeAdvisorViewController: UIViewController {
     @IBOutlet var ViewWarning: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ViewWorningShow()
+        
+        
+        
+        
         ViewWarning.isHidden = true
         imageTitel()
         loadData()
         tabel.register(UINib(nibName: "dataNillTableViewCell", bundle: nil), forCellReuseIdentifier: "dataNillTableViewCell")
         tabel.register(UINib(nibName: "AdvisorTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvisorTableViewCell")
         
-        ViewWorningShow()
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         ViewWorningShow()
         
+        let vc = UIStoryboard(name: "Advisor", bundle: nil).instantiateViewController(withIdentifier: "AdvchatViewController")as! AdvchatViewController
+//        let object = self.data[indexPath.row]
+        vc.id = 3
+//        let nav =
+//        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "AdvchatViewController") as! AdvchatViewController
+//        let navController = UINavigationController(nibName: "chat", bundle: nil) // Creating a navigation controller with VC1 at the root of the navigation stack.
+        self.present(vc, animated:true, completion: nil)
+        
+        
+//        self.present(vc, animated: true) {
+        
+//        }
     }
     fileprivate func ViewWorningShow() {
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
 //                print("Bearer \(helper.getAdvisorToken()!)")
                 if result.meta.status == 1{
@@ -65,7 +82,8 @@ class HomeAdvisorViewController: UIViewController {
                         
                         self.data.append(i)
                         self.category_id.append(i.category_id!)
-                        self.session_time.append(i.session_time!)
+                        guard let time = i.session_time else { return }
+                        self.session_time.append(time)
                         
                     }
                 }
@@ -87,23 +105,44 @@ class HomeAdvisorViewController: UIViewController {
     }
 }
 extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,AdvisorTableViewCellDelgat{
+    func acceptConsaltentadvisorTableViewCellDelegat(_ Cell: AdvisorTableViewCell) {
+        
+        
+        if let indexPath = tabel.indexPath(for: Cell){
+//            let vc = UIStoryboard(name: "Advisor", bundle: nil).instantiateViewController(withIdentifier: "AdvchatViewController")as! AdvchatViewController
+//            let object = self.data[indexPath.row]
+//            vc.id = 3//object.id!
+            //        vc.string2 = "2139902320"
+            //        vc.string1 = "0592216486"
+            //
+            
+//            self.present(vc, animated: true) {
+//
+//            }
+//            print("indexpath : - ",indexPath.row)
+            
+        }
+    }
+    
     
     func advisorTableViewCellDelegat(_ Cell: AdvisorTableViewCell) {
+        print("index delet :-indexPath")
         
         if let indexPath = tabel.indexPath(for: Cell){
             let object = data[indexPath.row]
+            
             advOprition.cancellation(id: object.id!) { (err, result) in
                 if let result = result{
-                    //                    print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
+                    //           print(result.message ?? "لم يتم الغاء الاستشارة بعد ")
                     if result.status! == 1{
                         self.data.remove(at: indexPath.row)
                         self.tabel.beginUpdates()
                         self.tabel.deleteRows(at: [indexPath], with: .fade)
                         self.tabel.endUpdates()
                         self.showHUD(title: "", details: result.message ?? "لم يتم الغاء الاستشارة بعد ", hideAfter: 2)
-                        
+
                     }
-                    
+
                 }else{
                     self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
                 }
@@ -145,25 +184,28 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
             
         case self.data.count > 0:
             
+//        case true :
             let cell = tableView.dequeueReusableCell(withIdentifier: "AdvisorTableViewCell", for: indexPath) as! AdvisorTableViewCell
             cell.selectionStyle = .none
             let objectT = self.session_time[indexPath.row]
             let objectC = self.category_id[indexPath.row]
-            //            let objectD = self.data[indexPath.row]
-            
-            
-            
+//            let objectD = self.data[indexPath.row]
+
+
+
             cell.timeCons.text = objectT.time ?? "error objectT.time"
             cell.imageCons.kf.setImage(with: URL(string: objectC.image!))
             cell.typeConslt.text = objectC.name_ar ?? "error objectC.name_ar"
             
-            //            cell.cancellation.tag = indexPath.row
+            
+//            cell.cancellation.tag = indexPath.row
             cell.delegat = self
             
-            //            cell.cancellation.addTarget(self, action: #selector(cancellation), for: .touchUpInside)
+//            cell.cancellation.addTarget(self, action: #selector(cancellation), for: .touchUpInside)
             return cell
             
         default:
+            
             return UITableViewCell()
         }
     }
@@ -173,7 +215,7 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
             
             return "لايوجد لديك طلبات استشارة"
         }else{
-            return ""
+            return nil
         }   
     }
     

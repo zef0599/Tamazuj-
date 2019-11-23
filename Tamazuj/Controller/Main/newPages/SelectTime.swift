@@ -46,7 +46,7 @@ class SelectTime: UIViewController {
     }
     
     @IBAction func thirdBt(_ sender: Any) {
-        delegate?.selectionTime(time: "مفتوح",minute:99999)
+        delegate?.selectionTime(time: "مفتوح",minute:120)
         navigationController?.popViewController(animated: true)
 
     }

@@ -394,40 +394,25 @@ class Operation {
     }
     
     // askConsaltation
-    class func askConsalt(communication:String, problem:String, time:Int, categoryId:Int, consultantId:Int, subCategoryId:Int?, status:Int?, completion:@escaping (_ error:Error?,_ result:askConsaltation?)->Void) {
-        let header : HTTPHeaders = [
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImM2OTMxZDNkM2U3ZTViYzEwZDg0NDhmNDBlODQ3NTBmYWRmNGI5MTNmODA5NGQ2NmM1ZjhlMDAwYjdmYzgxM2MwODNmZDdjNGRhMjk4MzczIn0.eyJhdWQiOiIxIiwianRpIjoiYzY5MzFkM2QzZTdlNWJjMTBkODQ0OGY0MGU4NDc1MGZhZGY0YjkxM2Y4MDk0ZDY2YzVmOGUwMDBiN2ZjODEzYzA4M2ZkN2M0ZGEyOTgzNzMiLCJpYXQiOjE1Njc5OTE0NDcsIm5iZiI6MTU2Nzk5MTQ0NywiZXhwIjoxNTk5NjEzODQ3LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.Tfw3ex_BnGdr26Vr4U9X2jcsBa2kKddf8xf-Go0kALnQn1PJpqJuXoxou9WjRtODtRUDvwPoW3U4vn0EpTzZVU6udBxi9J7MaiDqKL3QTlt1OHLoby9T8pSoHMl0PMTlfg28mSthoAf8O0jijaO4Nb1_btKzcTS5-dro2g_jATTmw_RuVQGsG1nXgHvUm6H3hlQyA8WNA17OraOUzOk8oadTXDcT5X7aO5avk8skxLH_rA9-4FfgyzVY_HGSxFmbva3LJ0KCVkXWt9IbkdssBd2L3f0kkc8UkuC3tL5SioG_IjaO1lkmdL6bR_LdD9gELe1V9u1aJR6wab3LjrEh1zcXVaiJfEUVwJuMNs3PQ6-BaUVbcKQTo98MtrgmnoUGNCkBcFqINPIBxiVo3EfK_pajuHpQx6X83Gp4XakXqG6lu4hyPRWyEUvJXeJPM6t3ElAs6jffbnOz9p3sD53NtCpbKeC4v7LVcwxfGTYY4cjei0ShJyhsxPT05Lx6JZ564Rm4QTRsMaSwr262y1X6pe0vMGBk4TcA5FZ5IbbzD3-pmxE9H-INiLf2kpMX93WH6cd1vei16mvjcO8IGyR3bI2_omKPHmRD3qxAYxavMlpStVR7UAA35zBuS5eVqIJne4xP6f0Ekl9q9doIhBhz9LgmuCJ1_jyoXOgZsYSgDbU)",
+    class func askConsalt(communication:String, problem:String, time:Int, categoryId:Int, consultantId:Int, subCategoryId:String?, status:Int?, completion:@escaping (_ error:Error?,_ result:askConsaltation?)->Void) {
+        let header:HTTPHeaders = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
             "lang":"ar"]
         
-        let parameters  : Parameters = [
-            "means_of_communication": "vedio",
-            "summary_problem": "problem",
-            "session_time_id": "30",
-            "category_id": "1",
-            "consultant_id": "1",
-            "sub_category_id": "1",
-            "status":4]
-        
-//        let parameters  : Parameters = [
-//            "means_of_communication": "\(communication)",
-//            "summary_problem": "\(problem)",
-//            "session_time_id": "\(time)",
-//            "category_id": "\(categoryId)",
-//            "consultant_id": "\(consultantId)",
-//            "sub_category_id": "\(subCategoryId)",
-//            "status":4]
-//
-        
+        let parameters = [
+            "means_of_communication":" \(communication)",
+            "summary_problem": "\(problem)",
+            "session_time_id": "\(time)",
+            "category_id":"\(categoryId)",
+            "consultant_id":"\(consultantId)",
+            "sub_category_id": subCategoryId ?? "",
+            "status":"4"] as [String : Any]
         Alamofire.request(URLs.askConsultation, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
-
-//            print("medomedo",response.value)
-            
             switch response.result
             {
-                
             case .success(let value):
                 do{
-                    
+                    print("sucess the ask consaltation")
                     let data = try JSONDecoder().decode(askConsaltation.self, from: response.data!)
                     completion(nil,data)
                     
@@ -447,6 +432,199 @@ class Operation {
         
     }
     
-
+    class func getCon(completion:@escaping (_ error:Error?,_ result:MyConsultation?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.bestReting, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(MyConsultation.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+    }
+    class func search (completion:@escaping (_ error:Error?,_ result:searchModel?)->Void) {
+        let header = [
+            "Authorization":"Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        // let parameters = ["name": textSearch]
+        
+        //     parameters: parameters  textSearch:String?   parameters: parameters,
+        
+        Alamofire.request(API.search, method: .post, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    
+                    let data = try JSONDecoder().decode(searchModel.self, from: response.data!)
+                    completion(nil,data)
+                }
+                catch {
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+        
+    }
+    
+    class func getbestCon(completion:@escaping (_ error:Error?,_ result:MyConsultation?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.bestCon, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(MyConsultation.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+    }
+    
+    class func filter0(completion:@escaping (_ error:Error?,_ result:MyConsultation?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.filter0, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(MyConsultation.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+    }
+    class func filter1(completion:@escaping (_ error:Error?,_ result:MyConsultation?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.filter1 , method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(MyConsultation.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+    }
+    class func filter2(completion:@escaping (_ error:Error?,_ result:MyConsultation?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.filter2, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(MyConsultation.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+            
+            
+        }
+    }
+    
+    class func setting(completion:@escaping (_ error:Error?,_ result:settingData?)->Void){
+        let header = [
+            "Authorization": "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"]
+        Alamofire.request(API.sitting, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header).responseJSON { (response) in
+            switch response.result
+            {
+            case .success(let value):
+                do{
+                    let data = try JSONDecoder().decode(settingData.self, from: response.data!)
+                    
+                    completion(nil,data)
+                    
+                }catch{
+                    print(error)
+                    
+                    completion(error,nil)
+                    
+                }
+            case .failure(let error):
+                print(error)
+                completion(error,nil)
+            }
+        }
+    }
+    
 }
 

@@ -1,18 +1,26 @@
 //
-//  AdvHomeAdvisorViewController.swift
+//  privacyViewController.swift
 //  Tamazuj
 //
-//  Created by Mohammed Erbia on 20/09/2019.
+//  Created by osama abu dahi on 19/11/2019.
 //  Copyright © 2019 Tamazuj. All rights reserved.
 //
 
 import UIKit
 
-class AdvHomeAdvisorViewController: UIViewController {
+class privacyViewController: UIViewController {
 
+    @IBOutlet weak var privisyText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Operation.setting { (error, data) in
+            if data?.status == 1 {
+                print("sucsses")
+                self.privisyText.text = data?.privacy_app?.html2String
+                //print(data?.about_app)
+                
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -27,4 +35,7 @@ class AdvHomeAdvisorViewController: UIViewController {
     }
     */
 
+    @IBAction func exit(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

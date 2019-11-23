@@ -22,7 +22,7 @@ class AdvMainViewController: UIViewController {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -38,7 +38,7 @@ class AdvMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
@@ -92,20 +92,13 @@ extension AdvMainViewController: UITableViewDelegate, UITableViewDataSource {
             let vc = stprybord.instantiateViewController(withIdentifier: "AdvEditProfaileVC") as! AdvEditProfaileVC
             navigationController?.pushViewController(vc, animated: true)
         case 5:
-            Operation.logout(Authorization: "Bearer \(helper.getAdvisorToken()!)") { (error, logout) in
-                if let logout = logout {
-                    
-                    let status = logout.status
-                    if status != 0 {
-                        let mass = logout.message
-                        print(mass)
-//                        helper.deletApiToken()
-                        WindowManger.show(.account, animated: true)
-                        
-                        
-                    }
-                    
-                }}
+            let alert = UIAlertController(title: "هل تود فعلا تسجيل الخروج", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "نعم", style: .default, handler:{ action in
+                helper.logout()
+                
+            }))
+            alert.addAction(UIAlertAction(title: "لا", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
             break
         default:
             break

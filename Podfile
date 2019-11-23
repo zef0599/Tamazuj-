@@ -13,10 +13,8 @@ target 'Tamazuj' do
   pod 'IQKeyboardManager'
   pod 'PhoneNumberKit', '~> 3.0'
   pod 'MBProgressHUD', '~> 1.1.0'
-  
-  
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
-  
+  pod 'Firebase/Messaging'
   
 end

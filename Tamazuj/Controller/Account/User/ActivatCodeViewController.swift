@@ -66,7 +66,7 @@ class ActivatCodeViewController: UIViewController {
             if actv.token != nil && actv.status == 1  {
                 
                 self.hideHUD()
-                helper.saveAdvisoerToken(token: actv.token!) 
+                helper.saveUserToken(token: actv.token!)
                 WindowManger.show(.Advisor, animated: true)
             }else{
                 self.showHUD(title: "", details: actv.message! + "\n الرجاء ادخال الكود بشكل صحيح ", hideAfter: 3)

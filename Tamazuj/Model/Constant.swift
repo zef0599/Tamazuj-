@@ -23,6 +23,15 @@ struct API {
     static let logout           = "http://salahalimohamed.website/tmajog/api/v1/user/logout"
     static let Adupdatpaas      = "http://salahalimohamed.website/tmajog/api/v1/consultant/updatePassword"
     static let Adlogout         = "http://salahalimohamed.website/tmajog/api/v1/consultant/logout"
+    static let search           = "http://salahalimohamed.website/tmajog/api/v1/search"
+    static let bestReting       = "http://salahalimohamed.website/tmajog/api/v1/user/best-rating"
+    static let bestCon          = "http://salahalimohamed.website/tmajog/api/v1/user/best-consultant"
+    static let filter0 = "http://salahalimohamed.website/tmajog/api/v1/filter/0"
+    static let filter1 = "http://salahalimohamed.website/tmajog/api/v1/filter/1"
+    static let filter2 = "http://salahalimohamed.website/tmajog/api/v1/filter/2"
+    static let sitting = "http://salahalimohamed.website/tmajog/api/v1/setting"
+    
+    
 }
 
 class URLs {
@@ -33,14 +42,18 @@ class URLs {
     
     //MARK:- advisor links
     static var advURL = "http://salahalimohamed.website"
+    
     static var advProfile = advURL+"/tmajog/api/v1/consultant/profile"
     static var advUpdateProfile = advURL+"/tmajog/api/v1/consultant/updateProfile"
     static var changeStats = advURL+"/tmajog/api/v1/consultant/status"
     static var allConsultants = advURL+"/tmajog/api/v1/consultants"
     static var askConsultation = advURL+"/tmajog/api/v1/user/consultation"
-                                        
+    
+    static var userNotifiction = advURL+"/tmajog/api/v1/user/notification/"
+    static var advNotifiction = advURL+"/tmajog/api/v1/consultant/notification/"
 
-
+    static var advdeleteAllNotifiction = advURL+"/tmajog/api/v1/consultant/notifications/deleteAll"
+    static var userdeleteAllNotifiction = advURL+"/tmajog/api/v1/user/notifications/deleteAll"
 }
 
 /*

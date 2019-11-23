@@ -59,9 +59,10 @@ class UserLoginViewController: UIViewController {
         Operation.login(email: email, password: password) { (suc, error) in
             
             if suc?.token != nil && suc?.status == 1  {
-                    self.hideHUD()
-                    WindowManger.show(.main, animated: true)
-              
+                self.hideHUD()
+                let user = "user"
+                helper.saveUserType(user: user)
+                WindowManger.show(.main, animated: true)
                 
             }else{
                 self.hideHUD()

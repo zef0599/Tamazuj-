@@ -8,88 +8,93 @@
 
 import UIKit
 import Firebase
+import Kingfisher
+import IQKeyboardManager
 class chatViewController: UIViewController {
+    
 //    var room : Room?
+//    var OK : Bool!
+//    var string1 : String!
+//    var string2 : String!
+    
+    var id : Int!
     
     var Allmasseges : [Messages] = []
+    var data : [Showsingleconsultation.data] = []
     @IBOutlet var massegTF: UITextField!
     @IBOutlet var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        observeMasseges()
 //        guard let nameroom = room?.room else{return}
 //        title = nameroom
 //        tableview.scroll
-        getmasseges()
+//        getmasseges()
         
         
-        
+        loadData()
         
     }
     
-    func getmasseges(){
-        self.showIndeterminateHUD()
-        FirebaseRealTime.getMessagesBetweenConversation(numberConsaltnt: "+9720597776576", numberUser: "0597776576") { (OK, data) in
-            if OK{
-                guard let dataresult = data else {return}
-                self.Allmasseges.append(contentsOf: dataresult)
-                self.hideHUD()
-                self.tableview.reloadData()
-                let indexPath = NSIndexPath(row: self.Allmasseges.count-1, section: 0)
-                self.tableview.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
-            }else{
-                self.showHUD(title: "Error", details: "Some error in show masseg", hideAfter: 3)
+    func observeMasseges(){
+        for i in self.data{
+            guard let consultant = i.consultant_id?.phone,
+                let user = i.user?.phone else {return}
+            self.showIndeterminateHUD()
+            FirebaseRealTime.getMessagesBetweenConversation(numberConsaltnt: consultant, numberUser: user) { (OK, data) in
+                if OK{
+                    guard let dataresult = data else {return}
+                    for i in dataresult{
+                        if i.body == "."{
+                            continue
+                        }else{
+                            self.Allmasseges.append(i)
+                        }
+                        
+                    }
+                    self.hideHUD()
+                    self.tableview.reloadData()
+                    print("count masseg",self.Allmasseges.count)
+                    if self.Allmasseges.count > 5{
+                        let indexPath = NSIndexPath(row: self.Allmasseges.count-1, section: 0)
+                        self.tableview.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
+                    }
+                    
+                }else{
+                    self.showHUD(title: "Error", details: "Some error in show masseg", hideAfter: 3)
+                }
             }
         }
     }
     
-//
-//    func getuserwithID(userID : String , complition : @escaping (_ userName : String?)-> Void){
-//        let rf = Database.database().reference()
-//        rf.child("Users").child(userID).child("username").observeSingleEvent(of: .value) { (dataSnapshot) in
-//            if let username = dataSnapshot.value as? String {
-//                complition(username)
-//            }else{
-//                complition(nil)
-//            }
-//        }
-//    }
-//
-//
-//    func sendmassege (text : String , completion : @escaping ((_ isSuccss : Bool)->Void)){
-//        guard  let userID = Auth.auth().currentUser?.uid else{return}
-//            self.getuserwithID(userID: userID, complition: { (userName) in
-//                if let userName = userName{
-//                    if let roomid = self.room?.roomID{
-//                        let timestamp = NSDate().timeIntervalSince1970
-//                        let masseg : [String: Any] =  ["sendname":userName,"text":text , "userid" : userID , "timesend" : timestamp]
-//                        let rf = Database.database().reference()
-//                        rf.child("rooms").child(roomid).child("masseges").childByAutoId().setValue(masseg, withCompletionBlock: { (error, databaseReference) in
-//                            if error == nil{
-//                                completion(true)
-//                           //  MARK:- updit last masseg in room
-//                                Database.database().reference().child("rooms").child(roomid).updateChildValues(["lastmasseg" : text], withCompletionBlock: { (error, datasnapshot) in
-//                                    if error == nil{
-//                                        print("update is sucsses")
-//                                    }else{
-//                                        print("update is error")
-//                                    }
-//                                })
-//
-//
-//
-//                                self.massegTF.text? = ""
-//
-//                            }else{
-//                                completion(false)
-//                            }
-//                        })
-//                    }
-//                }else{
-//                    self.desplayError(errormasseg: "some erorr in send you masseg ... in USER NAME!")
-//                }
-//            })
-//    }
+    func loadData(){
+        
+        self.showIndeterminateHUD()
+        guard let id = self.id else {return}
+        advOprition.showsingleconsultation(id: id) { (error, result) in
+            if let result = result {
+                self.data.append(result.data!)
+                guard let consultant = result.data?.consultant_id, let user = result.data?.user  else {return}
+                
+                
+                FirebaseRealTime.addmasseges(numberConsaltnt: consultant.phone!, numberUser: user.phone!, masseg: ".", recipientName: "test", senderName: "test", compltion: { (ok) in
+                    if ok{
+                        self.observeMasseges()
+                    }else{
+                        self.showHUD(title: "error", details: "some error in show massege", hideAfter: 3)
+                    }
+                })
+                
+                
+                //                self.hideHUD()
+            }else{
+                self.showHUD(title: "error", details: "some error in show massege", hideAfter: 3)
+            }
+            
+        }
+        
+    }
 
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true) {
@@ -100,43 +105,29 @@ class chatViewController: UIViewController {
     @IBAction func sendmasseg(_ sender: Any) {
         
         guard let massegTF = self.massegTF.text , massegTF.isEmpty == false else {
-//            self.desplayError(errormasseg: "some erorr in send you masseg ...!")
+            //            self.desplayError(errormasseg: "some erorr in send you masseg ...!")
+            self.showHUD(title: "Add Data", details: "please add masseg", hideAfter: 3)
             return
         }
-        FirebaseRealTime.addmasseges(numberConsaltnt: "+9720597776576", numberUser: "0597776576", masseg: massegTF, recipientName: "test", senderName: "mohammed erbia") { (OK) in
-            if OK{
-                self.massegTF.text = ""
-            }else{
-                print("error in (OK)")
+        for i in self.data{
+            guard let user =  i.user?.phone,
+                let consultant = i.consultant_id?.phone,
+                let sender = i.user?.name,
+                let recipent = i.consultant_id?.name
+                else {return}
+            
+            
+            
+            FirebaseRealTime.addmasseges(numberConsaltnt: consultant, numberUser: user, masseg: massegTF, recipientName: recipent, senderName: sender) { (OK) in
+                if OK{
+                    self.massegTF.text = ""
+                }else{
+                    print("error in (OK)")
+                }
             }
+            
         }
-        
-//        sendmassege(text: massegTF) { (succsess) in
-//            if succsess{
-//                print("send masseg is succsess :)")
-//            }else{
-//                self.desplayError(errormasseg: "some erorr in sending masseg );")
-//            }
-//        }
     }
-//    func observeMasseges(){
-//        guard  let roomID = self.room?.roomID else{return}
-//        Database.database().reference().child("rooms").child(roomID).child("masseges").observe(.childAdded) { (dataSnapshot) in
-//            if let snapshot =  dataSnapshot.value as? [String:Any]{
-//            if let sendname = snapshot["sendname"] as? String , let textmasseg = snapshot["text"] as? String , let userId = snapshot["userid"] as? String , let timesend = snapshot["timesend"] as? Double {
-//                let masseg = Masseg(uid: dataSnapshot.key, sendname: sendname, text: textmasseg, userId: userId, time: timesend)
-//                    self.masseges.append(masseg)
-//                    self.tableview.reloadData()
-//
-//                let indexPath = NSIndexPath(row: self.masseges.count-1, section: 0)
-//                self.tableview.scrollToRow(at: indexPath as IndexPath, at: .bottom, animated: true)
-//                }
-//            }else{
-//                self.desplayError(errormasseg: "some erorr in send this masseg :-));")
-//            }
-//        }
-//    }
-
 }
 extension chatViewController : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,23 +146,25 @@ extension chatViewController : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! chatTVC
         
-         cell.massegtype(type: .outgoing)
-        
         let object = Allmasseges[indexPath.row]
-        cell.username.text = object.senderName
+        
+        
         cell.masseg.text = object.body
         cell.time.text = Since1970toHHMM(object.date!)
-//        if let uid = Auth.auth().currentUser?.uid{
-//            if object.userId == uid {
-//                cell.massegtype(type: .income)
-//            }else{
-//                cell.massegtype(type: .outgoing)
-//            }
-//        }else{
-//            self.desplayError(errormasseg: "some error in show masseg")
-//        }
-        
-        
-        return cell
+        for i in self.data{
+            if i.user?.name == object.senderName{
+                cell.massegtype(type: .outgoing)
+                cell.username.text = i.consultant_id?.name ?? "nill name"
+                cell.userimageleaging.kf.setImage(with: URL(string: i.consultant_id?.photo ?? ""), placeholder: UIImage(named:"userl" ))
+            }else{
+                
+                cell.massegtype(type: .income)
+                cell.username.text = i.user?.name ?? "nill name"
+                cell.userimageleaging.kf.setImage(with: URL(string: i.user?.photo ?? ""), placeholder: UIImage(named:"userb" ))
+                
+            }
+        }
+            return cell
+    
 }
 }

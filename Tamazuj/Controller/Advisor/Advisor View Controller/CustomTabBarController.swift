@@ -51,7 +51,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     @objc func buttonHandler() {
         if self.number == 1 {
             print("tabed 2 2 2 ")
-            Operation.changStatus(lineStatus: 0, Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (err, result) in
+            Operation.changStatus(lineStatus: 0, Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (err, result) in
                 print(result?.status_account , "0000")
                 self.viewControllers?[2].title = "غير متصل"
                 if let result = result{
@@ -64,7 +64,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
             self.number = 0
         }else{
             print("tabed 1 1 1  ")
-            Operation.changStatus(lineStatus: 1, Authorization: "Bearer \(helper.getAdvisorToken()!)", lang: "ar") { (err, result) in
+            Operation.changStatus(lineStatus: 1, Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (err, result) in
                 print(result?.status_account , "11111")
                 self.viewControllers?[2].title = " متصل"
                 if let result = result{

@@ -10,6 +10,8 @@ import UIKit
 
 protocol AdvisorTableViewCellDelgat{
     func advisorTableViewCellDelegat(_ Cell : AdvisorTableViewCell )
+    func acceptConsaltentadvisorTableViewCellDelegat(_ Cell : AdvisorTableViewCell )
+
 }
 
 
@@ -25,6 +27,9 @@ class AdvisorTableViewCell: UITableViewCell {
         
     }
     
+    @IBAction func acceptConsaltent(_ sender: Any) {
+        delegat?.acceptConsaltentadvisorTableViewCellDelegat(self)
+    }
     @IBAction func DeletConsaltent(_ sender: Any) {
         delegat?.advisorTableViewCellDelegat(self)
     }

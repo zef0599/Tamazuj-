@@ -11,6 +11,8 @@ import Firebase
 
 class FirebaseRealTime{
     
+    
+    
     static func addNewUser(number id: String,name :String  ,image : String?,email : String , compltion: @escaping (Bool)-> Void ){
         let newUser : [String:Any] = ["id":id,"inviteAble":false,"name":name,"nameToDisplay":name,"online":false,"selected":false,"status":"تمازج","typing":false,"image":image ?? "nil image" , "email" : email]
         Database.database().reference().child("users").child("\(id)").setValue(newUser) { (error, result) in
@@ -53,6 +55,7 @@ class FirebaseRealTime{
                             let senderImage = dic["senderImage"] as? String,
                             let senderName = dic["senderName"] as? String,
                             let sent = dic["sent"] as? Bool else{return}
+                            
                             let allmassege = Messages(attachmentType: attachmentType, body: body, date: date, delivered: delivered, recipientId: recipientId, recipientImage: recipientImage, recipientName: recipientName, recipientStatus: recipientStatus, selected: selected, senderId: senderId, senderImage: senderImage, senderName: senderName, sent: sent)
 //                            complition([allmassege])
                             complition(true,[allmassege])

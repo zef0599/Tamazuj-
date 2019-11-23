@@ -8,6 +8,15 @@
 
 import UIKit
 
+
+//struct Person: Codable {
+//    var name: String
+//    var mohammed : String
+//}
+
+
+
+
 class AdvisorLoginViewController: UIViewController {
 
     @IBOutlet weak var txtEmail: UITextField!
@@ -16,6 +25,24 @@ class AdvisorLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+//        let taylor = Person(name: "mohammed", mohammed: "ok")
+//
+//        let encoder = JSONEncoder()
+//        if let encoded = try? encoder.encode(taylor) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(encoded, forKey: "SavedPerson")
+//        }
+//
+//
+//        if let savedPerson = UserDefaults.value(forUndefinedKey: "SavedPerson") as! Data{
+//            let decoder = JSONDecoder()
+//            if let loadedPerson = try? decoder.decode(Person.self, from: savedPerson) {
+//                print(loadedPerson.name)
+//            }
+//        }
         
         // Do any additional setup after loading the view.
         
@@ -63,8 +90,9 @@ class AdvisorLoginViewController: UIViewController {
             
             if suc?.token != nil && suc?.status == 1  {
                 self.hideHUD()
+                let user = "advisoer"
+                helper.saveUserType(user: user)
                 WindowManger.show(.Advisor, animated: true)
-                
                 
             }else{
                 self.hideHUD()

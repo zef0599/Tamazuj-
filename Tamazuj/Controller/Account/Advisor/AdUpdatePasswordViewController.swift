@@ -60,7 +60,7 @@ class AdUpdatePasswordViewController: UIViewController {
             return
         }
         
-        ConsultantAth.AdupdatePasswored(lang: "ar", Authorization: "Bearer \(helper.getAdvisorToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
+        ConsultantAth.AdupdatePasswored(lang: "ar", Authorization: "Bearer \(helper.getUserToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
             if suc?.status != "0" {
                 
                 let massage = suc?.message

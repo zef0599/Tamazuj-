@@ -23,6 +23,10 @@ class MenuViewController: UIViewController {
         
 //        userImge.layer.cornerRadius = userImge.b
         
+        NotificationCenter.default.addObserver(self, selector: #selector(testobserv), name: NSNotification.Name("backgrund"), object: nil)
+        
+        
+        
         tableView.tableFooterView = UIView()
         Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
@@ -43,6 +47,19 @@ class MenuViewController: UIViewController {
             
             
         }
+    }
+    @objc func testobserv(sender : NSNotification){
+        let userInfo = sender.userInfo
+        let aps = userInfo!["aps"] as! [String:Any]
+        let alert = aps["alert"] as! [String:Any]
+        let titles =  alert["title"] as? String
+        
+        
+        guard let title = titles else {return}
+        
+        let alerts = UIAlertController(title: "test", message: "\(title)", preferredStyle: .alert)
+        alerts.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
+        self.present(alerts, animated: true, completion: nil)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -88,7 +105,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             vc.navHave = self.navigationController
             self.navigationController!.pushViewController(vc, animated: true)
         case 3 :
-            let vc = stprybord.instantiateViewController(withIdentifier: "aboutAppVC") as! aboutAppVC
+            let vc = stprybord.instantiateViewController(withIdentifier: "aboutapp") as! aboutAppVC
             self.navigationController!.pushViewController(vc, animated: true)
         case 4:
             let vc = stprybord.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
@@ -96,20 +113,13 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
             break
         case 5:
-            Operation.logout(Authorization: "Bearer \(helper.getUserToken())") { (error, logout) in
-                if let logout = logout {
-                    
-                    let status = logout.status
-                    if status != 0 {
-                        let mass = logout.message
-                        print(mass)
-//                        helper.deletApiToken()
-                        WindowManger.show(.account, animated: true)
-                        
-                        
-                    }
-                    
-                }}
+            let alert = UIAlertController(title: "هل تود فعلا تسجيل الخروج", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "نعم", style: .default, handler:{ action in
+                helper.logout()
+                
+            }))
+            alert.addAction(UIAlertAction(title: "لا", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
 
         default:
             break
