@@ -74,7 +74,7 @@ extension FavoriteVC:UICollectionViewDataSource,UICollectionViewDelegate,UIColle
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stprybord = UIStoryboard(name: "Main", bundle: nil)
-        let vc = stprybord.instantiateViewController(withIdentifier: "abuteConsltentViewController") as! abuteConsltentViewController
+        let vc = stprybord.instantiateViewController(withIdentifier: "abuteConsltentViewControllerX") as! abuteConsltentViewControllerX
         let object = self.bestConsultantdata[indexPath.row]
         vc.id = object.id!
         self.navigationController!.pushViewController(vc, animated: true)
