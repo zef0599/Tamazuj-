@@ -55,7 +55,7 @@ struct FeedBack : Codable {
 
 struct dataFedback : Codable {
     var feedback :String?
-    var ratting : String?
+    var ratting : Int?
     var name : String?
     var photo : String?
     var time_rating : String?

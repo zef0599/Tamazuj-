@@ -160,7 +160,7 @@ extension CategoriesVC: UICollectionViewDelegate,UICollectionViewDataSource,UICo
             vc.consaltantData = cons
             vc.indexpathCategory = indexPath.row
             self.navigationController?.pushViewController(vc, animated: true)
-
+            
             print("celciked")
             self.performing = true
         }

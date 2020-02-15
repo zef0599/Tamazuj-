@@ -19,6 +19,7 @@
 		36204D91237C64DD00CE5BA8 /* abutAdvCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36204D8F237C64DD00CE5BA8 /* abutAdvCollectionViewCell.swift */; };
 		36204D92237C64DD00CE5BA8 /* abutAdvCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36204D90237C64DD00CE5BA8 /* abutAdvCollectionViewCell.xib */; };
 		36275D7A2381EC8800C39491 /* AdvchatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36275D792381EC8700C39491 /* AdvchatViewController.swift */; };
+		362AD439238AF984005F263D /* ConsultationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362AD438238AF984005F263D /* ConsultationVC.swift */; };
 		362CFE602334EA3F005E4B78 /* AdvEditPofilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE5F2334EA3F005E4B78 /* AdvEditPofilViewController.swift */; };
 		362CFE622334F2E4005E4B78 /* EditProfailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE612334F2E4005E4B78 /* EditProfailUserViewController.swift */; };
 		362CFE642334F97B005E4B78 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CFE632334F97B005E4B78 /* CustomTabBarController.swift */; };
@@ -42,7 +43,6 @@
 		36414F35235535BF00314DFC /* commentAdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36414F34235535BF00314DFC /* commentAdvisorVC.swift */; };
 		3645A9382344A9A6007EAF7C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3645A9372344A9A6007EAF7C /* Category.swift */; };
 		3655901423807DDC00376DFE /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655901323807DDC00376DFE /* Messages.swift */; };
-		365BF299237ED5D900911C46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 365BF298237ED5D900911C46 /* GoogleService-Info.plist */; };
 		365CC23A237EFA5A00ECF9AF /* FirebaseRealTimeFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CC239237EFA5A00ECF9AF /* FirebaseRealTimeFunc.swift */; };
 		365CC23C237F409A00ECF9AF /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CC23B237F409900ECF9AF /* chatViewController.swift */; };
 		365CC23E237F414000ECF9AF /* chatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365CC23D237F413F00ECF9AF /* chatTVC.swift */; };
@@ -82,6 +82,12 @@
 		834DC68623650FE200EABD09 /* SelectLangVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834DC68523650FE200EABD09 /* SelectLangVC.swift */; };
 		834DC68C236520C400EABD09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 834DC68B236520BD00EABD09 /* Assets.xcassets */; };
 		834DC68E236527DF00EABD09 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834DC68D236527DF00EABD09 /* GradientButton.swift */; };
+		835A58BD238990C600DAC7BB /* OPPWAMobile-Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 835A58BB238990C500DAC7BB /* OPPWAMobile-Resources.bundle */; };
+		835A58BE238990C600DAC7BB /* OPPWAMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 835A58BC238990C600DAC7BB /* OPPWAMobile.framework */; };
+		835A58C02389925700DAC7BB /* paymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A58BF2389925700DAC7BB /* paymentVC.swift */; };
+		835A58C2238992BE00DAC7BB /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A58C1238992BD00DAC7BB /* Checkout.swift */; };
+		835A58C42389940900DAC7BB /* PaymentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A58C32389940900DAC7BB /* PaymentStatus.swift */; };
+		835A58C62389949500DAC7BB /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835A58C52389949500DAC7BB /* Bill.swift */; };
 		8361308D232E3CEA008389DE /* CategoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308C232E3CEA008389DE /* CategoriesVC.swift */; };
 		83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */; };
 		83613096232E4A91008389DE /* ConsultationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */; };
@@ -90,14 +96,11 @@
 		8361309C232E58FF008389DE /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361309B232E58FF008389DE /* MenuTableViewCell.swift */; };
 		8361309E232E9147008389DE /* categorySelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361309D232E9147008389DE /* categorySelectionVC.swift */; };
 		836130A0232E945E008389DE /* cateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8361309F232E945E008389DE /* cateTableViewCell.swift */; };
-		8368FF422388BABA00B8AAE2 /* ConsultationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8368FF412388BAB900B8AAE2 /* ConsultationVC.swift */; };
 		836A4725232F89B400BD8ACB /* AboutAdvisorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A4724232F89B400BD8ACB /* AboutAdvisorVC.swift */; };
 		836A4727232FA2AC00BD8ACB /* AboutContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A4726232FA2AC00BD8ACB /* AboutContainerVC.swift */; };
 		837BCB7D235BEB1B006A4488 /* status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCB7C235BEB1B006A4488 /* status.swift */; };
 		837BCBB7235CFB0C006A4488 /* adv_operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBB6235CFB0B006A4488 /* adv_operation.swift */; };
 		837BCBB9235CFE1F006A4488 /* logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBB8235CFE1F006A4488 /* logout.swift */; };
-		837BCBBE235DE938006A4488 /* ConsultHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */; };
-		837BCBBF235DE938006A4488 /* ConsultHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */; };
 		837C8DA62330E33400869CDB /* ConsultHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DA52330E33400869CDB /* ConsultHistoryVC.swift */; };
 		837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DA72330E65900869CDB /* ReviewsContainer.swift */; };
 		837C8DB62330EABF00869CDB /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837C8DB42330EABE00869CDB /* NotificationsViewController.swift */; };
@@ -143,9 +146,15 @@
 		83D78DF8238182FF0082F9E5 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D78DF7238182FF0082F9E5 /* FilterViewController.swift */; };
 		83D78DFA238183520082F9E5 /* MyConsultion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D78DF9238183510082F9E5 /* MyConsultion.swift */; };
 		83DE5E4D2355E113009F71C0 /* Consultation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE5E4C2355E113009F71C0 /* Consultation.swift */; };
-		83DE5E552355EEC3009F71C0 /* ConsultHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE5E542355EEC3009F71C0 /* ConsultHistoryViewController.swift */; };
 		83DE5E6123574379009F71C0 /* HomeSupCateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DE5E6023574379009F71C0 /* HomeSupCateVC.swift */; };
 		83EE7D67238199AE00073409 /* head.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EE7D66238199AE00073409 /* head.m */; };
+		83F044E223F83D9000ACD744 /* ConsultHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044E023F83D8E00ACD744 /* ConsultHistoryCell.swift */; };
+		83F044E323F83D9000ACD744 /* ConsultHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F044E123F83D9000ACD744 /* ConsultHistoryCell.xib */; };
+		83F044E523F83FD500ACD744 /* ChooseConsaltantVCX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044E423F83FD500ACD744 /* ChooseConsaltantVCX.swift */; };
+		83F044E723F8405A00ACD744 /* RequistConsaltationVCX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044E623F8405900ACD744 /* RequistConsaltationVCX.swift */; };
+		83F044E923F840CE00ACD744 /* ChooseCategoryVCX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044E823F840CE00ACD744 /* ChooseCategoryVCX.swift */; };
+		83F044EB23F8425600ACD744 /* abuteConsltentViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044EA23F8425600ACD744 /* abuteConsltentViewControllerX.swift */; };
+		83F044ED23F8442600ACD744 /* SingleConsaltant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F044EC23F8442600ACD744 /* SingleConsaltant.swift */; };
 		83F88B31234C8EF5003C5218 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F88B30234C8EF5003C5218 /* UpdatePasswordViewController.swift */; };
 		83F88B33234C934D003C5218 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F88B32234C934D003C5218 /* Profile.swift */; };
 		83F88B35234C93DB003C5218 /* Consaltant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F88B34234C93DA003C5218 /* Consaltant.swift */; };
@@ -170,11 +179,12 @@
 		B108573A2345107F0008104D /* UserSginUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10857392345107F0008104D /* UserSginUpViewController.swift */; };
 		B108573C234510A10008104D /* AdvisorLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108573B234510A10008104D /* AdvisorLoginViewController.swift */; };
 		B108573E234510BA0008104D /* AdvisorSginUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108573D234510BA0008104D /* AdvisorSginUpViewController.swift */; };
+		B108B8D223F806CE009CB225 /* ConsultHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108B8D123F806CD009CB225 /* ConsultHistoryViewController.swift */; };
 		B11C366C2357AC510013B7FD /* Consultant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11C366B2357AC510013B7FD /* Consultant.swift */; };
 		B11CBB6E23429A6B005B7420 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CBB6C23429A6A005B7420 /* UIViewController+HUD.swift */; };
 		B11CBB6F23429A6B005B7420 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CBB6D23429A6B005B7420 /* helper.swift */; };
 		B145B283238898D400082A4E /* conditionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B282238898D100082A4E /* conditionsVC.swift */; };
-		B145B2852388993600082A4E /* privacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B2842388993500082A4E /* privacyViewController.swift */; };
+		B145B2852388993600082A4E /* privacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B2842388993500082A4E /* privacyVC.swift */; };
 		B145B28723889BE000082A4E /* aboutAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B28623889BDF00082A4E /* aboutAppVC.swift */; };
 		B145B28B23889CA300082A4E /* settingswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B28A23889CA300082A4E /* settingswift.swift */; };
 		B145B28D23889D6100082A4E /* String+html.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145B28C23889D6100082A4E /* String+html.swift */; };
@@ -185,6 +195,11 @@
 		B17909C9234250FE006B7E7A /* logIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909C8234250FE006B7E7A /* logIn.swift */; };
 		B17909CB234268C3006B7E7A /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17909CA234268C3006B7E7A /* Register.swift */; };
 		B1CC8F5B235EE19700339387 /* AdUpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CC8F5A235EE19700339387 /* AdUpdatePasswordViewController.swift */; };
+		DAFA071823EF351900CC685C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAFA071723EF351800CC685C /* GoogleService-Info.plist */; };
+		DAFA071A23F3235D00CC685C /* SettingsadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA071923F3235D00CC685C /* SettingsadVC.swift */; };
+		DAFA071C23F3243C00CC685C /* conditionsAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA071B23F3243C00CC685C /* conditionsAdVC.swift */; };
+		DAFA071E23F3246400CC685C /* privacyViewAdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA071D23F3246400CC685C /* privacyViewAdController.swift */; };
+		DAFA072023F3249300CC685C /* aboutAppAdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFA071F23F3249200CC685C /* aboutAppAdVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +217,7 @@
 		36204D8F237C64DD00CE5BA8 /* abutAdvCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = abutAdvCollectionViewCell.swift; sourceTree = "<group>"; };
 		36204D90237C64DD00CE5BA8 /* abutAdvCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = abutAdvCollectionViewCell.xib; sourceTree = "<group>"; };
 		36275D792381EC8700C39491 /* AdvchatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvchatViewController.swift; sourceTree = "<group>"; };
+		362AD438238AF984005F263D /* ConsultationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultationVC.swift; sourceTree = "<group>"; };
 		362CFE5F2334EA3F005E4B78 /* AdvEditPofilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvEditPofilViewController.swift; sourceTree = "<group>"; };
 		362CFE612334F2E4005E4B78 /* EditProfailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfailUserViewController.swift; sourceTree = "<group>"; };
 		362CFE632334F97B005E4B78 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
@@ -225,7 +241,6 @@
 		36414F34235535BF00314DFC /* commentAdvisorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commentAdvisorVC.swift; sourceTree = "<group>"; };
 		3645A9372344A9A6007EAF7C /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3655901323807DDC00376DFE /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
-		365BF298237ED5D900911C46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		365CC239237EFA5A00ECF9AF /* FirebaseRealTimeFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealTimeFunc.swift; sourceTree = "<group>"; };
 		365CC23B237F409900ECF9AF /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		365CC23D237F413F00ECF9AF /* chatTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatTVC.swift; sourceTree = "<group>"; };
@@ -267,6 +282,12 @@
 		834DC68523650FE200EABD09 /* SelectLangVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLangVC.swift; sourceTree = "<group>"; };
 		834DC68B236520BD00EABD09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		834DC68D236527DF00EABD09 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		835A58BB238990C500DAC7BB /* OPPWAMobile-Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "OPPWAMobile-Resources.bundle"; sourceTree = "<group>"; };
+		835A58BC238990C600DAC7BB /* OPPWAMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OPPWAMobile.framework; sourceTree = "<group>"; };
+		835A58BF2389925700DAC7BB /* paymentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentVC.swift; sourceTree = "<group>"; };
+		835A58C1238992BD00DAC7BB /* Checkout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		835A58C32389940900DAC7BB /* PaymentStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStatus.swift; sourceTree = "<group>"; };
+		835A58C52389949500DAC7BB /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		8361308C232E3CEA008389DE /* CategoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesVC.swift; sourceTree = "<group>"; };
 		8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionVCell.swift; sourceTree = "<group>"; };
 		83613094232E4A91008389DE /* ConsultationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -275,14 +296,11 @@
 		8361309B232E58FF008389DE /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		8361309D232E9147008389DE /* categorySelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categorySelectionVC.swift; sourceTree = "<group>"; };
 		8361309F232E945E008389DE /* cateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cateTableViewCell.swift; sourceTree = "<group>"; };
-		8368FF412388BAB900B8AAE2 /* ConsultationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultationVC.swift; sourceTree = "<group>"; };
 		836A4724232F89B400BD8ACB /* AboutAdvisorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAdvisorVC.swift; sourceTree = "<group>"; };
 		836A4726232FA2AC00BD8ACB /* AboutContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutContainerVC.swift; sourceTree = "<group>"; };
 		837BCB7C235BEB1B006A4488 /* status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = status.swift; sourceTree = "<group>"; };
 		837BCBB6235CFB0B006A4488 /* adv_operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = adv_operation.swift; path = "../Api Advi/adv_operation.swift"; sourceTree = "<group>"; };
 		837BCBB8235CFE1F006A4488 /* logout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = logout.swift; sourceTree = "<group>"; };
-		837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultHistoryCell.swift; sourceTree = "<group>"; };
-		837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsultHistoryCell.xib; sourceTree = "<group>"; };
 		837C8DA52330E33400869CDB /* ConsultHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultHistoryVC.swift; sourceTree = "<group>"; };
 		837C8DA72330E65900869CDB /* ReviewsContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsContainer.swift; sourceTree = "<group>"; };
 		837C8DB42330EABE00869CDB /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
@@ -328,11 +346,17 @@
 		83D78DF7238182FF0082F9E5 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		83D78DF9238183510082F9E5 /* MyConsultion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyConsultion.swift; path = ../Model/MyConsultion.swift; sourceTree = "<group>"; };
 		83DE5E4C2355E113009F71C0 /* Consultation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consultation.swift; sourceTree = "<group>"; };
-		83DE5E542355EEC3009F71C0 /* ConsultHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsultHistoryViewController.swift; path = ../ConsultHistoryViewController.swift; sourceTree = "<group>"; };
 		83DE5E6023574379009F71C0 /* HomeSupCateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSupCateVC.swift; sourceTree = "<group>"; };
 		83EE7D64238199A200073409 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		83EE7D65238199AE00073409 /* Tamazuj-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tamazuj-Bridging-Header.h"; sourceTree = "<group>"; };
 		83EE7D66238199AE00073409 /* head.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = head.m; sourceTree = "<group>"; };
+		83F044E023F83D8E00ACD744 /* ConsultHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultHistoryCell.swift; sourceTree = "<group>"; };
+		83F044E123F83D9000ACD744 /* ConsultHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsultHistoryCell.xib; sourceTree = "<group>"; };
+		83F044E423F83FD500ACD744 /* ChooseConsaltantVCX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseConsaltantVCX.swift; sourceTree = "<group>"; };
+		83F044E623F8405900ACD744 /* RequistConsaltationVCX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequistConsaltationVCX.swift; sourceTree = "<group>"; };
+		83F044E823F840CE00ACD744 /* ChooseCategoryVCX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCategoryVCX.swift; sourceTree = "<group>"; };
+		83F044EA23F8425600ACD744 /* abuteConsltentViewControllerX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = abuteConsltentViewControllerX.swift; sourceTree = "<group>"; };
+		83F044EC23F8442600ACD744 /* SingleConsaltant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleConsaltant.swift; sourceTree = "<group>"; };
 		83F88B30234C8EF5003C5218 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
 		83F88B32234C934D003C5218 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		83F88B34234C93DA003C5218 /* Consaltant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consaltant.swift; sourceTree = "<group>"; };
@@ -358,11 +382,12 @@
 		B10857392345107F0008104D /* UserSginUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSginUpViewController.swift; sourceTree = "<group>"; };
 		B108573B234510A10008104D /* AdvisorLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorLoginViewController.swift; sourceTree = "<group>"; };
 		B108573D234510BA0008104D /* AdvisorSginUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorSginUpViewController.swift; sourceTree = "<group>"; };
+		B108B8D123F806CD009CB225 /* ConsultHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsultHistoryViewController.swift; sourceTree = "<group>"; };
 		B11C366B2357AC510013B7FD /* Consultant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consultant.swift; sourceTree = "<group>"; };
 		B11CBB6C23429A6A005B7420 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 		B11CBB6D23429A6B005B7420 /* helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		B145B282238898D100082A4E /* conditionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conditionsVC.swift; sourceTree = "<group>"; };
-		B145B2842388993500082A4E /* privacyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = privacyViewController.swift; sourceTree = "<group>"; };
+		B145B2842388993500082A4E /* privacyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = privacyVC.swift; sourceTree = "<group>"; };
 		B145B28623889BDF00082A4E /* aboutAppVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aboutAppVC.swift; sourceTree = "<group>"; };
 		B145B28A23889CA300082A4E /* settingswift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingswift.swift; sourceTree = "<group>"; };
 		B145B28C23889D6100082A4E /* String+html.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+html.swift"; path = "../Helpers/String+html.swift"; sourceTree = "<group>"; };
@@ -373,6 +398,11 @@
 		B17909C8234250FE006B7E7A /* logIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIn.swift; sourceTree = "<group>"; };
 		B17909CA234268C3006B7E7A /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		B1CC8F5A235EE19700339387 /* AdUpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		DAFA071723EF351800CC685C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DAFA071923F3235D00CC685C /* SettingsadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsadVC.swift; sourceTree = "<group>"; };
+		DAFA071B23F3243C00CC685C /* conditionsAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conditionsAdVC.swift; sourceTree = "<group>"; };
+		DAFA071D23F3246400CC685C /* privacyViewAdController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyViewAdController.swift; sourceTree = "<group>"; };
+		DAFA071F23F3249200CC685C /* aboutAppAdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutAppAdVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835A58BE238990C600DAC7BB /* OPPWAMobile.framework in Frameworks */,
 				45724776BC98FEAC5CC45748 /* Pods_Tamazuj.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,10 +714,11 @@
 		837C8DBB2330ED1D00869CDB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8368FF412388BAB900B8AAE2 /* ConsultationVC.swift */,
+				B108B8D123F806CD009CB225 /* ConsultHistoryViewController.swift */,
+				362AD438238AF984005F263D /* ConsultationVC.swift */,
 				B145B28623889BDF00082A4E /* aboutAppVC.swift */,
 				B145B282238898D100082A4E /* conditionsVC.swift */,
-				B145B2842388993500082A4E /* privacyViewController.swift */,
+				B145B2842388993500082A4E /* privacyVC.swift */,
 				837C8DBC2330ED5800869CDB /* Account */,
 				837C8DBD2330ED7000869CDB /* Main */,
 				B15D3B6E235892E9003057FC /* Advisor */,
@@ -707,6 +739,7 @@
 		837C8DBD2330ED7000869CDB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				83F044EA23F8425600ACD744 /* abuteConsltentViewControllerX.swift */,
 				83D78DF7238182FF0082F9E5 /* FilterViewController.swift */,
 				83D78DF5238182320082F9E5 /* SearchViewController.swift */,
 				83B498872365B194002DAC5A /* newPages */,
@@ -717,7 +750,6 @@
 				363729892358D38900A7D513 /* abuteConsltentViewController.swift */,
 				837C8DA72330E65900869CDB /* ReviewsContainer.swift */,
 				83F88B37234C9535003C5218 /* ProfileVC.swift */,
-				83DE5E542355EEC3009F71C0 /* ConsultHistoryViewController.swift */,
 				837C8DB42330EABE00869CDB /* NotificationsViewController.swift */,
 				13FC825F2321293F00D8C7A8 /* MainViewController.swift */,
 				8361308C232E3CEA008389DE /* CategoriesVC.swift */,
@@ -792,6 +824,7 @@
 		83B498872365B194002DAC5A /* newPages */ = {
 			isa = PBXGroup;
 			children = (
+				835A58BF2389925700DAC7BB /* paymentVC.swift */,
 				83B498882365B1CA002DAC5A /* ProblemDisscription.swift */,
 				83B4988A2365D414002DAC5A /* ComunicationToolsVC.swift */,
 				83B4988C2365D6B3002DAC5A /* comunicationCell.swift */,
@@ -801,7 +834,10 @@
 				83B4989B236DC451002DAC5A /* SelectConsaltantVC.swift */,
 				83B4989D236DC988002DAC5A /* ChooseCategoryVC.swift */,
 				83B4989F236F03E5002DAC5A /* ChooseConsaltantVC.swift */,
+				83F044E423F83FD500ACD744 /* ChooseConsaltantVCX.swift */,
 				83D78DF0238180670082F9E5 /* RatingVC.swift */,
+				83F044E623F8405900ACD744 /* RequistConsaltationVCX.swift */,
+				83F044E823F840CE00ACD744 /* ChooseCategoryVCX.swift */,
 			);
 			path = newPages;
 			sourceTree = "<group>";
@@ -876,6 +912,10 @@
 		B13094762341F66400C50B16 /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				83F044EC23F8442600ACD744 /* SingleConsaltant.swift */,
+				835A58C52389949500DAC7BB /* Bill.swift */,
+				835A58C32389940900DAC7BB /* PaymentStatus.swift */,
+				835A58C1238992BD00DAC7BB /* Checkout.swift */,
 				83D78DF9238183510082F9E5 /* MyConsultion.swift */,
 				B145B28A23889CA300082A4E /* settingswift.swift */,
 				83D78DF3238182160082F9E5 /* Search.swift */,
@@ -909,12 +949,12 @@
 		B13094792341F6E700C50B16 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				83F044E023F83D8E00ACD744 /* ConsultHistoryCell.swift */,
+				83F044E123F83D9000ACD744 /* ConsultHistoryCell.xib */,
 				13FB8776232292B800A8CA25 /* Cell */,
 				8361309B232E58FF008389DE /* MenuTableViewCell.swift */,
 				8361308F232E3D5C008389DE /* CategoriesCollectionVCell.swift */,
 				8361309F232E945E008389DE /* cateTableViewCell.swift */,
-				837BCBBC235DE938006A4488 /* ConsultHistoryCell.swift */,
-				837BCBBD235DE938006A4488 /* ConsultHistoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -924,7 +964,7 @@
 			children = (
 				834DC68B236520BD00EABD09 /* Assets.xcassets */,
 				13FC82662321294000D8C7A8 /* LaunchScreen.storyboard */,
-				365BF298237ED5D900911C46 /* GoogleService-Info.plist */,
+				DAFA071723EF351800CC685C /* GoogleService-Info.plist */,
 			);
 			name = Uitilty;
 			sourceTree = "<group>";
@@ -951,6 +991,9 @@
 		B13554E32345479C00A42B06 /* Advisor */ = {
 			isa = PBXGroup;
 			children = (
+				DAFA071F23F3249200CC685C /* aboutAppAdVC.swift */,
+				DAFA071D23F3246400CC685C /* privacyViewAdController.swift */,
+				DAFA071B23F3243C00CC685C /* conditionsAdVC.swift */,
 				B15D3B62235858D6003057FC /* ActivatCodeViewController.swift */,
 				B108573B234510A10008104D /* AdvisorLoginViewController.swift */,
 				B108573D234510BA0008104D /* AdvisorSginUpViewController.swift */,
@@ -1002,6 +1045,7 @@
 		B15D3B6E235892E9003057FC /* Advisor */ = {
 			isa = PBXGroup;
 			children = (
+				DAFA071923F3235D00CC685C /* SettingsadVC.swift */,
 				832C3726235B3A6700124703 /* Main Controller */,
 				B15D3B7323589563003057FC /* AdProfileViewController.swift */,
 				36414F312355258600314DFC /* aboutAdvisor */,
@@ -1015,6 +1059,8 @@
 			isa = PBXGroup;
 			children = (
 				99B39B0EE63A4AE3A1BB77C1 /* Pods_Tamazuj.framework */,
+				835A58BB238990C500DAC7BB /* OPPWAMobile-Resources.bundle */,
+				835A58BC238990C600DAC7BB /* OPPWAMobile.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1101,6 +1147,7 @@
 				83F88B48234C9535003C5218 /* SectionTwoTableViewCell.xib in Resources */,
 				83F88B4D234C9535003C5218 /* FirstTableViewCell.xib in Resources */,
 				832C3738235B5DF800124703 /* AdvConsHistoryCell.xib in Resources */,
+				DAFA071823EF351900CC685C /* GoogleService-Info.plist in Resources */,
 				837C8DDE2332115500869CDB /* searchPopup.xib in Resources */,
 				36E35E9423338067003752CB /* AdvisorTableViewCell.xib in Resources */,
 				837C8DF5233240C900869CDB /* searchCell.xib in Resources */,
@@ -1110,10 +1157,11 @@
 				363729912358D53300A7D513 /* dataNillTableViewCell.xib in Resources */,
 				13FC82632321293F00D8C7A8 /* Main.storyboard in Resources */,
 				83B171332334217E003689A4 /* Advisor.storyboard in Resources */,
-				365BF299237ED5D900911C46 /* GoogleService-Info.plist in Resources */,
 				83F88B4F234C9535003C5218 /* thirdTableViewCell.xib in Resources */,
+				83F044E323F83D9000ACD744 /* ConsultHistoryCell.xib in Resources */,
 				834DC68C236520C400EABD09 /* Assets.xcassets in Resources */,
 				83F88B50234C9535003C5218 /* UserSectionTableViewCell.xib in Resources */,
+				835A58BD238990C600DAC7BB /* OPPWAMobile-Resources.bundle in Resources */,
 				832C374B235B8DD900124703 /* AdvSectionTableViewCell.xib in Resources */,
 				832C3747235B8CC600124703 /* AdvthirdTableViewCell.xib in Resources */,
 				369909C323303805007ADD6F /* adviserfavorsTableViewCell.xib in Resources */,
@@ -1121,7 +1169,6 @@
 				363729962358D75900A7D513 /* AdvisorCell.xib in Resources */,
 				837C8DC32330F5D000869CDB /* CategoriesCollectionViewCell.xib in Resources */,
 				363C812823300C800051F142 /* sliderCollectionViewCell.xib in Resources */,
-				837BCBBF235DE938006A4488 /* ConsultHistoryCell.xib in Resources */,
 				83F88B4A234C9535003C5218 /* SectionTableViewCell.xib in Resources */,
 				832C373F235B8AD000124703 /* AdvFirstTableViewCell.xib in Resources */,
 				837C8DF9233252F300869CDB /* paymenCollectionCell.xib in Resources */,
@@ -1195,7 +1242,9 @@
 				B145B283238898D400082A4E /* conditionsVC.swift in Sources */,
 				83B4989A2368FBD8002DAC5A /* SelectTime.swift in Sources */,
 				13FC82602321293F00D8C7A8 /* MainViewController.swift in Sources */,
+				B108B8D223F806CE009CB225 /* ConsultHistoryViewController.swift in Sources */,
 				83D78DF6238182320082F9E5 /* SearchViewController.swift in Sources */,
+				362AD439238AF984005F263D /* ConsultationVC.swift in Sources */,
 				B11C366C2357AC510013B7FD /* Consultant.swift in Sources */,
 				83B498A2237215C8002DAC5A /* AskConsultation.swift in Sources */,
 				36902E39234499440090013C /* homeModel.swift in Sources */,
@@ -1204,9 +1253,10 @@
 				837BCB7D235BEB1B006A4488 /* status.swift in Sources */,
 				837C8DB62330EABF00869CDB /* NotificationsViewController.swift in Sources */,
 				36316021233444A400115FE1 /* AdvMainViewController.swift in Sources */,
+				835A58C02389925700DAC7BB /* paymentVC.swift in Sources */,
 				837C8DF4233240C900869CDB /* searchCell.swift in Sources */,
 				36275D7A2381EC8800C39491 /* AdvchatViewController.swift in Sources */,
-				B145B2852388993600082A4E /* privacyViewController.swift in Sources */,
+				B145B2852388993600082A4E /* privacyVC.swift in Sources */,
 				83B4989E236DC988002DAC5A /* ChooseCategoryVC.swift in Sources */,
 				B15D3B63235858D6003057FC /* ActivatCodeViewController.swift in Sources */,
 				83F88B33234C934D003C5218 /* Profile.swift in Sources */,
@@ -1220,28 +1270,36 @@
 				83DE5E6123574379009F71C0 /* HomeSupCateVC.swift in Sources */,
 				36902E3323448FAC0090013C /* AccountViewController.swift in Sources */,
 				83B498892365B1CA002DAC5A /* ProblemDisscription.swift in Sources */,
+				83F044E923F840CE00ACD744 /* ChooseCategoryVCX.swift in Sources */,
+				DAFA071A23F3235D00CC685C /* SettingsadVC.swift in Sources */,
 				363C812723300C800051F142 /* sliderCollectionViewCell.swift in Sources */,
 				83D78DFA238183520082F9E5 /* MyConsultion.swift in Sources */,
+				83F044E723F8405A00ACD744 /* RequistConsaltationVCX.swift in Sources */,
+				83F044EB23F8425600ACD744 /* abuteConsltentViewControllerX.swift in Sources */,
 				B108573C234510A10008104D /* AdvisorLoginViewController.swift in Sources */,
 				83F88B47234C9535003C5218 /* SectionTwoTableViewCell.swift in Sources */,
 				8361309C232E58FF008389DE /* MenuTableViewCell.swift in Sources */,
+				DAFA071E23F3246400CC685C /* privacyViewAdController.swift in Sources */,
 				837C8DF8233252F300869CDB /* paymenCollectionCell.swift in Sources */,
 				83613090232E3D5C008389DE /* CategoriesCollectionVCell.swift in Sources */,
-				83DE5E552355EEC3009F71C0 /* ConsultHistoryViewController.swift in Sources */,
 				832C3742235B8BCB00124703 /* AdvSecondTableCell.swift in Sources */,
 				83F88B31234C8EF5003C5218 /* UpdatePasswordViewController.swift in Sources */,
 				83F88B52234C9535003C5218 /* UserProfilVC.swift in Sources */,
 				832C372A235B4FAC00124703 /* AdvNotificationsVC.swift in Sources */,
 				B1CC8F5B235EE19700339387 /* AdUpdatePasswordViewController.swift in Sources */,
 				365CC23E237F414000ECF9AF /* chatTVC.swift in Sources */,
+				835A58C2238992BE00DAC7BB /* Checkout.swift in Sources */,
 				83F88B46234C9535003C5218 /* ProfileVC.swift in Sources */,
 				836A4727232FA2AC00BD8ACB /* AboutContainerVC.swift in Sources */,
 				83EE7D67238199AE00073409 /* head.m in Sources */,
+				835A58C42389940900DAC7BB /* PaymentStatus.swift in Sources */,
 				83DE5E4D2355E113009F71C0 /* Consultation.swift in Sources */,
 				13FC827F23215F3A00D8C7A8 /* CustomePageControl.swift in Sources */,
 				83D78DF8238182FF0082F9E5 /* FilterViewController.swift in Sources */,
+				83F044ED23F8442600ACD744 /* SingleConsaltant.swift in Sources */,
 				362CFE642334F97B005E4B78 /* CustomTabBarController.swift in Sources */,
 				362CFE622334F2E4005E4B78 /* EditProfailUserViewController.swift in Sources */,
+				DAFA072023F3249300CC685C /* aboutAppAdVC.swift in Sources */,
 				837C8DC42330F5D000869CDB /* CategoriesCollectionViewCell.swift in Sources */,
 				83F88B55234C95E9003C5218 /* UIView+Extensions.swift in Sources */,
 				B17909C723424A52006B7E7A /* Constant.swift in Sources */,
@@ -1259,6 +1317,7 @@
 				834DC68623650FE200EABD09 /* SelectLangVC.swift in Sources */,
 				363C812D233024AE0051F142 /* CounselingTableViewCell.swift in Sources */,
 				365CC23A237EFA5A00ECF9AF /* FirebaseRealTimeFunc.swift in Sources */,
+				DAFA071C23F3243C00CC685C /* conditionsAdVC.swift in Sources */,
 				83D78DF1238180680082F9E5 /* RatingVC.swift in Sources */,
 				363729882358D07E00A7D513 /* SingleConsultantS.swift in Sources */,
 				13FC829A2321B16300D8C7A8 /* UIView+Extention.swift in Sources */,
@@ -1278,7 +1337,6 @@
 				837C8DA82330E65900869CDB /* ReviewsContainer.swift in Sources */,
 				3637298F2358D53300A7D513 /* dataNillTableViewCell.swift in Sources */,
 				8321E7E82350A65F00A26725 /* SubCategoryVC.swift in Sources */,
-				837BCBBE235DE938006A4488 /* ConsultHistoryCell.swift in Sources */,
 				832C374E235B8F1E00124703 /* AdvSectionTwoTableViewCell.swift in Sources */,
 				837C8DEA2332323900869CDB /* filterVC.swift in Sources */,
 				83F88B53234C9535003C5218 /* SectionTableViewCell.swift in Sources */,
@@ -1297,10 +1355,10 @@
 				834DC68E236527DF00EABD09 /* GradientButton.swift in Sources */,
 				83F88B4B234C9535003C5218 /* FirstTableViewCell.swift in Sources */,
 				363729952358D75900A7D513 /* AdvisorCell.swift in Sources */,
+				835A58C62389949500DAC7BB /* Bill.swift in Sources */,
 				83B4989823688774002DAC5A /* requistConsTableViewCell.swift in Sources */,
 				B108573A2345107F0008104D /* UserSginUpViewController.swift in Sources */,
 				83B4988B2365D414002DAC5A /* ComunicationToolsVC.swift in Sources */,
-				8368FF422388BABA00B8AAE2 /* ConsultationVC.swift in Sources */,
 				837C8DE32332224400869CDB /* PaymentPopupVC.swift in Sources */,
 				13FC825E2321293F00D8C7A8 /* AppDelegate.swift in Sources */,
 				B145B28723889BE000082A4E /* aboutAppVC.swift in Sources */,
@@ -1309,6 +1367,7 @@
 				B15D3B7423589563003057FC /* AdProfileViewController.swift in Sources */,
 				832C3752235BC37300124703 /* AdvProfile.swift in Sources */,
 				B11CBB6F23429A6B005B7420 /* helper.swift in Sources */,
+				83F044E523F83FD500ACD744 /* ChooseConsaltantVCX.swift in Sources */,
 				837C8DDD2332115500869CDB /* searchPopup.swift in Sources */,
 				363729842358D04200A7D513 /* singleconsultants.swift in Sources */,
 				837C8DB72330EABF00869CDB /* NotificationsTableViewCell.swift in Sources */,
@@ -1318,6 +1377,7 @@
 				36E35E9323338067003752CB /* AdvisorTableViewCell.swift in Sources */,
 				837C8DFD23325FB800869CDB /* AdvisorDetailsVC.swift in Sources */,
 				B11CBB6E23429A6B005B7420 /* UIViewController+HUD.swift in Sources */,
+				83F044E223F83D9000ACD744 /* ConsultHistoryCell.swift in Sources */,
 				834DC6832364D15100EABD09 /* SettingsVC.swift in Sources */,
 				83D78DF4238182170082F9E5 /* Search.swift in Sources */,
 			);
@@ -1477,20 +1537,24 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Tamazuj/Tamazuj.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y43E95U4EG;
+				DEVELOPMENT_TEAM = RY3DV2G7H4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Tamazuj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sariDev.TamazujApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevMerbia.Tamazuj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "test/Tamazuj-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1502,19 +1566,23 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Tamazuj/Tamazuj.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y43E95U4EG;
+				DEVELOPMENT_TEAM = RY3DV2G7H4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Tamazuj/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sariDev.TamazujApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevMerbia.Tamazuj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "test/Tamazuj-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

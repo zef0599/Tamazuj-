@@ -8,10 +8,8 @@
 
 import UIKit
 
-
-
 class ChooseConsaltantVC: UIViewController {
-    var allConsaltant : Consaltant?
+    var allConsaltant : [Category.Consultant] = []
     var navTitle:String?
     var delegate:SelectionDelegate?
 
@@ -19,18 +17,25 @@ class ChooseConsaltantVC: UIViewController {
     @IBOutlet weak var navToMyConsaltion: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nav.title = navTitle
-        showIndeterminateHUD() //here
-
-        Operation.getAllConsaltants { (error, result) in
-            if let result = result {
-                self.hideHUD() //here
-                self.allConsaltant = result
-                self.collectionView.reloadData()
-            }
+        
+        
+        if allConsaltant.isEmpty {
+            self.showHUD(title: "", details:  "لا يوجد مستشارين ", hideAfter: 3)
         }
+//        showIndeterminateHUD() //here
+
+//        Operation.getAllConsaltants { (error, result) in
+//            if let result = result {
+//                self.hideHUD() //here
+//                self.allConsaltant = result
+//                self.collectionView.reloadData()
+//            }
+//        }
         
         self.navigationItem.title = navTitle
         
@@ -42,6 +47,9 @@ class ChooseConsaltantVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if allConsaltant.isEmpty {
+            self.showHUD(title: "", details:  "لا يوجد مستشارين ", hideAfter: 3)
+        }
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -65,20 +73,22 @@ class ChooseConsaltantVC: UIViewController {
 
 extension ChooseConsaltantVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if allConsaltant?.ConsaltantData?.count == nil {
-            return 0
-        }else{
-            return (allConsaltant?.ConsaltantData!.count)!
-        }
+//        if allConsaltant?.ConsaltantData?.count == nil {
+//            return 0
+//        }else{
+//            return (allConsaltant?.ConsaltantData!.count)!
+//        }
+        
+        return self.allConsaltant.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
-        let object = allConsaltant?.ConsaltantData?[indexPath.row]
+        let object = allConsaltant[indexPath.row]
         cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
-        cell.imageView.kf.setImage(with: URL(string: (object?.photo!)!))
-        cell.titel.text = object?.name ?? "name Error"//object.name!
-        cell.descriptioN.text =  object?.biography ?? "biography Error" //object.email! + "\n" + object.phone!
+        cell.imageView.kf.setImage(with: URL(string: (object.photo)!))
+        cell.titel.text = object.name ?? "name Error"//object.name!
+        cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
         //        > 0 ? 3 : 0
         return cell
         
@@ -99,7 +109,9 @@ extension ChooseConsaltantVC: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //  go back to the selection bage and do the change
-        delegate?.selectionConsaltntReady(consaltant:(allConsaltant?.ConsaltantData![indexPath.item])!)
+        let object = allConsaltant[indexPath.row]
+        delegate?.selectionConsaltntReady(consaltant: object)
+//        delegate?.selectionConsaltntReady(consaltant:(allConsaltant.ConsaltantData![indexPath.item])!)
         self.navigationController?.popViewController(animated: true)
     }
 }

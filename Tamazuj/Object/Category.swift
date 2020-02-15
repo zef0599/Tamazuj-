@@ -10,10 +10,6 @@
 
 import Foundation
 
-
-
-
-
 struct Categories:Codable {
     var data:[data]?
     var meta:meta?

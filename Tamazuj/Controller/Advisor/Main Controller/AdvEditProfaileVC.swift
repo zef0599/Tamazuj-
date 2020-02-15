@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-
+import Firebase
 class AdvEditProfaileVC: UIViewController {
     
     let gender = ["ذكر","انثى"]
@@ -177,7 +177,18 @@ class AdvEditProfaileVC: UIViewController {
         self.showIndeterminateHUD()
         if self.nameTextfield.text != nil{
             
-            Operation.AdvEditeProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: self.nationalityTextField.text ?? "" , work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
+            InstanceID.instanceID().instanceID { (result, error) in
+                if let error = error {
+                    
+                    print("Error fetching remote instance ID: \(error)")
+                } else if let result = result {
+                    print("Remote instance ID token: \(result.token)")
+                    //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+                }
+                guard let token = result?.token else {return}
+//            }
+            
+            Operation.AdvEditeProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: self.nationalityTextField.text ?? "" , work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: token, os_type: 2, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
                 if let result = result {
                     self.profileData = result
                     self.hideHUD()
@@ -201,7 +212,7 @@ class AdvEditProfaileVC: UIViewController {
         
         self.navigationController?.popToRootViewController(animated: true)
 
-        
+    }
     }
 }
 extension AdvEditProfaileVC: UIPickerViewDelegate, UIPickerViewDataSource {

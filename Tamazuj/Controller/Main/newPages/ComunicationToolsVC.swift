@@ -9,7 +9,7 @@
 import UIKit
 
 class ComunicationToolsVC: UIViewController {
-    var delegate:SelectionDelegate?
+    var delegate:SelectionDelegateX?
     @IBOutlet weak var tableView: UITableView!
     var array:[contactData] = [
     contactData(image:#imageLiteral(resourceName: "video.png"), title: "مكالمة فيديو"),

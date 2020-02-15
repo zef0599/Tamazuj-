@@ -9,7 +9,7 @@ struct contactData {
 }
 class RequistConsaltationVC: UIViewController, UITextViewDelegate {
 
-    var consaltant:ConsaltantData?
+    var consaltant:Category.Consultant?
     var category:data?
     var index:Int?
     var time:String?
@@ -44,8 +44,8 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
         details.delegate = self
 
         
-        let data = ["mohammed":"ali"]
-        Database.database().reference().child("test").setValue(data)
+//        let data = ["mohammed":"ali"]
+//        Database.database().reference().child("test").setValue(data)
         
         
 
@@ -64,7 +64,14 @@ class RequistConsaltationVC: UIViewController, UITextViewDelegate {
         super.viewWillDisappear(true)
         // Show the Navigation Bar
         //        self.navigationController?.setNavigationBarHidden(false, animated: false)
+//        self.navigationController?.isNavigationBarHidden = true
+        // - fix duble nav + change nav back image + title
         self.navigationController?.isNavigationBarHidden = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.backIndicatorImage = #imageLiteral(resourceName: "back.png")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back.png")
+
+
         
     }
 
@@ -280,23 +287,34 @@ extension RequistConsaltationVC:UITableViewDelegate, UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseCategoryVC") as! ChooseCategoryVC
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
-
+//             if category 	== nil {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseCategoryVC") as! ChooseCategoryVC
+                vc.delegate = self
+                self.navigationController?.pushViewController(vc, animated: true)
+//             }else{
+//                self.showHUD(title: "", details:  " تم اختر مجال الاستشارة", hideAfter: 3)
+//             }
+            
         case 1:
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseConsaltantVC") as! ChooseConsaltantVC
-            vc.delegate = self
-            self.navigationController?.pushViewController(vc, animated: true)
+            if self.category?.consultant == nil {
+                self.showHUD(title: "", details:  "اختر مجال الاستشارة", hideAfter: 3)
+            }else{
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseConsaltantVC") as! ChooseConsaltantVC
+                vc.delegate = self
+                vc.allConsaltant = self.category!.consultant!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
+
 
         case 2:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectTime") as! SelectTime
-            vc.delegate = self
+            vc.delegate = self as! SelectionDelegateX
             navigationController?.pushViewController(vc, animated: true)
 
         case 3:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ComunicationToolsVC") as! ComunicationToolsVC
-            vc.delegate = self
+            vc.delegate = self as! SelectionDelegateX
             navigationController?.pushViewController(vc, animated: true)
 
         default:
@@ -325,7 +343,7 @@ extension RequistConsaltationVC: SelectionDelegate {
         
     }
 
-    func selectionConsaltntReady(consaltant:ConsaltantData) {
+    func selectionConsaltntReady(consaltant:Category.Consultant) {
         self.consaltant = consaltant
         self.tableView.reloadData()
     }

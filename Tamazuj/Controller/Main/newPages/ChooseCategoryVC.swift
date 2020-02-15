@@ -12,12 +12,12 @@ import Kingfisher
 protocol SelectionDelegate {
     func selectionReady(category: data, supName: String,supId:String)
     func selectionReady(category:data)
-    func selectionConsaltntReady(consaltant:ConsaltantData)
+    func selectionConsaltntReady(consaltant:Category.Consultant)
     func selectionTime(time:String,minute:Int)
     func selectionComunicationTool(contact:contactData)
 }
 extension SelectionDelegate {
-    func selectionReady(category: data, supName: String,supId:Int){}
+    func selectionReady(category: data, supName: String,supId:String){}
     func selectionReady(category:data){}
     func selectionConsaltntReady(consaltant:ConsaltantData){}
     func selectionTime(time:String,minute:Int){}
@@ -45,6 +45,14 @@ class ChooseCategoryVC: UIViewController {
                 self.CategoriesData.append(contentsOf: result.data!)
                 self.tableView.reloadData()
                 self.hideHUD()
+//                for i in result.data!{
+//                    if i.id == 1{
+//                        self.CategoriesData.append(i)
+//                        self.tableView.reloadData()
+//                        self.hideHUD()
+//                    }
+//                }
+                
             }else{
                 self.showHUD(title: "Error", details: "Some Error", hideAfter: 3)
             }
@@ -138,17 +146,6 @@ extension ChooseCategoryVC: UITableViewDelegate,UITableViewDataSource {
                     //go back and sent the data to selection
                     
                     self.delegate?.selectionReady(category: CategoriesData[indexPath.section])
-
-//                    if CategoriesData[indexPath.section].sup_category[indexPath.row].name_ar != nil {
-//                        if CategoriesData[indexPath.section].sup_category.count > 0 {
-//                            self.delegate?.selectionReady(category: CategoriesData[indexPath.section],supName:CategoriesData[indexPath.section].sup_category[indexPath.row].name_ar!)
-//                        }
-//                        self.delegate?.selectionReady(category: CategoriesData[indexPath.section],supName:"")
-//                    }else{
-//                        self.delegate?.selectionReady(category: CategoriesData[indexPath.section],supName:"")
-//                    }
-
-
                     self.navigationController?.popViewController {
                     }
                     print("go back with category name")
@@ -176,7 +173,7 @@ extension ChooseCategoryVC: UITableViewDelegate,UITableViewDataSource {
             if CategoriesData[indexPath.section].sup_category.count > 0  {
                 let category = self.CategoriesData[indexPath.section]
                 let supName = self.CategoriesData[indexPath.section].sup_category[indexPath.row-1].name_ar!
-                let supId = self.CategoriesData[indexPath.section].sup_category[indexPath.row-1].id!
+                let supId = "\(self.CategoriesData[indexPath.section].sup_category[indexPath.row-1].id!)"
                 self.delegate?.selectionReady(category: category, supName:supName,supId:supId)
 
             }else{

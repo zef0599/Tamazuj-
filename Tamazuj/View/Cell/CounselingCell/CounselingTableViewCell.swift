@@ -53,10 +53,10 @@ extension CounselingTableViewCell: UICollectionViewDelegate,UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoriesCollectionViewCell", for: indexPath) as! CategoriesCollectionViewCell
         let object = self.categorydata[indexPath.row]
 //        let object = data[indexPath.row]
-        
-        
+        print(object)
+//        #imageLiteral(resourceName: "icon-categ-2.png")
         cell.imageCell.kf.setImage(with: URL(string: object.image!))
-        cell.labalCell.text = object.name_ar!
+        cell.labalCell.text = object.name_ar ?? "non name"
         return cell
     }
     

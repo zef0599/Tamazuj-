@@ -122,7 +122,7 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
 
             }else{
                 cell.up.image = #imageLiteral(resourceName: "downArrow")
-                cell.viewShadow.shadowColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.viewShadow.shadowColor = #colorLiteral(red: 0.8823529412, green: 0.9098039216, blue: 0.9215686275, alpha: 0.53)
             }
             return cell
         }else{
@@ -207,16 +207,16 @@ extension categorySelectionVC: UITableViewDelegate,UITableViewDataSource {
 
         if indexPath.row == 0 {
             
-            if CategoriesData[indexPath.section].opened == true {
-                self.CategoriesData[indexPath.section].opened = false
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
-            }else{
-                self.CategoriesData[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
-                
-            }
+//            if CategoriesData[indexPath.section].opened == true {
+//                self.CategoriesData[indexPath.section].opened = false
+//                let sections = IndexSet.init(integer: indexPath.section)
+//                tableView.reloadSections(sections, with: .none)
+//            }else{
+//                self.CategoriesData[indexPath.section].opened = true
+//                let sections = IndexSet.init(integer: indexPath.section)
+//                tableView.reloadSections(sections, with: .none)
+//
+//            }
         }else{
             // go to sup category conaltant selection
         }

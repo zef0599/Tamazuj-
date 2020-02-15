@@ -34,51 +34,49 @@ import Foundation
 
 struct ConsultationRequset:Codable {
     var data : [ConsultationData]?
-
-
-
+    
+    
+    
     struct ConsultationData:Codable {
+        
+        
         var id:Int?
         var means_of_communication:String?
-//        var summary_problem:String?
-//        var rating:String?
-//        var status:String?
-//        var session_time:[session_time]?
-//        var consultant_id:[consultant_id]?
+        var rating:String?
+        var note:String?
+        var summary_problem:String?
+        var status:String?
+        var session_time:session_time?
+        var consultant_id:consultant_id?
         
         struct session_time:Codable {
-                var id:Int?
-                var time:Int?
-                var price:Int?
+            var id:Int?
+            var time:String?
+            var price:Int?
         }
         
         struct consultant_id:Codable{
-        
             var name:String?
             var photo:String?
         }
-    
+        
     }
     
-
+    
 }
-//    var ConsaltantData:[ConsultationData]?
-//    enum CodingKeys: String, CodingKey {
-//
-//        case  ConsaltantData = "data"
-//
-//    }
-//}
-//
 
-//struct session_time:Codable {
-//        var id:Int?
-//        var time:Int?
-//        var price:Int?
-//}
-//
-//struct consultant_id:Codable{
-//
-//    var name:String?
-//    var photo:String?
-//}
+struct updateConsultation:Codable {
+    var data : ConsultationData?
+    
+    
+    
+    struct ConsultationData:Codable {
+        var id:Int?
+        var means_of_communication:String?
+        var rating:String?
+        var note:String?
+        
+    }
+    
+    
+}

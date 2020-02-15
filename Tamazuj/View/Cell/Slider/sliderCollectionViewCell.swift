@@ -40,7 +40,7 @@ class sliderCollectionViewCell: UICollectionViewCell {
     @IBAction func go(_ sender: Any) {
 
         let stprybord = UIStoryboard(name: "Main", bundle: nil)
-        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVCX
         vc.nav = self.nav
 //        self.nav?.navigationController?.present(vc, animated: true, completion: nil)
 //        pushViewController(vc, animated: true)

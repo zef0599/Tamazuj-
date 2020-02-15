@@ -7,11 +7,60 @@
 //
 
 import Foundation
+struct bestRating : Codable {
+    var id: Int?
+    var name: String?
+    var email : String?
+    var phone : String?
+    //        var category : [Ctgory]?
+    var photo : String?
+    var biography : String?
+    var rating : Int?
+}
+//var bestRating : [BestRating]?
+//var category : [Category]?
+//var bestConsultant : [BestConsultant]?
+
+
+
+struct T : Codable {
+    var bestRating : [BestRating]?
+    var category : [Category]?
+    var bestConsultant : [BestConsultant]?
+    //
+    var message : String?
+    var status : Int?
+    
+
+    struct category : Codable {
+        var id: Int?
+        var name_en: String?
+        var name_ar : String?
+        var created_at: String?
+        var updated_at: String?
+    }
+    struct bestConsultant : Codable {
+        var id: Int?
+        var name: String?
+        var email : String?
+        var phone : String?
+        var photo : String?
+        //        var category : [category]?
+        //
+        //        struct category : Codable {
+        //            var id : Int?
+        //            var name_en : String?
+        //            var name_ar : String?
+        //            var image : String?
+        //        }
+    }
+}
 
 struct Home: Codable {
     var bestRating : [BestRating]?
     var category : [Category]?
     var bestConsultant : [BestConsultant]?
+    
     var message : String?
     var status : Int?
 }
@@ -21,28 +70,13 @@ struct BestRating  : Codable {
     var name: String?
     var email : String?
     var phone : String?
-    var category : [Ctgory]?
+    //var category : [Ctgory]?
     var photo : String?
     var biography : String?
     var rating : Int?
     
-    //    var sup_category : String?
-    
-    //  var nationality, workStatus: String
-    //  var socialStatus: JSONNull?
-    //  var educationalStatus: String
-    //  var status, dateOfBirth: String
-    
-    struct Ctgory: Codable {
-        var id: Int?
-        var name_en: String?
-        var name_ar : String?
-        var created_at: String?
-        var updated_at: String?
-        
-        
     }
-}
+
 protocol PassData {
     func Data(Category :Category.Consultant)
 }
@@ -72,13 +106,15 @@ struct BestConsultant : Codable {
     var email : String?
     var phone : String?
     var photo : String?
-    var category : [category]?
-    
+    var category : [category]?// MOHAMMEDERBIA98
+
     struct category : Codable {
         var id : Int?
         var name_en : String?
         var name_ar : String?
-        var image : String?
+//        var image : String?
+//        var deleted_at :
+        
     }
 
     

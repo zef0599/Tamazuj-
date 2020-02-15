@@ -10,6 +10,10 @@ import UIKit
 
 class AdvConsHistoryCell: UITableViewCell {
     
+    @IBOutlet weak var coStutes: UILabel!
+    @IBOutlet weak var CoTime: UILabel!
+    @IBOutlet weak var nameCo: UILabel!
+    @IBOutlet weak var coPhoto: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

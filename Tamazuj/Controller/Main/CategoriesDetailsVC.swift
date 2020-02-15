@@ -13,7 +13,7 @@ class CategoriesDetailsVC: UIViewController {
     
     var DataConsultant : [Category.Consultant]?
     var navTitle:String?
-    
+    var id:Int?
     @IBOutlet var nav: UINavigationItem!
     @IBOutlet weak var navToMyConsaltion: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,7 +65,6 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
         let object = DataConsultant![indexPath.row]
         cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
-
         cell.imageView.kf.setImage(with: URL(string: object.photo!))
         cell.titel.text = object.name ?? "name Error"//object.name!
         cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
@@ -74,6 +73,7 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         
     }
     @objc func Askadviceactione (){
+        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
         self.navigationController!.pushViewController(vc, animated: true)
     }
@@ -88,7 +88,9 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
     
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let stprybord = UIStoryboard(name: "Main", bundle: nil)
-            let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+            let vc = stprybord.instantiateViewController(withIdentifier: "abuteConsltentViewControllerX") as! abuteConsltentViewControllerX
+            let object = DataConsultant![indexPath.row]
+            vc.id = object.id
             self.navigationController?.pushViewController(vc, animated: true)
     }
 

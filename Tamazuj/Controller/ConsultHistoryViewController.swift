@@ -7,12 +7,11 @@
 //
 
 import UIKit
-
+import Kingfisher
 class ConsultHistoryViewController: UIViewController {
     
-    
-    //  var data:[Consultation] = []
-    
+
+    var data = [ConsultationRequset.ConsultationData]()
     @IBOutlet weak var tableView: UITableView!
     var navHave:UINavigationController?
     let cellNameIden = "ConsultHistoryCell"
@@ -29,11 +28,22 @@ class ConsultHistoryViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
         
-        
+        LoadData()
+    }
+    
+    func LoadData()  {
+        self.showIndeterminateHUD()
         Operation.getconsultation(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (ruselt, error) in
             if let ruselt = ruselt{
+                 self.hideHUD()
+                for data in ruselt.data!{
+                   
+                    self.data.append(data)
+                    self.tableView.reloadData()
+                    print(data,"hhhhhh")
+                }
                 
-                //                print(ruselt)
+                print(ruselt)
             }
         }
     }
@@ -70,12 +80,19 @@ class ConsultHistoryViewController: UIViewController {
 }
 extension ConsultHistoryViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellNameIden, for: indexPath) as! ConsultHistoryCell
         cellShadow(cell: cell)
+        let object = data[indexPath.row]
+        
+        cell.nameCon.text = object.consultant_id?.name
+        cell.coPhoto.kf.setImage(with: URL(string: (object.consultant_id?.photo)!))
+        cell.coStutes.text = object.status
+        cell.conTime.text = object.session_time?.time
+
         return cell
     }
     

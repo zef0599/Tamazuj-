@@ -17,22 +17,43 @@ class MainViewController: UIViewController {
     var bestRatingdata : [BestRating] = []
     var categorydata : [Category] = []
     var bestConsultantdata : [BestConsultant] = []
-    var yousefCategorydata : [data] = []
+//    var yousefCategorydata : [data] = []
     @IBOutlet var mainTabel: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        ////e_dhUuMAKl0:APA91bGT1MpPTm00C2Wd3CwjU1ESFGE7WH2uNmq9VnctiBCQ0TotfJHCZeXk1XFPoYOX8gIIZXLuklEdhWxztF165SwiDkO4ktioFDRGOSL2aqk-bGQkB2p7Y937AipFSReoVc6E6e9z
+//        HomeData.homedataload(lang: "ar", Authorization:"Bearer \(helper.getUserToken()!)" ) { (error, result) in
+//            ////
+//            print("hhhhh \n result:",result)
+//        }
+        
+        Operation.testS { (error, test) in
+            print("test",test)
+        }
+//        let data = ["122":"cwewcew","233":"ececwec"]
+//        Database.database().reference().child("testMohammed").setValue(data)
+//
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
-            
                 print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
                 print("Remote instance ID token: \(result.token)")
 //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
             }
         }
+        ////e_dhUuMAKl0:APA91bGT1MpPTm00C2Wd3CwjU1ESFGE7WH2uNmq9VnctiBCQ0TotfJHCZeXk1XFPoYOX8gIIZXLuklEdhWxztF165SwiDkO4ktioFDRGOSL2aqk-bGQkB2p7Y937AipFSReoVc6E6e9z
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(testobserv), name: NSNotification.Name("backgrund"), object: nil)
+        ///dCKiPcPyZq4:APA91bE44hBlAiyee-Vx7kwLvc0tN_wJBTfDErUebgwQUN-4tI0YwTTtkVqzyLf07lXJR7skfOfiE5fhfniBoCTR9l_DG9cScsIdYoxnG95JGKf0FLX87aJO5L754-5MGf1934xE1R1-
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//
+//                print("Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                print("Remote instance ID token: \(result.token)")
+////                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+//            }
+//        }
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(testobserv), name: NSNotification.Name("open"), object: nil)
         
         
         nav = self.navigationController
@@ -98,7 +119,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func profileUser(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
+        let vc = storyboard?.instantiateViewController(withIdentifier:"ProfileVC" ) as! ProfileVC
+
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileVC") as! ProfileVC
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -118,6 +141,7 @@ class MainViewController: UIViewController {
             }
             for i in result.bestRating!{
                 self?.bestRatingdata.append(i)
+//                print("hhhhhData",i)
             }
             
             for i in result.category!{
@@ -129,14 +153,14 @@ class MainViewController: UIViewController {
             }
             hud?.hide(animated: true)
             self?.mainTabel.reloadData()
-            
+//             print("hhhhhData",result)
         }
         
     }
 }
 extension MainViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.bestRatingdata.count  > 0 ? 3 : 0
+        return self.bestRatingdata.count  > 0 ? 3	 : 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -161,7 +185,7 @@ extension MainViewController : UITableViewDelegate,UITableViewDataSource{
             cell.categorydata = self.categorydata
             cell.collection.reloadData()
             return cell
-            
+
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "adviserfavorsTableViewCell", for: indexPath) as! adviserfavorsTableViewCell
             cell.nav = self.nav!

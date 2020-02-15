@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>631316287709-ni1gi6ojlm4q834a6a5up1norvdrftgd.apps.googleusercontent.com</string>
+	<string>631316287709-cfrvd21es4r4e444qb9lup5n0k6apgf7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.631316287709-ni1gi6ojlm4q834a6a5up1norvdrftgd</string>
+	<string>com.googleusercontent.apps.631316287709-cfrvd21es4r4e444qb9lup5n0k6apgf7</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>631316287709-cantcr4kbiccp17dd9fqpfg3bmjqcmag.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sariDev.TamazujApp</string>
+	<string>com.DevMerbia.Tamazuj</string>
 	<key>PROJECT_ID</key>
 	<string>tamazuj-25fd9</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:631316287709:ios:4922a7ce26e20982674b34</string>
+	<string>1:631316287709:ios:01e8cd937ca931a3674b34</string>
 	<key>DATABASE_URL</key>
 	<string>https://tamazuj-25fd9.firebaseio.com</string>
 </dict>

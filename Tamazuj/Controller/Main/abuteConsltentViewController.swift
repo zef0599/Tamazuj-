@@ -126,7 +126,7 @@ class abuteConsltentViewController: UIViewController {
                 self.hideHUD()
                 
                 for i in self.data{
-                        self.name.text = i.name ?? ""
+                        self.name.text = i.name ?? "--"
                     self.rating.text = "\(i.rating ?? 0)%"
                         self.biography.text = i.biography ?? "لم يضيف المستشارة تفاصيل خاصة به"
                         self.image.kf.setImage(with: URL(string: i.photo!))
@@ -190,7 +190,9 @@ class abuteConsltentViewController: UIViewController {
     
     // askConaltion
     @IBAction func askConaltion(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVCX
+        
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // aboutAdvisor
@@ -282,22 +284,22 @@ extension abuteConsltentViewController : UITableViewDataSource,UITableViewDelega
                 cell.time.text = object.time_rating
                 
                 switch object.ratting {
-                case "0":
+                case 0:
                     cell.icon.image = #imageLiteral(resourceName: "zero")
                     cell.nameicon.text = "سيئ"
-                case "1":
+                case 1:
                     cell.icon.image = #imageLiteral(resourceName: "zero")
                     cell.nameicon.text = "سيئ"
-                case "2":
+                case 2:
                     cell.icon.image = #imageLiteral(resourceName: "deslike")
                     cell.nameicon.text = "عادي"
-                case "3":
+                case 3:
                     cell.icon.image = #imageLiteral(resourceName: "Group 1379")
                     cell.nameicon.text = "جيد"
-                case "4":
+                case 4:
                     cell.icon.image = #imageLiteral(resourceName: "like")
                     cell.nameicon.text = "جيد جدا"
-                case "5":
+                case 5:
                     cell.icon.image = #imageLiteral(resourceName: "perfect")
                     cell.nameicon.text = "ممتاز"
                 default:

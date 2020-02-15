@@ -9,7 +9,7 @@
 import UIKit
 
 class AdvConsultHistoryVC: UIViewController {
-    
+    var data = [ConsultationRequset.ConsultationData]()
     @IBOutlet weak var tableView: UITableView!
     let cellNameIden = "AdvConsHistoryCell"
     override func viewDidLoad() {
@@ -21,6 +21,23 @@ class AdvConsultHistoryVC: UIViewController {
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
+        LoadData()
+    }
+    func LoadData()  {
+        self.showIndeterminateHUD()
+        advOprition.getconsultation(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (ruselt, error) in
+            if let ruselt = ruselt{
+                self.hideHUD()
+                for data in ruselt.data!{
+                    
+                    self.data.append(data)
+                    self.tableView.reloadData()
+                    print(data,"hhhhhh")
+                }
+                
+                print(ruselt)
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,12 +72,21 @@ class AdvConsultHistoryVC: UIViewController {
 }
 extension AdvConsultHistoryVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellNameIden, for: indexPath) as! AdvConsHistoryCell
         cellShadow(cell: cell)
+        
+        let object = data[indexPath.row]
+        
+        cell.nameCo.text = object.consultant_id?.name
+        cell.coPhoto.kf.setImage(with: URL(string: (object.consultant_id?.photo)!))
+        cell.coStutes.text = object.status
+        cell.CoTime.text = object.session_time?.time
+        
+        
         return cell
     }
     

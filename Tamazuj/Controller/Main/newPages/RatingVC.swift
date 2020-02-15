@@ -9,6 +9,12 @@
 import UIKit
 
 class RatingVC: UIViewController {
+    var rating:String?
+    var note:String?
+    var consaltationId:Int = 34
+    
+    
+    @IBOutlet weak var noteTextView: UITextView!
 
     @IBOutlet weak var SB1: UIButton!
     @IBOutlet weak var SB2: UIButton!
@@ -26,6 +32,12 @@ class RatingVC: UIViewController {
         super.viewDidLoad()
         RateConButtonsBW()
         serviceRateButtonsBW()
+        
+        noteTextView.text = "اكتب ملاحظاتك هنا"
+        noteTextView.textColor = UIColor.lightGray
+        noteTextView.font = UIFont(name: "Cairo-Regular", size: 14.0)
+        noteTextView.returnKeyType = .done
+        noteTextView.delegate = self
 
     }
     
@@ -56,26 +68,62 @@ class RatingVC: UIViewController {
     @IBAction func R1(_ sender: Any) {
         RateConButtonsBW()
         R1.setImage(UIImage(named:"emo-1"), for: .normal)
+        self.rating = "1"
+
     }
     @IBAction func R2(_ sender: Any) {
         RateConButtonsBW()
         R2.setImage(UIImage(named:"emo-2"), for: .normal)
+        self.rating = "2"
+
     }
     
     @IBAction func R3(_ sender: Any) {
         RateConButtonsBW()
         R3.setImage(UIImage(named:"emo-3"), for: .normal)
+        self.rating = "3"
+
     }
     @IBAction func R4(_ sender: Any) {
         RateConButtonsBW()
         R4.setImage(UIImage(named:"emo-4"), for: .normal)
+        self.rating = "4"
+
     }
     
     @IBAction func R5(_ sender: Any) {
         RateConButtonsBW()
         R5.setImage(UIImage(named:"emo-5"), for: .normal)
-    }
-    
+        self.rating = "5"
+
+            self.rating = "5"
+        }
+        @IBAction func submet(_ sender: Any) {
+            
+            
+            if let rating = self.rating, let note = noteTextView.text {
+                showIndeterminateHUD()
+                Operation.Rating(rating: rating, note: note, consaltationId: consaltationId) { (error, result) in
+                    self.hideHUD()
+                    if let result = result {
+                        // done we update the rate now
+                        print(result)
+                        print("result")
+                        // go to the next page
+                        print("go to the next page")
+                    }
+                }
+                
+            }else{
+                showHUD(title: "نتمنى ان تكمل التقييم ", details: "يجب انهاء التقييم للانتقال ", hideAfter: 2)
+            }
+
+        }
+
+        
+        
+        
+
     func serviceRateButtonsBW(){
         SB1.setImage(#imageLiteral(resourceName: "emoj-un-1.png"), for: .normal)
         SB2.setImage(#imageLiteral(resourceName: "emoj-un-2.png"), for: .normal)
@@ -92,4 +140,33 @@ class RatingVC: UIViewController {
     }
 
     
+}
+
+extension RatingVC:UITextViewDelegate{
+    // - for textview placholder-textView
+    //MARK:- UITextViewDelegates
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "اكتب ملاحظاتك هنا" {
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.font = UIFont(name: "Cairo-Regular", size: 14.0)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = "اكتب ملاحظاتك هنا"
+            textView.textColor = UIColor.lightGray
+            textView.font = UIFont(name: "Cairo-Regular", size: 14.0)
+        }
+    }
+
 }

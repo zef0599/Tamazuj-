@@ -41,15 +41,15 @@ class ProfileVC: UIViewController {
         tableView.registerCellNib(cellClass: SectionTableViewCell.self)
         tableView.registerCellNib(cellClass: SectionTwoTableViewCell.self)
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") {
+            (error, result) in
             if let result = result {
-                self.profileData = result
-                self.tableView.reloadData()
-                self.hideHUD()
-
+            self.profileData = result
+            self.tableView.reloadData()
+            self.hideHUD()
+                
             }
         }
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

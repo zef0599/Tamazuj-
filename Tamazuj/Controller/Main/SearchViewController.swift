@@ -62,16 +62,17 @@ extension SearchViewController : UICollectionViewDelegate,UICollectionViewDataSo
             let obiect = filtersaerch[indexPath.row]
             cell.titel.text = obiect.name
 //            let objectphoto = photo[indexPath.row]
-//            cell.image.kf.setImage(with:URL(string: objectphoto.photo!))
+            cell.image.kf.setImage(with:URL(string: obiect.photo!))
 
          //   cell.subTitel.text =
         }
         else{
             let obiect = datasaerch [indexPath.row]
+            
             cell.titel.text = obiect.name
         //    let object =  photo[indexPath.row]
             
-      //      cell.image.kf.setImage(with:URL(string:photo!))
+            cell.image.kf.setImage(with:URL(string:obiect.photo!))
 
 //            let objectphoto = photo[indexPath.row]
 //            //

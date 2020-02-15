@@ -12,6 +12,7 @@ class SubCategoryVC: UIViewController {
     var supCategoryData:[sup_category] = []
     var consaltantData:[data]?
     var indexpathCategory:Int?
+    var id:Int?
 //    var indexpathSubCategory:Int?
 
     @IBOutlet weak var tableView: UITableView!
@@ -64,7 +65,8 @@ extension SubCategoryVC: UITableViewDelegate,UITableViewDataSource {
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         let obj = consaltantData![indexpathCategory!].sup_category[indexPath.row]
         cell.cateTitleLable.text = obj.name_ar
-        cell.categoryIcon.kf.setImage(with:URL(string: obj.image!))
+        cell.categoryIcon.kf.setImage(with:URL(string: obj.image!), placeholder: UIImage(named: "alert_icon"))
+
         return cell
     }
 }

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,17 +35,17 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="DCH-Df-bHX">
-                                <rect key="frame" x="225" y="94" width="43" height="22"/>
+                                <rect key="frame" x="169" y="82.5" width="99" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PK7-YQ-Rch">
-                                        <rect key="frame" x="0.0" y="0.0" width="16" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45"/>
                                         <state key="normal" image="true"/>
                                         <connections>
                                             <action selector="acceptConsaltent:" destination="UW9-7V-mO0" eventType="touchUpInside" id="pGF-k9-TJw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12j-on-MO0">
-                                        <rect key="frame" x="27" y="0.0" width="16" height="22"/>
+                                        <rect key="frame" x="55" y="0.0" width="44" height="45"/>
                                         <state key="normal" image="icon-close"/>
                                         <connections>
                                             <action selector="DeletConsaltent:" destination="UW9-7V-mO0" eventType="touchUpInside" id="K0u-X8-7Ii"/>
@@ -118,6 +117,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DCH-Df-bHX" firstAttribute="top" secondItem="DMf-T8-ZJs" secondAttribute="bottom" constant="3" id="8jz-YU-Q7G"/>
                             <constraint firstItem="zNG-MR-qXA" firstAttribute="leading" secondItem="N22-62-hBC" secondAttribute="trailing" constant="12" id="9xe-eb-mDT"/>
                             <constraint firstItem="N22-62-hBC" firstAttribute="top" secondItem="N12-Qc-Yag" secondAttribute="top" constant="8" id="CBd-q2-O3H"/>
                             <constraint firstItem="DCH-Df-bHX" firstAttribute="centerY" secondItem="N12-Qc-Yag" secondAttribute="bottom" id="MDn-Wa-eIa"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class SelectTime: UIViewController {
 
-    var delegate:SelectionDelegate?
+    var delegate:SelectionDelegateX?
     
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!

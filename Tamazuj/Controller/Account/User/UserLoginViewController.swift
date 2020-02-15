@@ -62,6 +62,9 @@ class UserLoginViewController: UIViewController {
                 self.hideHUD()
                 let user = "user"
                 helper.saveUserType(user: user)
+                guard let token = suc?.token else { return }
+                helper.saveUserToken(token: token)
+                print("suc",suc)
                 WindowManger.show(.main, animated: true)
                 
             }else{
@@ -75,7 +78,7 @@ class UserLoginViewController: UIViewController {
         
         
     }
-    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
-        print("IM BACK")
-    }
+//    @IBAction func unwindToThisViewController(segue: UIStoryboardSegue) {
+//        print("IM BACK")
+//    }
 }

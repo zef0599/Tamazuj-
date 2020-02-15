@@ -9,7 +9,11 @@
 import UIKit
 
 class billsVC: UIViewController {
-    
+    var price:Int?
+    var consulting_id:Int?
+    var payment_method:String?
+    var billData:Bill?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,8 +23,15 @@ class billsVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func payBills(_ sender: Any) {
-        showPaymentPopup()
-        
+                Operation.bill(price: price ?? 0, consulting_id: consulting_id ?? 00, payment_method: "visa") { (error, result) in
+                    if let result = result {
+                        self.billData = result
+                        print(self.billData)
+                    }
+                }
+                
+        //        showPaymentPopup()
+
     }
 
 }

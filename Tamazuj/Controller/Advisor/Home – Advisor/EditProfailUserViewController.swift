@@ -8,6 +8,12 @@
 
 import UIKit
 import Kingfisher
+import Firebase
+struct countrieeee {
+    let title:String
+    let countrieId:Int
+}
+
 class EditProfailUserViewController: UIViewController {
     
     let gender = ["male","female"]
@@ -22,10 +28,24 @@ class EditProfailUserViewController: UIViewController {
                     "Divorced",
                     "single"]
     var selectedRelation: String?
+    var countries: [countrieeee] = [
+        countrieeee(title:"Saudi Arabia", countrieId:4),
+        countrieeee(title:"Jordan", countrieId: 5),
+        countrieeee(title:"Palestine", countrieId: 6),
+        countrieeee(title:"UAE", countrieId: 7)]
+    var selectedCountry: countrieeee?
+
     
-    var countries: [String] = []
-    var selectedCountry: String?
+//    var countries: [String] = []
+//    var selectedCountry: String?
     
+    
+    
+    //TODO:-shouldChangeCharactersIn
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
+//        return string.rangeOfCharacter(from: invalidCharacters) == nil
+//    }
     
     
     @IBOutlet weak var profilImage: UIImageView!
@@ -36,29 +56,42 @@ class EditProfailUserViewController: UIViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var passWordTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var pickerGender: UIPickerView!
+//    @IBOutlet weak var pickerGender: UIPickerView!
     @IBOutlet weak var nationalityTextField: UITextField!
     @IBOutlet weak var birthDateTextField: UITextField!
     @IBOutlet weak var educationTextField: UITextField!
     @IBOutlet weak var jobTextField: UITextField!
     @IBOutlet weak var relationTextField: UITextField!
     var profileData:Profile?
-    
+    let picker = UIDatePicker()
     override func viewDidLoad() {
         super.viewDidLoad()
+        birthDateTextField.inputView = picker
+        picker.datePickerMode = .date
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donebutton))
+        setToolbarItems([done], animated: true)
+        picker.addTarget(self, action: #selector(datechange), for:.valueChanged )
+        
+        let weekago = Calendar.current.date(byAdding: .day,value: -7, to: Date())
+        let weeklater = Calendar.current.date(byAdding: .day,value: 7, to: Date())
+       // picker.maximumDate = weeklater
+     //   picker.minimumDate = weekago
+       // picker.date = weekago!
         createDegreePicker()
         createGenderPicker()
         createRelationPicker()
         createCountriesPicker()
         
-        for code in NSLocale.isoCountryCodes  {
-            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
-            let name = NSLocale(localeIdentifier: "ar_SA").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
-            countries.append(name)
-        }
+//        for code in NSLocale.isoCountryCodes  {
+//            let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+//            let name = NSLocale(localeIdentifier: "ar_SA").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
+//            countries.append(name)
+//        }
         
         self.showIndeterminateHUD()
-        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
+        Operation.getProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.hideHUD()
@@ -92,7 +125,19 @@ class EditProfailUserViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
+    @objc func donebutton(){
+        getDate()
+    }
+    @objc func datechange(){
+        getDate()
 
+    }
+    func getDate(){
+        
+        let formmat = DateFormatter()
+        formmat.dateFormat = "dd.MM.yyy"
+        self.birthDateTextField.text = formmat.string(from: picker.date)
+    }
     func createGenderPicker() {
         
         let genderPicker = UIPickerView()
@@ -174,12 +219,61 @@ class EditProfailUserViewController: UIViewController {
     }
     
     @IBAction func submetButton(_ sender: Any) {
-        self.showIndeterminateHUD()
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        
         
         if self.nameTextfield.text != nil{
             
-            Operation.changeProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "T##String", name: self.nameTextfield.text!, gender: self.selectedGender ?? "", nationality: 1, work_status: self.jobTextField.text ?? "", social_status: self.relationTextField.text ?? "", educational_status: self.educationTextField.text ?? "", photo: "T##String", fcm_token: "", os_type: 1, date_of_birth: self.birthDateTextField.text ?? "" ) { (error, result) in
+            
+//            InstanceID.instanceID().instanceID { (result, error) in
+//                if let error = error {
+//
+//                    print("Error fetching remote instance ID: \(error)")
+//                } else if let result = result {
+//                    print("Remote instance ID token: \(result.token)")
+//                    //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+            //                }// self.nameTextfield.text = result.data?.name
+//            self.headerName.text = result.data?.name
+//            self.emailTextField.text = result.data?.email
+//            self.hederEmail.text = result.data?.email
+//            self.phoneTextField.text = result.data?.phone
+//            self.genderTextField.text = result.data?.gender
+//            self.nationalityTextField.text = result.data?.nationality
+//            self.birthDateTextField.text = result.data?.date_of_birth
+//            self.educationTextField.text = result.data?.educational_status
+//            self.jobTextField.text = result.data?.work_status
+//            self.relationTextField.text = result.data?.social_status
+                guard  let name = self.nameTextfield.text , !name.isEmpty else {
+                        self.showHUD(title: "", details: "enter youer name", hideAfter: 3)
+                    return}
+                guard  let gender = self.genderTextField.text , !gender.isEmpty else {
+                    self.showHUD(title: "", details: "enter youer gender", hideAfter: 3)
+                    return}
+                guard  let nationality = self.nationalityTextField.text , !nationality.isEmpty else {
+                    self.showHUD(title: "", details: "enter nationality", hideAfter: 3)
+                    return}
+                guard  let job = self.jobTextField.text , !job.isEmpty else {
+                    self.showHUD(title: "", details: "enter job", hideAfter: 3)
+                    return}
+                guard  let relation = self.relationTextField.text , !relation.isEmpty else {
+                    self.showHUD(title: "", details: "enter relation", hideAfter: 3)
+                    return}
+                guard  let education = self.educationTextField.text, !education.isEmpty else {
+                    self.showHUD(title: "", details: "enter education", hideAfter: 3)
+                    return}
+                guard  let birthDate = self.birthDateTextField.text , !birthDate.isEmpty else {
+                    self.showHUD(title: "", details: "enter birthDate   ١", hideAfter: 3)
+                    return}
+            
+            
+            
+//            }
+            
+           
+            
+            self.showIndeterminateHUD()
+            Operation.changeProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar", name: name, gender: gender, nationality: nationality  , work_status: job, social_status: relation, educational_status: job , photo: "T##String", fcm_token: "token", os_type: 1, date_of_birth: birthDate ) { (error, result) in
+                    
                 if let result = result {
                     self.profileData = result
                     self.hideHUD()
@@ -196,11 +290,12 @@ class EditProfailUserViewController: UIViewController {
                     self.relationTextField.text = result.data?.social_status
                 }
                 
-                
             }
         }
         
     }
+        
+//}
 }
 
 
@@ -229,7 +324,7 @@ extension EditProfailUserViewController: UIPickerViewDelegate, UIPickerViewDataS
         }else if pickerView.tag == 2{
             return relation[row]
         }else{
-            return countries[row]
+            return countries[row].title
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -245,7 +340,7 @@ extension EditProfailUserViewController: UIPickerViewDelegate, UIPickerViewDataS
             relationTextField.text = selectedRelation
         }else{
             self.selectedCountry = countries[row]
-            nationalityTextField.text = selectedCountry
+            nationalityTextField.text = selectedCountry?.title
         }
     }
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -269,7 +364,7 @@ extension EditProfailUserViewController: UIPickerViewDelegate, UIPickerViewDataS
         }else if pickerView.tag == 2{
             label.text = relation[row]
         }else{
-            label.text = countries[row]
+            label.text = countries[row].title
         }
         
         return label

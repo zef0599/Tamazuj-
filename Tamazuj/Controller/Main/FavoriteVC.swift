@@ -51,9 +51,18 @@ extension FavoriteVC:UICollectionViewDataSource,UICollectionViewDelegate,UIColle
         cell.image.kf.setImage(with: URL(string: object.photo!))
         cell.titel.text = object.name!
         
-        for i in object.category!{
-            cell.subTitel.text = i.name_ar!
+        // MAKR:- object.category
+        //TODO:- object.category MOHAMMEDERBIA98
+        if let catogery = object.category {
+            for i in catogery{
+                cell.subTitel.text = i.name_ar ?? "-"
+            }
         }
+//        for i in object.category{
+//            cell.subTitel.text = i.name_ar ?? "-"
+//        }
+        
+        
         //        cell.subTitel.text = object.phone!
         cell.subTitel.textColor = #colorLiteral(red: 0.3333333333, green: 0.6392156863, blue: 0.8117647059, alpha: 1)
 

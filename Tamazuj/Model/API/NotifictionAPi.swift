@@ -15,10 +15,10 @@ struct Notifiction : Codable {
     
     struct data:Codable {
         var id :Int?
-        var type : String?
+        var type : Int?
         var message : String?
-        var id_consulting : String?
-        var seen : String?
+        var id_consulting : Int?
+        var seen : Int?
         var created : String?
     }
     struct meta:Codable {
@@ -37,7 +37,7 @@ class APINotifiction{
         ]
         Alamofire.request(URLs.advNotifiction+"\(id)", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
         .responseJSON { (response) in
-//                                print(response.result.value)
+                                print(response.result.value)
             
             
         do {
@@ -98,7 +98,7 @@ class APINotifiction{
         ]
         Alamofire.request(URLs.advdeleteAllNotifiction, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
             .responseJSON { (response) in
-                //                        print(response.result.value)
+                    print("QQQQQQQQQQ",response.result.value)
                 
                 
                 do {
@@ -110,8 +110,57 @@ class APINotifiction{
                 }
                 
         }}
+    //1/change
+    //TODO: userchangeSeen
+    static func userchangeSeen(id : Int,completion:@escaping (_ error:Error?,_ result:ChangeSeen?)->Void){
+        let headers : HTTPHeaders = [
+            "lang" : "ar",
+            "Authorization" : "Bearer \(helper.getUserToken()!)"
+        ]
+        Alamofire.request(URLs.userchangeSeen+"\(id)/change", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                //                        print(response.result.value)
+                
+                
+                do {
+                    let data = try JSONDecoder().decode(ChangeSeen.self, from: response.data!)
+                    completion(nil,data)
+                }catch{
+                    print("Error")
+                    completion(error,nil)
+                }
+                
+        }}
+    //TODO: advchangeSeen
+    static func advchangeSeen(id : Int,completion:@escaping (_ error:Error?,_ result:ChangeSeen?)->Void){
+        let headers : HTTPHeaders = [
+            "lang" : "ar",
+            "Authorization" : "Bearer \(helper.getUserToken()!)"
+        ]
+        Alamofire.request(URLs.advchangeSeen+"\(id)/change", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { (response) in
+                
+                print(response.result.value)
+                
+                
+                do {
+                    let data = try JSONDecoder().decode(ChangeSeen.self, from: response.data!)
+                    completion(nil,data)
+                }catch{
+                    print("Error")
+                    completion(error,nil)
+                }
+                
+        }}
+    
     
 }
+struct ChangeSeen : Codable {
+    var message : String?
+    var status : Int?
+}
+
+
 struct DeleteAllNotifiction : Codable {
     var message : String?
     var status : Int?

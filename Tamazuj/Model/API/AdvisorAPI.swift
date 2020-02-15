@@ -17,6 +17,7 @@ extension Operation {
             "lang":"ar"]
         Alamofire.request(URLs.advProfile, method: .post, parameters: nil, encoding: URLEncoding.default, headers: header)
             .responseJSON { (response) in
+//                print("zzzzz",response.value)
                 switch response.result
                 {
                 case .success(let value):

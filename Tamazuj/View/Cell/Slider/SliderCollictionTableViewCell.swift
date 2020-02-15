@@ -12,7 +12,9 @@ import Kingfisher
 class SliderCollictionTableViewCell: UITableViewCell {
      var nav : UINavigationController?
      var bestRatingdata : [BestRating] = []
-
+    
+    
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     fileprivate var timer: Timer?
@@ -92,7 +94,7 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
         let object = self.bestRatingdata[indexPath.row]
         
         cell.imageView.kf.setImage(with: URL(string: object.photo!))
-        cell.titel.text = object.name!
+        cell.titel.text = object.name ?? "non name"
         cell.reating.text = "\(object.rating ?? 0) %"
         cell.descriptioN.text =  object.biography ?? "لم يقم المستشار باضافة التفاصيل "
         self.collectionView.tag = indexPath.row
@@ -145,29 +147,9 @@ extension SliderCollictionTableViewCell: UICollectionViewDelegate,UICollectionVi
 //
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let object = self.bestRatingdata[indexPath.row]
-        
-
-        
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "abuteConsltentViewController") as! abuteConsltentViewController
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "abuteConsltentViewControllerX") as! abuteConsltentViewControllerX
         vc.id  = object.id!
-//        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutContainerVC") as! AboutContainerVC
-//            vc1.id = object.id
-//        self.nav?.present(vc1, animated: false, completion: nil)
-//
-////            self.present(vc1, animated: true, completion: nil)
-//
-//
-//
-//        let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReviewsContainer") as! ReviewsContainer
-//        vc2.id = object.id
-//        self.nav?.present(vc2, animated: false, completion: nil)
-        
-        
-//        vc.id = object.id
-        
-//        print("hhhhhhh \(object.id!)")
-        
-//            self.nav?.present(vc, animated: true, completion: nil)
+        vc.consaltantRating = object.rating
         self.nav?.pushViewController(vc, animated: true)
 }
 

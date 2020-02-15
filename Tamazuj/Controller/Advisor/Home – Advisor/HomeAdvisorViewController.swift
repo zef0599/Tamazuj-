@@ -15,45 +15,57 @@ class HomeAdvisorViewController: UIViewController {
     var session_time : [session_time] = []
     var dataisEmpty : Bool?
     var nilldata : String = ""
+    
+    
+    let ref = UIRefreshControl()
+    
     @IBOutlet var tabel: UITableView!
     @IBOutlet var ViewWarning: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewWorningShow()
         
-        
-        
-        
+
+        tabel.rowHeight = UITableView.automaticDimension
+        tabel.estimatedRowHeight = 100
         ViewWarning.isHidden = true
         imageTitel()
-        loadData()
+        loadData(true)
         tabel.register(UINib(nibName: "dataNillTableViewCell", bundle: nil), forCellReuseIdentifier: "dataNillTableViewCell")
         tabel.register(UINib(nibName: "AdvisorTableViewCell", bundle: nil), forCellReuseIdentifier: "AdvisorTableViewCell")
         
     
+        ref.addTarget(self, action: #selector(relodDatat), for: .valueChanged)
+        tabel.addSubview(ref)
+        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        ViewWorningShow()
+    @objc func relodDatat(){
         
-        let vc = UIStoryboard(name: "Advisor", bundle: nil).instantiateViewController(withIdentifier: "AdvchatViewController")as! AdvchatViewController
-//        let object = self.data[indexPath.row]
-        vc.id = 3
-//        let nav =
-//        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "AdvchatViewController") as! AdvchatViewController
-//        let navController = UINavigationController(nibName: "chat", bundle: nil) // Creating a navigation controller with VC1 at the root of the navigation stack.
-        self.present(vc, animated:true, completion: nil)
+        loadData(false)
         
-        
-//        self.present(vc, animated: true) {
-        
-//        }
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//        ViewWorningShow()
+//
+//        let vc = UIStoryboard(name: "Advisor", bundle: nil).instantiateViewController(withIdentifier: "AdvchatViewController")as! AdvchatViewController
+////        let object = self.data[indexPath.row]
+//        vc.id = 3
+////        let nav =
+////        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "AdvchatViewController") as! AdvchatViewController
+////        let navController = UINavigationController(nibName: "chat", bundle: nil) // Creating a navigation controller with VC1 at the root of the navigation stack.
+//        self.present(vc, animated:true, completion: nil)
+//        
+//
+////        self.present(vc, animated: true) {
+//
+////        }
+//    }
     fileprivate func ViewWorningShow() {
         Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "ar") { (error, result) in
             if let result = result {
 //                print("Bearer \(helper.getAdvisorToken()!)")
                 if result.meta.status == 1{
-                    if result.data?.status == "الحساب غير مفعل" && result.data?.account_status == "0"{
+                    if result.data?.status == "غير مأكد ملفات الثبوتية" && result.data?.account_status == "0"{
                         self.ViewWarning.isHidden = false
                     }else{
                         self.ViewWarning.isHidden = true
@@ -67,29 +79,34 @@ class HomeAdvisorViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func loadData(){
-        self.showIndeterminateHUD()
+    func loadData(_ showIndeterminateHUD : Bool){
+        if showIndeterminateHUD{
+            self.showIndeterminateHUD()
+        }
         advOprition.advhome { (err, result) in
             ///
             
             if let result = result{
-                
+                self.hideHUD()
                 if (result.data?.isEmpty)!{
+                    self.hideHUD()
                     self.dataisEmpty = true
-                    self.nilldata = "لايوجد لديك طلبات استشارة"
+                   // self.nilldata = "لايوجد لديك طلبات استشارة"
                 }else{
                     for i in result.data!{
                         
-                        self.data.append(i)
-                        self.category_id.append(i.category_id!)
+                        self.data = [i]
+                        self.category_id = [i.category_id!]
                         guard let time = i.session_time else { return }
-                        self.session_time.append(time)
+                        self.session_time = [time]
                         
                     }
+                    self.tabel.reloadData()
+                    self.ref.endRefreshing()
                 }
-                self.tabel.reloadData()
-                self.hideHUD()
+                
             }else{
+                self.hideHUD()
                 self.showHUD(title: "", details: err?.localizedDescription ?? "some Error", hideAfter: 3)
             }
         }
@@ -109,6 +126,7 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
         
         
         if let indexPath = tabel.indexPath(for: Cell){
+            print("d,s;,dl")
 //            let vc = UIStoryboard(name: "Advisor", bundle: nil).instantiateViewController(withIdentifier: "AdvchatViewController")as! AdvchatViewController
 //            let object = self.data[indexPath.row]
 //            vc.id = 3//object.id!
@@ -211,14 +229,22 @@ extension HomeAdvisorViewController : UITableViewDataSource,UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if dataisEmpty == true , self.data.count == 0 {
-            
+        if self.data.count == 0 {
+
             return "لايوجد لديك طلبات استشارة"
         }else{
             return nil
-        }   
+        }
+        //return "nil"
     }
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if self.data.count == 0 {
+            
+            return 45//"لايوجد لديك طلبات استشارة"
+        }else{
+            return 0
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 137
     }

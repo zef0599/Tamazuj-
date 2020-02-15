@@ -46,17 +46,21 @@ struct data:Codable {
 struct searchModel: Codable {
     
     var data : [searchdata]?
-    var photo:String?
+    var meta:meta?
 }
 struct searchdata : Codable {
+    var id : Int?
     var name: String?
-    var category : [category]?
-    
-    struct category : Codable {
-     
-        var name_en: String?
-        var name_ar : String?
-        
-    }
+    var photo : String?
+
 }
 
+//    var email : String?
+//    var category : [category]?
+
+//    struct category : Codable {
+//
+//        var name_en: String?
+//        var name_ar : String?
+//
+//    }

@@ -41,39 +41,42 @@ class AdUpdatePasswordViewController: UIViewController {
     @IBAction func done(_ sender: Any) {
         
         //        dismiss(animated: true) {
-        guard let oldpass   = self.oldpasswored.text,
-            let newpass   = self.newpasswored.text,
-            let confPadd  = self.conifrmepasswored.text
-            else {
-                self.showHUD(title: "", details: "يرجى التاكد من البيانات المدخلةچ" , hideAfter: 1)
-                return
-                
+        guard let oldpass   = self.oldpasswored.text, !oldpass.isEmpty else {
+            self.showHUD(title: "", details: "الرجاء ادخال كلمة المرور القديمة", hideAfter: 3)
+            return
+        }
+        guard let newpass   = self.newpasswored.text, !newpass.isEmpty else {
+            self.showHUD(title: "", details: "الرجاء ادخال كلمة المرور الجديدة", hideAfter: 3)
+            return
+        }
+        guard let confPadd   = self.conifrmepasswored.text, !confPadd.isEmpty else {
+            self.showHUD(title: "", details: "الرجاء ادخال كلمة المرور مرة اخر", hideAfter: 3)
+            return
         }
         
         guard newpass == confPadd else {
-            self.showHUD(title: "", details: "", hideAfter: 1)
+            self.showHUD(title: "", details: "الرجاء التاكد من كتابة كلمة المرور بشكل صحيح", hideAfter: 3)
             return
         }
-        
-        guard oldpass != newpass else  {
-            self.showHUD(title: "", details: "", hideAfter: 1)
-            return
-        }
-        
-        ConsultantAth.AdupdatePasswored(lang: "ar", Authorization: "Bearer \(helper.getUserToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
-            if suc?.status != "0" {
-                
-                let massage = suc?.message
-                let status = suc?.status
-                print(massage)
-                print(status)
-                
-                self.showHUD(title: "", details: massage ?? "error data" , hideAfter: 1)
-            }
-       
+        self.showIndeterminateHUD()
+       ConsultantAth.AdupdatePasswored(lang: "ar", Authorization: "Bearer \(helper.getUserToken()!)", oldPassword: oldpass, newPass: newpass, ConfPass: confPadd) { (error, suc) in
             
-        }
- 
+            if suc != nil {
+                self.showHUD(title: "", details: "\(suc?.message)", hideAfter: 3)
+                print(suc?.message)
+                
+            }
+            if  suc?.status  == "0"{
+                self.hideHUD()
+                self.showHUD(title: "", details: "\(suc?.message)", hideAfter: 3)
+                print(suc?.message)
+            }else if suc?.status  == "1"{
+                self.hideHUD()
+                self.showHUD(title: "", details: "\(suc?.message)", hideAfter: 3)
+                
+            }
+        }}
     
-    }}
+}
+
 

@@ -8,6 +8,9 @@
 
 import Foundation
 import Alamofire
+import Firebase
+
+
 
 struct AdvHome : Codable {
     var data : [AdvdataHome]?
@@ -21,8 +24,11 @@ struct AdvdataHome : Codable {
     var summary_problem : String?
 //    var rating : Int?
     var status : String?
+    
     var session_time : session_time?
-//    var start_session :
+
+    //    var start_session :
+    
 //    var end_session
 //    var note
     var category_id : category_id?
@@ -37,7 +43,7 @@ struct category_id : Codable {
 struct session_time : Codable {
     var id : Int?
     var time : String?
-    var price : String?
+    var price : Int?
     var created_at : String?
     var updated_at : String? 
 }
@@ -46,23 +52,36 @@ struct Cancellation : Codable{
     var status : Int?
     var message : String?
 }
-
 class advOprition{
+    
+//    InstanceID.instanceID().instanceID { (result, error) in
+//    if let error = error {
+//
+//    print("Error fetching remote instance ID: \(error)")
+//    } else if let result = result {
+//    print("Remote instance ID token: \(result.token)")
+//    //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+//    }
+//    }
     
     
         class func advhome(completion:@escaping (_ error:Error?,_ result:AdvHome?)->Void){
-            let url = URL(string:"http://salahalimohamed.website/tmajog/api/v1/consultant/home")!
+//            let url = URL(string:"http://salahalimohamed.website/tmajog")!
             
             let headers : HTTPHeaders = [
                 "lang" : "ar",
                 "Authorization" : "Bearer \(helper.getUserToken()!)"
+                
+                
+                
             ]
-            Alamofire.request(url, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
+            Alamofire.request(API.advhome, method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers)
                 .responseJSON { (response) in
-
+//                    print("qqqqqqq",response.value)
                     do {
                         let data = try JSONDecoder().decode(AdvHome.self, from: response.data!)
                         completion(nil,data)
+                        print("111111",data)
                     }catch{
                         print("Error")
                         completion(error,nil)
@@ -76,15 +95,16 @@ class advOprition{
             "lang":"ar"
         ]
                                                             
-        Alamofire.request("http://salahalimohamed.website/tmajog/api/v1/consultant/consultation/\(id)/cancellation", method: .post, parameters: nil, headers: headers)
+        Alamofire.request(API.cancellation+"\(id)/cancellation", method: .post, parameters: nil, headers: headers)
             .responseJSON { (response) in
                 //                    print("hhhhhhh",response.result.value)
                 do{
-                    var data = try JSONDecoder().decode(Cancellation.self, from: response.data!)
+                    let data = try JSONDecoder().decode(Cancellation.self, from: response.data!)
                     //                    print("ffffffff",data)
                     handler(nil,data)
                     
                 }catch{
+                    print("Error")
                     handler(error,nil)
                 }
                 
@@ -100,7 +120,7 @@ class advOprition{
             "Authorization": "Bearer \(helper.getUserToken()!)" ,
             "lang":"ar"
         ]
-        Alamofire.request("http://salahalimohamed.website/tmajog/api/v1/consultant/consultation/\(id)", method: .post, parameters: nil, headers: headers)
+        Alamofire.request(API.showsingleconsultation+"\(id)", method: .post, parameters: nil, headers: headers)
             .responseJSON { (response) in
                 //                    print("hhhhhhh",response.result.value)
                 do{
@@ -109,6 +129,7 @@ class advOprition{
                     handler(nil,data)
                     
                 }catch{
+                    print("Error")
                     handler(error,nil)
                 }
                 
@@ -118,6 +139,30 @@ class advOprition{
     }
     
     
+    class func getconsultation(Authorization:String, lang:String,completion:@escaping ( ConsultationRequset? , _ error:Error?)->Void){
+        let header : HTTPHeaders = [
+            "Authorization" : "Bearer \(helper.getUserToken()!)",
+            "lang":"ar"
+            //            "Content-Type":"application/x-www-form-urlencoded"
+        ]
+        
+        Alamofire.request(URLs.Adcon , method: .get, parameters: nil,encoding: URLEncoding.default, headers: header)
+            .responseJSON { (response) in
+                // print("hhhhhhhhhhhh",response.data?.debugDescription )
+                
+                
+                do {
+                    let data = try JSONDecoder().decode(ConsultationRequset.self, from: response.data!)
+                    completion(data,nil)
+                    
+                    
+                }catch let erre1{
+                    print("Error",erre1.localizedDescription)
+                    completion(nil,erre1)
+                }
+                
+        }
+    }
     
 }
 

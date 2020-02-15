@@ -138,7 +138,8 @@ extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let stprybord = UIStoryboard(name: "Main", bundle: nil)
-        let vc = stprybord.instantiateViewController(withIdentifier: "RequistConsaltationVC") as! RequistConsaltationVC
+        let vc = stprybord.instantiateViewController(withIdentifier: "abuteConsltentViewControllerX") as! abuteConsltentViewControllerX
+        vc.id = consaltantData?[indexPath.row].id
         self.navigationController?.pushViewController(vc, animated: true)
 
     }

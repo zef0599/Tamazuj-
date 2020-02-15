@@ -19,7 +19,7 @@ struct AdvProfileData:Codable {
     let phone:String?
     let gender:String?
     let nationality:String?
-    let age:String?
+    let age:Int?
     let date_of_birth:String?
     let degree:String?
     let current_job:String?
@@ -31,6 +31,6 @@ struct AdvProfileData:Codable {
     let account_status:String?
     let photo:String?
     let status:String?
-    let Wallet:String?
+    let Wallet:Int?
     
 }

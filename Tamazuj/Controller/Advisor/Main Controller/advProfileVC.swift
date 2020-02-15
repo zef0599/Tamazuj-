@@ -50,7 +50,7 @@ class advProfileVC: UIViewController {
         // Show the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.showIndeterminateHUD()
-        Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken()!)", lang: "test2") { (error, result) in
+        Operation.advgetProfile(Authorization: "Bearer \(helper.getUserToken())", lang: "ar") { (error, result) in
             if let result = result {
                 self.profileData = result
                 self.tableView.reloadData()
