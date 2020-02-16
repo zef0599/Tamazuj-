@@ -29,14 +29,10 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         
-        if reqData!.data.sup_category!.count > 0  {
-            self.supCategory = reqData!.data.sup_category![0]
+        if supCategory == nil  {
             self.category = reqData!.data.category![0]
-        }else if reqData!.data.category!.count > 0 {
+        }else if category == nil {
             self.category = reqData!.data.category![0]
-        }else{
-            self.supCategory = nil
-            self.category = nil
         }
 
         
@@ -172,16 +168,17 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
             
             if let object:Single = reqData {
                 cell.iconImage.isHidden = false
-                if object.data.category!.count > 0 {
+                
+                if (self.supCategory != nil)  {
+                    guard let categoryName = self.category?.name_ar, let supname  = self.supCategory?.name_ar else{return UITableViewCell()}
+                    cell.titleLabel.text = "\(categoryName) \n \(supname )"//  \n \(supname )
+                }else if category != nil  {
                     guard let categoryName = self.category?.name_ar else{return UITableViewCell()}
                     cell.titleLabel.text = "\(categoryName) "
                 }else{
                     cell.titleLabel.text = "لا يوجد تصنيفات للمستشار"
                 }
-                if object.data.sup_category!.count > 0  {
-                    guard let categoryName = self.category?.name_ar, let supname  = self.supCategory?.name_ar else{return UITableViewCell()}
-                    cell.titleLabel.text = "\(categoryName) "//  \n \(supname )
-                }
+                
                 guard let image = category?.image else {return cell}
                 cell.iconImage.kf.setImage(with: URL(string: image))
                 // FIXME: fix category sent to data
@@ -294,10 +291,10 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
     }
 }
 extension RequistConsaltationVCX: SelectionDelegateX {
-    func selectionReady(category: datatestme.DataCategory, supName: String, supId: String) {
+    func selectionReady(category: datatestme.DataCategory,supCategory:datatestme.supCategory, supName: String, supId: String) {
         self.isSupExist = true
         self.category = category
-//        self.supCategory = supCategory
+        self.supCategory = supCategory
         self.supName = supName
         self.supId = supId
         self.tableView.reloadData()

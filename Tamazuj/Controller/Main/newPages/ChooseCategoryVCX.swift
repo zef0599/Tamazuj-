@@ -10,19 +10,20 @@
 import UIKit
 import Kingfisher
 protocol SelectionDelegateX {
-    func selectionReady(category: datatestme.DataCategory, supName: String,supId:String)
+    func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String)
     func selectionReady(category:datatestme.DataCategory)
     func selectionConsaltntReady(consaltant:datatestme.Consultant)
     func selectionTime(time:String,minute:Int)
     func selectionComunicationTool(contact:contactData)
+    
 }
 extension SelectionDelegateX {
-    func selectionReady(category: datatestme.DataCategory, supName: String,supId:String){}
+    func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String){}
     func selectionReady(category:datatestme.DataCategory){}
     func selectionConsaltntReady(consaltant:datatestme.Consultant){}
     func selectionTime(time:String,minute:Int){}
     func selectionComunicationTool(contact:contactData){}
-
+    
 }
 class ChooseCategoryVCX: UIViewController {
     var reqData:Single?
@@ -157,7 +158,8 @@ extension ChooseCategoryVCX: UITableViewDelegate,UITableViewDataSource {
                 let category = reqData?.data.category?[indexPath.section]
                 let supName = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1 ].name_ar
                 let supId = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1].id
-                self.delegate?.selectionReady(category: category!, supName:supName!,supId:"\(supId)")
+                let supCategory = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1]
+                self.delegate?.selectionReady(category: category!,supCategory:supCategory!, supName:supName!,supId:"\(supId)")
             }else{
                 self.delegate?.selectionReady(category: (reqData?.data.category?[indexPath.section])!)
             }
