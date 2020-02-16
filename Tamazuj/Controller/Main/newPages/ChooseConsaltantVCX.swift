@@ -76,14 +76,19 @@ extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
-        let object = reqData?.data.category?[0].consultant![indexPath.row]
-        cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
-        cell.imageView.kf.setImage(with: URL(string: (object?.photo!)!))
-        cell.titel.text = object?.name ?? "name Error"//object.name!
-        cell.descriptioN.text =  object?.biography ?? "biography Error" //object.email! + "\n" + object.phone!
-        //        > 0 ? 3 : 0
-        return cell
+        if reqData?.data.category?[0].consultant?.count == nil {
+            return UICollectionViewCell()
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
+            let object = reqData?.data.category?[0].consultant![indexPath.row]
+            cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
+            cell.imageView.kf.setImage(with: URL(string: (object?.photo!)!))
+            cell.titel.text = object?.name ?? "name Error"//object.name!
+            cell.descriptioN.text =  object?.biography ?? "biography Error" //object.email! + "\n" + object.phone!
+            //        > 0 ? 3 : 0
+            return cell
+
+        }
         
     }
     @objc func Askadviceactione (){
