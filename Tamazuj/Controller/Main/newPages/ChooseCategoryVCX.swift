@@ -13,24 +13,32 @@ protocol SelectionDelegateX {
     func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String)
     func selectionReady(category:datatestme.DataCategory)
     func selectionConsaltntReady(consaltant:datatestme.Consultant)
-    func selectionTime(time:String,minute:Int)
-    func selectionComunicationTool(contact:contactData)
     
 }
 extension SelectionDelegateX {
     func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String){}
     func selectionReady(category:datatestme.DataCategory){}
     func selectionConsaltntReady(consaltant:datatestme.Consultant){}
-    func selectionTime(time:String,minute:Int){}
-    func selectionComunicationTool(contact:contactData){}
     
 }
+
+protocol timeComunicationTool {
+    func selectionTime(time:String,minute:Int)
+    func selectionComunicationTool(contact:contactData)
+}
+extension timeComunicationTool {
+    func selectionTime(time:String,minute:Int){}
+    func selectionComunicationTool(contact:contactData){}
+}
+
 class ChooseCategoryVCX: UIViewController {
     var reqData:Single?
 
     var isSelected:Bool = false
 //    var categoriesData = [data]()
     var delegate:SelectionDelegateX?
+    var delegate2:timeComunicationTool?
+
 //    var categoriesData : [ConsaltantData]?
 
     @IBOutlet weak var tableView: UITableView!

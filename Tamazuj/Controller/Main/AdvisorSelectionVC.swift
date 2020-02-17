@@ -104,12 +104,16 @@ extension AdvisorSelectionVC: UICollectionViewDelegate, UICollectionViewDataSour
                     cell.titel.text = obj.consultant![indexPath.row].name
                     cell.descriptioN.text = obj.consultant![indexPath.row].biography ?? "no bio"
                     cell.imageView.kf.setImage(with: URL(string: obj.consultant![indexPath.row].photo!))
+                    cell.reating.text = "\(obj.consultant![indexPath.row].rating)"
+
                 }
             }else{
                 if let obj = DataConsultant?.consultant {
                     cell.titel.text = obj[indexPath.row].name
                     cell.descriptioN.text = obj[indexPath.row].biography ?? "no bio"
                     cell.imageView.kf.setImage(with: URL(string: obj[indexPath.row].photo!))
+                    cell.reating.text = "\(obj[indexPath.row].rating)"
+
                 }
             }
 

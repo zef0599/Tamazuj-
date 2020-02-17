@@ -98,6 +98,7 @@ struct Category : Codable {
         var photo : String?
         var biography : String?
         var country_of_residence : String?
+        var rating: Int?
     }
 }
 struct BestConsultant : Codable {

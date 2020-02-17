@@ -67,6 +67,7 @@ extension CategoriesDetailsVC: UICollectionViewDelegate, UICollectionViewDataSou
         cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
         cell.imageView.kf.setImage(with: URL(string: object.photo!))
         cell.titel.text = object.name ?? "name Error"//object.name!
+        if let reating = object.rating {cell.reating.text = "\(reating) %"}else{cell.reating.text = "0 %"}
         cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
 //        > 0 ? 3 : 0
         return cell

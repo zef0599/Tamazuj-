@@ -3,4 +3,246 @@
    uuid = "2645BF2B-20F1-44AD-8FDD-D471FB1B9911"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C57D63FD-E731-46AC-AEE9-B1CC7927E8BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Model/API/Consultant.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "changeProfile(Authorization:lang:name:gender:nationality:work_status:social_status:educational_status:photo:fcm_token:os_type:date_of_birth:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71428CCE-DF79-4A28-820D-BDC0A8FD7983"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Model/API/Consultant.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "changeProfile(Authorization:lang:name:gender:nationality:work_status:social_status:educational_status:photo:fcm_token:os_type:date_of_birth:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71428CCE-DF79-4A28-820D-BDC0A8FD7983 - a20b98dfcb682fcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "434">
+               </Location>
+               <Location
+                  uuid = "71428CCE-DF79-4A28-820D-BDC0A8FD7983 - 5e7c7d0c65d877aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "288"
+                  endingLineNumber = "288"
+                  offsetFromSymbolStart = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0F0FBA8-0D80-4440-84D5-EE40B9C58CEA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Model/API/Consultant.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "changeProfile(Authorization:lang:name:gender:nationality:work_status:social_status:educational_status:photo:fcm_token:os_type:date_of_birth:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B0F0FBA8-0D80-4440-84D5-EE40B9C58CEA - a20b98dfcb682fcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "300"
+                  endingLineNumber = "300"
+                  offsetFromSymbolStart = "642">
+               </Location>
+               <Location
+                  uuid = "B0F0FBA8-0D80-4440-84D5-EE40B9C58CEA - a20b98dfcb682fcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Alamofire.SessionManager.MultipartFormDataEncodingResult) -&gt; () in static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "300"
+                  endingLineNumber = "300"
+                  offsetFromSymbolStart = "648">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F0DFD696-071C-4A33-8A35-ABF380C8233E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Model/API/Consultant.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "changeProfile(Authorization:lang:name:gender:nationality:work_status:social_status:educational_status:photo:fcm_token:os_type:date_of_birth:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F0DFD696-071C-4A33-8A35-ABF380C8233E - eb6ce252555e972b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "269"
+                  endingLineNumber = "269"
+                  offsetFromSymbolStart = "3687">
+               </Location>
+               <Location
+                  uuid = "F0DFD696-071C-4A33-8A35-ABF380C8233E - 3cd2cb92ca57ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.MultipartFormData) -&gt; () in static Tamazuj.ConsultantAth.changeProfile(Authorization: Swift.String, lang: Swift.String, name: Swift.String, gender: Swift.String, nationality: Swift.Int, work_status: Swift.String, social_status: Swift.String, educational_status: Swift.String, photo: Swift.String, fcm_token: Swift.String, os_type: Swift.Int, date_of_birth: Swift.String, completion: (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Model/API/Consultant.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "270"
+                  endingLineNumber = "270"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "36BA0BDE-032A-4228-8396-E8BFDD965332"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Model/API/Consultant.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "changeProfile(Authorization:lang:name:gender:nationality:work_status:social_status:educational_status:photo:fcm_token:os_type:date_of_birth:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "635683F4-EABD-4940-9C38-A64AF35F0166"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Controller/Advisor/Home &#x2013; Advisor/EditProfailUserViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "submetButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "635683F4-EABD-4940-9C38-A64AF35F0166 - 8ef36f5c07dc51eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tamazuj.EditProfailUserViewController.submetButton(Any) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Controller/Advisor/Home%20%E2%80%93%20Advisor/EditProfailUserViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "275"
+                  endingLineNumber = "275"
+                  offsetFromSymbolStart = "4631">
+               </Location>
+               <Location
+                  uuid = "635683F4-EABD-4940-9C38-A64AF35F0166 - 63074ac3f38c4cca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, Swift.Optional&lt;Tamazuj.Profile&gt;) -&gt; () in Tamazuj.EditProfailUserViewController.submetButton(Any) -&gt; ()"
+                  moduleName = "Tamazuj"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thaerabed/Desktop/final/Tamazuj%20%20%20jo%20-15-2-2020/Tamazuj/Controller/Advisor/Home%20%E2%80%93%20Advisor/EditProfailUserViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "205">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DCB19D3A-82DE-4AEA-A27D-C11C6CCF1324"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Tamazuj/Controller/Advisor/Home &#x2013; Advisor/EditProfailUserViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
+            landmarkName = "EditProfailUserViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

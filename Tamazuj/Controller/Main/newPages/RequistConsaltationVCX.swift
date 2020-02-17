@@ -312,6 +312,10 @@ extension RequistConsaltationVCX: SelectionDelegateX {
         self.consaltantBackFromSelectConsaltant = consaltant
         self.tableView.reloadData()
     }
+    
+    
+}
+extension RequistConsaltationVCX: timeComunicationTool {
     func selectionTime(time: String,minute:Int) {
         self.time = time
         self.timeInt = minute
@@ -324,5 +328,5 @@ extension RequistConsaltationVCX: SelectionDelegateX {
         self.tableView.reloadData()
         
     }
-    
+
 }

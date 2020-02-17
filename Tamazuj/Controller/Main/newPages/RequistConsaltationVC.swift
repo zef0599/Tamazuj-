@@ -309,12 +309,12 @@ extension RequistConsaltationVC:UITableViewDelegate, UITableViewDataSource {
 
         case 2:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectTime") as! SelectTime
-            vc.delegate = self as! SelectionDelegateX
+            vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
 
         case 3:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ComunicationToolsVC") as! ComunicationToolsVC
-            vc.delegate = self as! SelectionDelegateX
+            vc.delegate = self
             navigationController?.pushViewController(vc, animated: true)
 
         default:
@@ -347,17 +347,20 @@ extension RequistConsaltationVC: SelectionDelegate {
         self.consaltant = consaltant
         self.tableView.reloadData()
     }
+
+}
+extension RequistConsaltationVC: timeComunicationTool {
     func selectionTime(time: String,minute:Int) {
         self.time = time
         self.timeInt = minute
         self.tableView.reloadData()
-
+        
     }
     func selectionComunicationTool(contact: contactData) {
         self.contact = contact
         print(contact)
         self.tableView.reloadData()
-
+        
     }
 
 }

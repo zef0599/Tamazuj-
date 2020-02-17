@@ -261,27 +261,76 @@ class ConsultantAth {
             "date_of_birth":date_of_birth
             ] as [String : Any]
 
-        Alamofire.request(URLs.updateProfile, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: header)
-            .responseJSON { (response) in
-                switch response.result
-                {
-                case .success(let value):
-                    do{
-                        let data = try JSONDecoder().decode(Profile.self, from: response.data!)
+        let image = #imageLiteral(resourceName: "category_menu_icon5")
+        let imgData = image.jpegData(compressionQuality: 0.7)!
+        print(image, imgData)
+        /////
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imgData, withName: "file", fileName: "profileimage.png", mimeType: "image/png")
+                for (key, value) in parameters {
+                    multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key)
+                }
+            }, to: URLs.updateProfile)
+            { (result) in
+                switch result {
+                case .success(let upload, _, _):
 
-                        completion(nil,data)
+                    upload.uploadProgress(closure: { (progress) in
+                        //Print progress
+                        print("uploading \(progress)")
 
-                    }catch{
-                        print(error)
-                        print("that's the error up profile")
-                        completion(error,nil)
+                    })
+
+                    upload.responseJSON { response in
+                        //print response.result
+                        do{
+                            let data = try JSONDecoder().decode(Profile.self, from: response.data!)
+                            
+                            completion(nil,data)
+                            
+                        }catch{
+                            print(error)
+                            print("upload para")
+                            completion(error,nil)
+                            
+                        }
 
                     }
-                case .failure(let error):
+                case .failure(let error): break
+                    //print encodingError.description
                     print(error)
                     completion(error,nil)
+
                 }
-        }
+            }
+        
+
+        
+        
+        
+        ///sss
+//        Alamofire.request(URLs.updateProfile, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: header)
+//            .responseJSON { (response) in
+//                switch response.result
+//                {
+//                case .success(let value):
+//                    do{
+//                        let data = try JSONDecoder().decode(Profile.self, from: response.data!)
+//
+//                        completion(nil,data)
+//
+//                    }catch{
+//                        print(error)
+//                        print("that's the error up profile")
+//                        completion(error,nil)
+//
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                    completion(error,nil)
+//                }
+//        }
     }
 
 //    // get consaltants
