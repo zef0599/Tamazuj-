@@ -161,10 +161,18 @@ class abuteConsltentViewControllerX: UIViewController {
     }
     // askConaltion
     @IBAction func askConaltion(_ sender: Any) {
+        
         vc.reqData = self.reqData
         vc.Alldata = self.Alldata
         vc.data = self.data
         vc.selectedConsaltantId = self.id
+        if reqData?.data.category?.count == 0 {
+            print(reqData?.data.category,"category = nil")
+        }else{
+            vc.fillData()
+        }
+
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // aboutAdvisor

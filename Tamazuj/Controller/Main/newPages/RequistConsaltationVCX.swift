@@ -39,11 +39,6 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         }else{
             print("thire is no data in reqData?.data.category")
         }
-        if category == nil {
-            self.category = reqData?.data.category![0]
-        }else{
-            print("category have data  ")
-        }
 
         
         
@@ -59,7 +54,11 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         Database.database().reference().child("test").setValue(data)
     }
     
-    
+    func fillData(){
+        guard let reqData = reqData?.data.category![0] else {return}
+        self.category = reqData
+
+    }
     // add to fix nav bar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
