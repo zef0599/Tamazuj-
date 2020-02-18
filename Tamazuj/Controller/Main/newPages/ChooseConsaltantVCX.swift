@@ -107,7 +107,10 @@ extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //  go back to the selection bage and do the change
-        delegate?.selectionConsaltntReady(consaltant:(reqData?.data.category?[0].consultant?[indexPath.item])!)
+        let object = reqData?.data.category?[0].consultant![indexPath.row].id
+        let objectModel = reqData?.data.category?[0].consultant![indexPath.row]
+
+        delegate?.selectionConsaltntReady(consaltantId: object!,conaltantModel:objectModel!)
         self.navigationController?.popViewController(animated: true)
     }
 }

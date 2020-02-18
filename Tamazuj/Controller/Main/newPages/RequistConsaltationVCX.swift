@@ -20,7 +20,8 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
     var supId:String?
     var timeInt:Int?
     var consaltantBackFromSelectConsaltant:datatestme.Consultant?
-
+    var selectedConsaltantId:Int?
+    
     @IBOutlet weak var details: UITextView!
     @IBOutlet weak var askConalt: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -28,13 +29,23 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        if supCategory == nil  {
-            self.category = reqData!.data.category![0]
-        }else if category == nil {
-            self.category = reqData!.data.category![0]
+        print(self.reqData,"self.reqDataself.reqDataself.reqData")
+//        if supCategory == nil  {
+//            self.category = reqData!.data.category![0]
+//        }else if category == nil {
+//            self.category = reqData!.data.category![0]
+//        }
+        if let reqestedData = reqData?.data.category {
+        }else{
+            print("thire is no data in reqData?.data.category")
+        }
+        if category == nil {
+            self.category = reqData?.data.category![0]
+        }else{
+            print("category have data  ")
         }
 
+        
         
         tableView.isScrollEnabled = false
         details.text = "بعض التفاصيل عن المشكلة"
@@ -113,19 +124,40 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func askConsalt(_ sender: Any) {
-        
-        
-        guard let communication = contact?.title,
+        if let categoryId = category?.id {
+            print("categoryIdcategoryIdcategoryId")
+            print(categoryId)
+        }
+        if let consultantId = selectedConsaltantId {
+            print("consultantIdconsultantIdconsultantId")
+            print(consultantId)
+        }
+        if let consultantIdFromConsaltantObject = consaltantBackFromSelectConsaltant?.id {
+            print("consultantIdFromConsaltantObject")
+            print(consultantIdFromConsaltantObject)
+
+        }
+        if let communication = contact?.title {
+            print("communicationcommunication")
+            print(communication)
+        }
+        if let timeInts = timeInt {
+            print("timeInttimeInttimeInt")
+            print(timeInts)
+        }
+
+         guard let communication = contact?.title,
             let problem = details.text,
             let time = timeInt,
             let categoryId = category?.id,
-            let consultantId = consaltantBackFromSelectConsaltant?.id
-            else {return showHUD(title: "عذرا", details: "يرجى تعبئه جميع الحقول", hideAfter: 1)}
+            let consultantId = self.selectedConsaltantId
+            else {
+                return showHUD(title: "عذرا", details: "يرجى تعبئه جميع الحقول", hideAfter: 1)}
 
         var subCategoryId = supId
         
         showHUD(title: "waiting...")
-        Operation.askConsalt(communication: communication, problem: problem, time: time, categoryId:categoryId , consultantId: consultantId, subCategoryId: subCategoryId, status: nil) { (error, result) in
+        Operation.askConsalt(communication: communication, problem: problem, time: timeInt!, categoryId:categoryId , consultantId: consultantId, subCategoryId: nil, status: nil) { (error, result) in
             if let result = result {
                 self.hideHUD()
                 
@@ -308,8 +340,9 @@ extension RequistConsaltationVCX: SelectionDelegateX {
             self.tableView.reloadData()
     }
     
-    func selectionConsaltntReady(consaltant:datatestme.Consultant) {
-        self.consaltantBackFromSelectConsaltant = consaltant
+    func selectionConsaltntReady(consaltantId:Int,conaltantModel:datatestme.Consultant) {
+        self.consaltantBackFromSelectConsaltant = conaltantModel
+        self.selectedConsaltantId = consaltantId
         self.tableView.reloadData()
     }
     

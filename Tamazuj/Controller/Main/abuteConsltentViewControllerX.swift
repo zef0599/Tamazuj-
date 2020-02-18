@@ -15,6 +15,9 @@ import Kingfisher
 class abuteConsltentViewControllerX: UIViewController {
     
     
+    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVCX
+
+    
     let source = ["استشارات تعليمي","استشارات تعليمي"]
     
     
@@ -98,7 +101,7 @@ class abuteConsltentViewControllerX: UIViewController {
         Askadvice.layer.cornerRadius = 15
         //        Askadvice.layer.masksToBounds = true
         loadData()
-        
+        print(reqData)
         configure(with: ["1","2"])
         
     }
@@ -119,14 +122,16 @@ class abuteConsltentViewControllerX: UIViewController {
         guard  let id = self.id else {return}
         Operation.getSingle(id:id) {[weak self] (error,result) in
             guard let self = self else { return }
-            if let result = result {
-                self.reqData = result
+            if let resultt = result {
+                self.reqData = resultt
+                self.vc.reqData = resultt
                 print(self.reqData?.data.category?.count,"self.reqData?.data.category")
                 self.name.text = self.reqData?.data.name ?? "--"
                 self.rating.text = "\(self.consaltantRating ?? 0)%"
                 self.biography.text = self.reqData?.data.biography ?? "لم يضيف المستشارة تفاصيل خاصة به"
                 self.image.kf.setImage(with: URL(string: (self.reqData?.data.photo!)!))
                 self.collectionConsaltent.reloadData()
+                print(self.reqData,"sadasdasd")
 
             }
             self.hideHUD()
@@ -156,10 +161,10 @@ class abuteConsltentViewControllerX: UIViewController {
     }
     // askConaltion
     @IBAction func askConaltion(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVCX
-        vc.data = self.data
-        vc.Alldata = self.Alldata
         vc.reqData = self.reqData
+        vc.Alldata = self.Alldata
+        vc.data = self.data
+        vc.selectedConsaltantId = self.id
         self.navigationController?.pushViewController(vc, animated: true)
     }
     // aboutAdvisor

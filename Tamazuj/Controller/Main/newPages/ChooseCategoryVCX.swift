@@ -12,13 +12,13 @@ import Kingfisher
 protocol SelectionDelegateX {
     func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String)
     func selectionReady(category:datatestme.DataCategory)
-    func selectionConsaltntReady(consaltant:datatestme.Consultant)
+    func selectionConsaltntReady(consaltantId:Int,conaltantModel:datatestme.Consultant)
     
 }
 extension SelectionDelegateX {
     func selectionReady(category: datatestme.DataCategory, supCategory:datatestme.supCategory, supName: String,supId:String){}
     func selectionReady(category:datatestme.DataCategory){}
-    func selectionConsaltntReady(consaltant:datatestme.Consultant){}
+    func selectionConsaltntReady(consaltantId:Int,conaltantModel:datatestme.Consultant){}
     
 }
 

@@ -111,7 +111,7 @@ extension ChooseConsaltantVC: UICollectionViewDelegate, UICollectionViewDataSour
         //  go back to the selection bage and do the change
         let object = allConsaltant[indexPath.row]
         delegate?.selectionConsaltntReady(consaltant: object)
-//        delegate?.selectionConsaltntReady(consaltant:(allConsaltant.ConsaltantData![indexPath.item])!)
+//delegate?.selectionConsaltntReady(consaltant:(allConsaltant.ConsaltantData![indexPath.item])!)
         self.navigationController?.popViewController(animated: true)
     }
 }

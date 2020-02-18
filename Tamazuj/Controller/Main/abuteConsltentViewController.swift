@@ -190,7 +190,7 @@ class abuteConsltentViewController: UIViewController {
     
     // askConaltion
     @IBAction func askConaltion(_ sender: Any) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVCX
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RequistConsaltationVCX") as! RequistConsaltationVC
         
         
         self.navigationController?.pushViewController(vc, animated: true)

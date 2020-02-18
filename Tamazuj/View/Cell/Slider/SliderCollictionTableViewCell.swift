@@ -13,8 +13,6 @@ class SliderCollictionTableViewCell: UITableViewCell {
      var nav : UINavigationController?
      var bestRatingdata : [BestRating] = []
     
-    
-    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     fileprivate var timer: Timer?
