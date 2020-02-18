@@ -30,16 +30,16 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         print(self.reqData,"self.reqDataself.reqDataself.reqData")
-//        if supCategory == nil  {
-//            self.category = reqData!.data.category![0]
-//        }else if category == nil {
-//            self.category = reqData!.data.category![0]
-//        }
+        //        if supCategory == nil  {
+        //            self.category = reqData!.data.category![0]
+        //        }else if category == nil {
+        //            self.category = reqData!.data.category![0]
+        //        }
         if let reqestedData = reqData?.data.category {
         }else{
             print("thire is no data in reqData?.data.category")
         }
-
+        
         
         
         tableView.isScrollEnabled = false
@@ -57,7 +57,7 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
     func fillData(){
         guard let reqData = reqData?.data.category![0] else {return}
         self.category = reqData
-
+        
     }
     // add to fix nav bar
     override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +134,7 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
         if let consultantIdFromConsaltantObject = consaltantBackFromSelectConsaltant?.id {
             print("consultantIdFromConsaltantObject")
             print(consultantIdFromConsaltantObject)
-
+            
         }
         if let communication = contact?.title {
             print("communicationcommunication")
@@ -144,15 +144,15 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
             print("timeInttimeInttimeInt")
             print(timeInts)
         }
-
-         guard let communication = contact?.title,
+        
+        guard let communication = contact?.title,
             let problem = details.text,
             let time = timeInt,
             let categoryId = category?.id,
             let consultantId = self.selectedConsaltantId
             else {
                 return showHUD(title: "عذرا", details: "يرجى تعبئه جميع الحقول", hideAfter: 1)}
-
+        
         var subCategoryId = supId
         
         showHUD(title: "waiting...")
@@ -202,9 +202,14 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 
                 if (self.supCategory != nil)  {
                     guard let categoryName = self.category?.name_ar, let supname  = self.supCategory?.name_ar else{return UITableViewCell()}
-                    cell.titleLabel.text = "\(categoryName) \n \(supname )"//  \n \(supname )
+                    print(categoryName,supname,"self.supCategory != nil")
+                    
+                    cell.titleLabel.text = "\(categoryName) \n \(supname)"//  \n \(supname )
                 }else if category != nil  {
                     guard let categoryName = self.category?.name_ar else{return UITableViewCell()}
+                    print(categoryName,supCategory?.name_ar,"selfselfnnnnnnn")
+                    
+                    
                     cell.titleLabel.text = "\(categoryName) "
                 }else{
                     cell.titleLabel.text = "لا يوجد تصنيفات للمستشار"
@@ -213,9 +218,9 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 guard let image = category?.image else {return cell}
                 cell.iconImage.kf.setImage(with: URL(string: image))
                 // FIXME: fix category sent to data
-//                self.category = reqData?.data.category![0]
-//                self.consaltant = reqData?.data
-
+                //                self.category = reqData?.data.category![0]
+                //                self.consaltant = reqData?.data
+                
             }else{
                 cell.iconImage.isHidden = true
                 cell.titleLabel.text = "اختر مجال الاستشارة"
@@ -227,7 +232,7 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 cell.iconImage.isHidden = false
                 cell.iconImage.kf.setImage(with: URL(string:consaltantBackFromSelectConsaltant!.photo!))
                 cell.titleLabel.text = consaltantBackFromSelectConsaltant?.name!
-
+                
             }else if let object:Single = reqData{
                 cell.iconImage.isHidden = false
                 cell.iconImage.kf.setImage(with: URL(string:object.data.photo!))
@@ -287,14 +292,14 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
             let object:Single = reqData!
             if object.data.sup_category!.count > 0  {
                 self.navigationController?.pushViewController(vc, animated: true)
-
+                
             }else if object.data.category!.count > 0 {
                 self.navigationController?.pushViewController(vc, animated: true)
-
+                
             }else{
                 return
             }
-
+            
             
         case 1:
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseConsaltantVCX") as! ChooseConsaltantVCX
@@ -335,8 +340,9 @@ extension RequistConsaltationVCX: SelectionDelegateX {
             self.isSupExist = true
             self.supId = "\(category.sup_category![0].id)"
         }else{self.isSupExist = false}
-            self.category = category
-            self.tableView.reloadData()
+        self.category = category
+        self.supCategory = nil
+        self.tableView.reloadData()
     }
     
     func selectionConsaltntReady(consaltantId:Int,conaltantModel:datatestme.Consultant) {
@@ -360,5 +366,5 @@ extension RequistConsaltationVCX: timeComunicationTool {
         self.tableView.reloadData()
         
     }
-
+    
 }

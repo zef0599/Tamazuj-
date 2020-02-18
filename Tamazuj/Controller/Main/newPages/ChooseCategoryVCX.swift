@@ -137,7 +137,7 @@ extension ChooseCategoryVCX: UITableViewDelegate,UITableViewDataSource {
                 //show the border
                 if reqData?.data.category?[indexPath.section].sup_category?.count == 0 {
                     //go back and sent the data to selection
-                    
+
                     self.delegate?.selectionReady(category: (reqData?.data.category![indexPath.section])!)
                     self.navigationController?.popViewController {
                     }
@@ -169,6 +169,11 @@ extension ChooseCategoryVCX: UITableViewDelegate,UITableViewDataSource {
                 let supCategory = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1]
                 self.delegate?.selectionReady(category: category!,supCategory:supCategory!, supName:supName!,supId:"\(supId)")
             }else{
+//                let category = reqData?.data.category?[indexPath.section]
+//                let supName = reqData?.data.category?[indexPath.section].name_ar
+//                let supId = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1].id
+//                self.delegate?.selectionReady(category: category!,supCategory:nil, supName:supName!,supId:"\(supId)")
+
                 self.delegate?.selectionReady(category: (reqData?.data.category?[indexPath.section])!)
             }
 
