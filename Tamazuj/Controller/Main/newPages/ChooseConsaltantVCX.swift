@@ -24,6 +24,7 @@ class ChooseConsaltantVCX: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         nav.title = navTitle
 //        showIndeterminateHUD() //here
 //        Operation.getAllConsaltants { (error, result) in

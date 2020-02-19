@@ -173,7 +173,7 @@ extension ChooseCategoryVCX: UITableViewDelegate,UITableViewDataSource {
 //                let supName = reqData?.data.category?[indexPath.section].name_ar
 //                let supId = reqData?.data.category?[indexPath.section].sup_category?[indexPath.row - 1].id
 //                self.delegate?.selectionReady(category: category!,supCategory:nil, supName:supName!,supId:"\(supId)")
-
+                
                 self.delegate?.selectionReady(category: (reqData?.data.category?[indexPath.section])!)
             }
 

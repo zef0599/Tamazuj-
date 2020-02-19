@@ -202,12 +202,10 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 
                 if (self.supCategory != nil)  {
                     guard let categoryName = self.category?.name_ar, let supname  = self.supCategory?.name_ar else{return UITableViewCell()}
-                    print(categoryName,supname,"self.supCategory != nil")
                     
                     cell.titleLabel.text = "\(categoryName) \n \(supname)"//  \n \(supname )
                 }else if category != nil  {
                     guard let categoryName = self.category?.name_ar else{return UITableViewCell()}
-                    print(categoryName,supCategory?.name_ar,"selfselfnnnnnnn")
                     
                     
                     cell.titleLabel.text = "\(categoryName) "
