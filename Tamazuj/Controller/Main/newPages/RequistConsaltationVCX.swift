@@ -21,6 +21,7 @@ class RequistConsaltationVCX: UIViewController, UITextViewDelegate {
     var timeInt:Int?
     var consaltantBackFromSelectConsaltant:datatestme.Consultant?
     var selectedConsaltantId:Int?
+    var isSupCategoryExiest:Bool = false
     
     @IBOutlet weak var details: UITextView!
     @IBOutlet weak var askConalt: UIButton!
@@ -202,7 +203,6 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 
                 if (self.supCategory != nil)  {
                     guard let categoryName = self.category?.name_ar, let supname  = self.supCategory?.name_ar else{return UITableViewCell()}
-                    
                     cell.titleLabel.text = "\(categoryName) \n \(supname)"//  \n \(supname )
                 }else if category != nil  {
                     guard let categoryName = self.category?.name_ar else{return UITableViewCell()}
@@ -212,13 +212,20 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
                 }else{
                     cell.titleLabel.text = "لا يوجد تصنيفات للمستشار"
                 }
-                
+//                if self.supCategory?.name_ar == nil {self.isSupCategoryExiest = true}else{self.isSupCategoryExiest = true}
+                if  (supCategory != nil) {
+                    self.isSupCategoryExiest = true
+                    print(isSupCategoryExiest)
+                }else{
+                    self.isSupCategoryExiest = false
+                    print(isSupCategoryExiest)
+                }
                 guard let image = category?.image else {return cell}
                 cell.iconImage.kf.setImage(with: URL(string: image))
                 // FIXME: fix category sent to data
                 //                self.category = reqData?.data.category![0]
                 //                self.consaltant = reqData?.data
-                
+
             }else{
                 cell.iconImage.isHidden = true
                 cell.titleLabel.text = "اختر مجال الاستشارة"
@@ -303,6 +310,8 @@ extension RequistConsaltationVCX:UITableViewDelegate, UITableViewDataSource {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChooseConsaltantVCX") as! ChooseConsaltantVCX
             vc.delegate = self
             vc.reqData = self.reqData
+            print(isSupCategoryExiest)
+            vc.isSupCategoryExiest = isSupCategoryExiest
             self.navigationController?.pushViewController(vc, animated: true)
             
         case 2:

@@ -12,33 +12,35 @@ import UIKit
 
 class ChooseConsaltantVCX: UIViewController {
     var reqData:Single?
-
-    
-//    var allConsaltant : Consaltant?
+    var isSupCategoryExiest:Bool?
+    var consaltants:[datatestme.Consultant]?
+    //    var allConsaltant : Consaltant?
     var navTitle:String?
     var delegate:SelectionDelegateX?
-
+    
     @IBOutlet var nav: UINavigationItem!
     @IBOutlet weak var navToMyConsaltion: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nav.title = navTitle
-//        showIndeterminateHUD() //here
-//        Operation.getAllConsaltants { (error, result) in
-//            if let result = result {
-//                self.hideHUD() //here
-//                self.allConsaltant = result
-//                self.collectionView.reloadData()
-//            }
-//        }
-        
+        if isSupCategoryExiest == true {
+            if let dataExist =  reqData?.data.sup_category {
+                for i in dataExist {
+                    self.consaltants = i.consultant
+                }
+            }
+        }else{
+            if let dataExist =  reqData?.data.category {
+                for i in dataExist {
+                    self.consaltants = i.consultant
+                }
+            }
+        }
         self.navigationItem.title = navTitle
-        
         collectionView.register(UINib(nibName: "sliderCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "sliderCollectionViewCell")
-        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -67,28 +69,58 @@ class ChooseConsaltantVCX: UIViewController {
 }
 
 extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if reqData?.data.category?[0].consultant?.count == nil {
-            return 0
-        }else{
-            return (reqData?.data.category?[0].consultant?.count)!
-        }
+//        if isSupCategoryExiest == true {
+//            guard let supCategories  = reqData?.data.sup_category else {
+//                return Int()
+//            }
+//            for i in 0...supCategories.count {
+//
+//                self.consaltants?.append(contentsOf: supCategories[i].consultant!)
+//                for n in 0...supCategories[i].consultant!.count {
+//                    self.consaltants?.append(supCategories[i].consultant![n])
+//                    print(consaltants)
+//                }
+//                print(consaltants,"consaltantsconsaltants")
+//
+//            }
+//            print(consaltants,"consaltantsconsaltants")
+//            return consaltants!.count
+//            //                self.consaltants?.append(i.consultant![0])
+//        }else{
+//            guard let Categories  = reqData?.data.category else {
+//                return Int()
+//            }
+//            for i in 0...Categories.count {
+//                consaltants?.append(contentsOf: Categories[i].consultant!)
+//            }
+//            return consaltants!.count
+//        }
+        return consaltants!.count
     }
+    //        if reqData?.data.category?[0].consultant?.count == nil {
+    //            return 0
+    //        }else{
+    //            return (reqData?.data.category?[0].consultant?.count)!
+    //        }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if reqData?.data.category?[0].consultant?.count == nil {
             return UICollectionViewCell()
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sliderCollectionViewCell", for: indexPath) as! sliderCollectionViewCell
-            let object = reqData?.data.category?[0].consultant![indexPath.row]
+            let object = consaltants![indexPath.row]
+//                reqData?.data.category?[0].consultant![indexPath.row]
             cell.requestConsaltation.addTarget(self, action: #selector(Askadviceactione), for: .touchUpInside)
-            cell.imageView.kf.setImage(with: URL(string: (object?.photo!)!))
-            cell.titel.text = object?.name ?? "name Error"//object.name!
-            cell.descriptioN.text =  object?.biography ?? "biography Error" //object.email! + "\n" + object.phone!
+            cell.imageView.kf.setImage(with: URL(string: (object.photo!)))
+            cell.titel.text = object.name ?? "name Error"//object.name!
+            cell.descriptioN.text =  object.biography ?? "biography Error" //object.email! + "\n" + object.phone!
             //        > 0 ? 3 : 0
             return cell
-
+            
         }
         
     }
@@ -108,9 +140,11 @@ extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //  go back to the selection bage and do the change
-        let object = reqData?.data.category?[0].consultant![indexPath.row].id
-        let objectModel = reqData?.data.category?[0].consultant![indexPath.row]
-
+        let object = consaltants?[indexPath.row].id!
+//            reqData?.data.category?[0].consultant![indexPath.row].id
+        let objectModel = consaltants?[indexPath.row]
+//            reqData?.data.category?[0].consultant![indexPath.row]
+        
         delegate?.selectionConsaltntReady(consaltantId: object!,conaltantModel:objectModel!)
         self.navigationController?.popViewController(animated: true)
     }

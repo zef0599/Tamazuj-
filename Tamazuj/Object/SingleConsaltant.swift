@@ -48,6 +48,8 @@ struct datatestme : Codable {
         var name_en: String?
         var image: String?
         var category:datatestme.CategoryForSup
+        var consultant: [datatestme.Consultant]?
+
 
     }
     // MARK: - CategoryForSups
