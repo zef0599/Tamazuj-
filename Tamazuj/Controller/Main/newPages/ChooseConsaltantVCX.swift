@@ -71,40 +71,12 @@ class ChooseConsaltantVCX: UIViewController {
 extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if isSupCategoryExiest == true {
-//            guard let supCategories  = reqData?.data.sup_category else {
-//                return Int()
-//            }
-//            for i in 0...supCategories.count {
-//
-//                self.consaltants?.append(contentsOf: supCategories[i].consultant!)
-//                for n in 0...supCategories[i].consultant!.count {
-//                    self.consaltants?.append(supCategories[i].consultant![n])
-//                    print(consaltants)
-//                }
-//                print(consaltants,"consaltantsconsaltants")
-//
-//            }
-//            print(consaltants,"consaltantsconsaltants")
-//            return consaltants!.count
-//            //                self.consaltants?.append(i.consultant![0])
-//        }else{
-//            guard let Categories  = reqData?.data.category else {
-//                return Int()
-//            }
-//            for i in 0...Categories.count {
-//                consaltants?.append(contentsOf: Categories[i].consultant!)
-//            }
-//            return consaltants!.count
-//        }
-        return consaltants!.count
+        if consaltants == nil {
+            return 0
+        }else{
+            return consaltants!.count
+        }
     }
-    //        if reqData?.data.category?[0].consultant?.count == nil {
-    //            return 0
-    //        }else{
-    //            return (reqData?.data.category?[0].consultant?.count)!
-    //        }
-    
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -139,11 +111,10 @@ extension ChooseConsaltantVCX: UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //  go back to the selection bage and do the change
+        //  go back to the selection bage and do the
+        
         let object = consaltants?[indexPath.row].id!
-//            reqData?.data.category?[0].consultant![indexPath.row].id
         let objectModel = consaltants?[indexPath.row]
-//            reqData?.data.category?[0].consultant![indexPath.row]
         
         delegate?.selectionConsaltntReady(consaltantId: object!,conaltantModel:objectModel!)
         self.navigationController?.popViewController(animated: true)
